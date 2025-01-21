@@ -2,7 +2,29 @@
 <html lang="en">
 <head>
     <script>
-        alert(document.getElementsByTagName('p').length)
+        function test(){
+            let y = 6;
+            console.log('in the funct', y);//6
+            console.log('in the funct',window.y);//5
+        }
+        test();
+        console.log('at the end',y);
+        console.log('end let');
+
+        ///////////////End Scope///////////////////
+        let myArr = ['peter', 'paul', 'mary'];
+        myArr[5] = "Dan"
+        console.log('length: ', myArr.length);
+        myArr[4]="Am";
+
+        //obj//
+        //instead of an associate array, do an object
+
+        let obj = {
+            name: ["Dan", "Scott", "Bogaard"],
+            job: ['rit', 'profess']
+        }
+        
     </script>
     <title>Document</title>
 </head>
