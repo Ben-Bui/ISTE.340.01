@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Window Play</title>
+    <!--
+        async vs defer vs none
+
+        <script src="test.js"></script>
+        -- no designation, download in parallel to parsing the page, execued as soon as possible
+
+        <script src="test.js" asyn </script>
+            --download with the html is still moving ahead, executed as soon as possible, stopping html
+
+        <script src="test.js" defer</script>
+        --download while the html is still moving ahead, executed as soon as the html   
+    
+    -->
+
+    <script>   </script>
+</head>
+<body>
+    <input type="button" value="Create a new window!" onclick="makeNew()"><br/> 
+    <input type="button" value="Close a new window!" onclick="closeNew()"><br/> 
+
+</body>
+</html>
