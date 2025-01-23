@@ -6,21 +6,44 @@
         async vs defer vs none
 
         <script src="test.js"></script>
-        -- no designation, download in parallel to parsing the page, execued as soon as possible
+        -- no designation, stop html to parsing while it is download(single thread),
+        execued as soon as possible
 
         <script src="test.js" asyn </script>
-            --download with the html is still moving ahead, executed as soon as possible, stopping html
+            --download with the html is still moving ahead, 
+            executed as soon as possible, stopping html
 
         <script src="test.js" defer</script>
-        --download while the html is still moving ahead, executed as soon as the html   
+        --download while the html is still moving ahead, 
+        executed as soon as the html   
     
     -->
 
-    <script>   </script>
-</head>
-<body>
-    <input type="button" value="Create a new window!" onclick="makeNew()"><br/> 
-    <input type="button" value="Close a new window!" onclick="closeNew()"><br/> 
+    <script async>
+        //browser redirection!
+        //for the first project, you Must put this in...
+        if(document.getElementById){
+            //are you a modern browser, can you do the code I want you to do
+            // if you are here, you don't know how to do modern code
+            window.location = "redirect.html";
+        }
+        let myWin;//holder for the ref of the extern window
 
+        function makeNew(){
+            window.open('','', 'height=300, width=250, top=200, left=300')
+            document.write("<h1>hi</h1>")
+        }
+
+        function closeNew(){
+            myWin.close();
+        }
+
+    </script>
+</head>
+<body style="background-color: #999966;">
+    <form>
+        <input type="button" value="Create a new window!" onclick="makeNew()"><br/> 
+        <input type="button" value="Close a new window!" onclick="closeNew()"><br/> 
+    </form>
 </body>
 </html>
