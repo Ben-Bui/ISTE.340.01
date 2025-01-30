@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Class Jan 30</title>
+    <script>
+        function val(){
+            //did they fill in all of the inputs?
+            //if true - return true
+            //if false- retrn false
+
+            let ret = true;
+
+            if(document.getElementById('first').value==""){
+                document.getElementById('first').style.backgroundColor="red";
+                return false;
+            }
+            if(document.getElementById('first').value==""){
+                document.getElementById('last').style.backgroundColor="red";
+                return false;
+            }
+            return ret;
+        }
+    </script>
+</head>
+<body>
+    <form method="get" action="page.php" onsubmit="return val()">
+        first name*:<input type="text" name="fn" id="first"/><br/>
+        last name*:<input type="text" name="ln" id="last"/><br/>
+        <input type="submit" value="go">
+        <!-- /page.php?fn=Dan&ln=Bogaard  
+        in page.php
+        <?php
+            $_GET['fn'] gets Dan
+            //or post
+            $_POST['ln'] gets Bogaard         
+        ?>
+        -->
+         
+    
+    </form>
+</body>
+</html>
+
+<!-- 
+page.php
+$_GET[]
+$_POST[]
+//What form always have
+get - data in url, all non-post are gets, limited size
+
+post - data not in url, infinite size
+page.php
+
+name=value&name=value&...
+ -->
+
