@@ -1,0 +1,10 @@
+let x = document.creatElement('h2');
+//<h2/>
+x.setAttribute("style", "color:red");
+//<h2 style="color:red"/>
+let t = document.createTextNode("hello");
+//put text into h2
+x.appendChild(t);
+//<h2 style="color:red">hello</h2>
+
+document.getElementsBytTagName('body')[0].innerHTML='<h2 style="color: blue">hello</h2>';

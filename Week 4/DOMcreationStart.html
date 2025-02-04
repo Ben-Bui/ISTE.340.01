@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8" />
+	<title>DOM Creation</title>
+<script>
+	//some possible methods/props you will use! (know them!)
+	//createElement, createTextNode, setAttribute, appendChild, replaceChild, removeChild, cloneNode
+	//childNodes[], firstChild, nodeType, nodeName, nodeValue, 
+	//getElementById, getElementsByTagName, getElementsByName, getElementsByClassName 
+	
+	function createText(){
+		//h1
+		let hEle = document.createElement('h1');
+		//can set an attribute like:
+		//hEle.setAttribute('id', 'fred');
+		hEle.id = "otherFred";
+		hEle.setAttribute('data-test','other data');
+		hEle.setAttribute('class', 'other');
+		//<h1 id="fred" class ="other"/>
+		hEle.appendChild(document.createTextNode("this is fun"));
+		//<h1 id="fred" class ="other"/>this is fun</h1>
+		document.getElementsByTagName('body')[0].appendChild(hEle);
+		document.getElementsByTagName('body')[0].appendChild(hEle);
+
+		//create the image
+		let imgEle = document.createElement('img');
+		imgEle.src = "california.jpg";
+		document.getElementsByTagName('body')[0].appendChild(imgEle);
+
+		//radio button
+		let radEle = document.createElement('input');
+		//radEle.setAttribute('type','radio');
+		//or
+		radEle.type="radio";
+		radEle.name="test";
+		document.getElementsByTagName('body')[0].appendChild(radEle);
+
+		//ul/li
+		let uEle = document.createElement('ul');
+		//give ul all attribute..
+		for(let i=0;i<79;i++){
+			let liEle = document.createElement('li');
+			//give li attr..
+			liEle.appendChild(document.createTextNode("I am number: "+i));
+			//put li in ul
+			uEle.appendChild(liEle);
+		}
+
+		//put page
+		document.getElementsByTagName('body')[0].appendChild(uEle);
+	}
+
+</script>
+</head>
+<body>
+<div id="buttons" style="position:absolute; top:8px; left:200px">
+  <button onclick="createText();">Create It!</button>
+</div>
+<body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
