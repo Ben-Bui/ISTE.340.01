@@ -1,0 +1,20 @@
+function (dom)(
+//look at data set if there is more data?
+let hold BuildId= data[dom.value];//man
+//is there more data to build a select?
+if(hold != undefined)(
+//build the next
+//create a div
+//give div all attr
+
+//build a h1
+//put hold[0] text in h1
+//append h1 to the div
+
+//create a select
+//give select all attrs needed
+//loop on hold.length
+    //create an opntion
+    //give option attr
+    //put text in option
+    //apend
