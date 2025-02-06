@@ -5,8 +5,53 @@
 	<title>DOM Placement</title>
 	<script>
 		function changeMe(){
-		
+      //create range
+
+      // let rEle = document.createElement('input');
+      // rEle.type = "range";
+
+      // //end of document
+      // document.getElementById('everything').appendChild(rEle);
+
+      // //at the end of id text
+      // document.getElementById('text').appendChild(rEle);
+
+      //inserBefore
+      //parentToGoInsideOf.insertBefore(ele,childOfParentToGoInFrontOf);
+      //at start of document
+      //document.getElementsByTagName('body')[0].insertBefore(rEle, document.getElementsByTagName('body')[0].firstChild);
+
+      //same as
+      //$$('body',0).insertBefore(rEle,$('everything'));
+
+      //between the boxes
+    //  $('everything').insertBefore(rEle, $('moreTest'));
+
+      //indside orange box
+      //$('moreText')/insertBefore(rEle, $('moreText').firstChild);
+      
+    //parentOfChildToKill.removeChild(childOfParentToKill)
+    //$('everything').removeChild($('text'));
+
+      //parentHoldingThingToReplace.replaceChile(ele, childOfParentToReplace)
+      //$('everything').replaceChild(rEle, $('moreText'));
+
+      //node.cloneNode(t/f)
+      // let c = $('everything').cloneNode(true);
+      // $$('body', 0).appendChild(c);
+
+      //You can NOT use this on the project, -but
+      //node.innerHTML = "string";
+
 		}
+
+    function $(id){
+      return document.getElementById(id);
+    }
+    
+    function $$(tag, num){
+      return document.getElementsByTagName(tag)[num];
+    }
 	
 	</script>
 </head>

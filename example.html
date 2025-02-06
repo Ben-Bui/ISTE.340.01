@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Document</title>
+</head>
+<body>
+    <section>test</section>
+
+    <section>test</section>
+        <div>more</div>    
+    <section>test</section>
+
+</body>
+</html><script>
+    let x = document.createElement('img');
+    x.setAttribute('src','path/pic.jpg');
+
+    //at the end of something...
+    //dom.appendChild();
+    //parentToGoAtEndOf.appendChild(ele);
+    document.getElementsByTagName('body')[0].appendChild(x);
+
+    //dom.insertBefore(ele, childOfParentToGoInFrontOf);
+    //parentToGoInsideOf.insertBefore(ele, childOfParentToGoInFrontOf)
+    document.getElementsByTagName('body')[0].insertBefore(x,document.getElementsByTagName('body')[0].firstChild);
+    
+    //parentHoldingThingToKill.removeChild(childOfParentToKill);
+
+    //parentHoldingThingToReplace.replaceChild(childOfParentToReplace)
+</script>
