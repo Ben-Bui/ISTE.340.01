@@ -3,32 +3,94 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Baldur Character Creator</title>
+    <title>D&D Character Creator</title>
     <link rel="stylesheet" href="styles.css">
     <script src="data.js"></script>
     <script src="cookies.js"></script>
-    <script src="script.js" defer></script>
 </head>
 <body>
-    <h1>Baldur Character Creator</h1>
-    
+    <h1>D&D Character Creator</h1>
+
     <form id="character-form">
         <div id="form-container"></div>
         <p id="result"></p>
         <button type="button" id="reset-btn">Start Over</button>
     </form>
 
-    <form id="user-info-form">
-        <h2>User Information</h2>
-        <label for="username">Name:</label>
-        <input type="text" id="username" required>
-        
-        <label for="email">Email:</label>
-        <input type="email" id="email" required>
-        
-        <button type="submit">Save Info</button>
-    </form>
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            const formContainer = document.getElementById("form-container");
+            const result = document.getElementById("result");
+            const resetBtn = document.getElementById("reset-btn");
 
-    <p id="user-message"></p>
+            function createQuestionAndDropdown(question, options, parentKey) {
+                let questionElement = document.createElement("p");
+                questionElement.textContent = question;
+
+                let select = document.createElement("select");
+                select.setAttribute("data-key", parentKey);
+                select.addEventListener("change", function() {
+                    handleSelection(this);
+                });
+
+                // Blank default option
+                let blankOption = document.createElement("option");
+                blankOption.value = "";
+                blankOption.textContent = "Select an option...";
+                blankOption.disabled = true;
+                blankOption.selected = true;
+                select.appendChild(blankOption);
+
+                // Populate dropdown with choices
+                options.forEach(option => {
+                    let opt = document.createElement("option");
+                    opt.value = option;
+                    opt.textContent = option;
+                    select.appendChild(opt);
+                });
+
+                // Append question and dropdown to form container
+                formContainer.appendChild(questionElement);
+                formContainer.appendChild(select);
+            }
+
+            function handleSelection(select) {
+                let selectedValue = select.value;
+
+                // Remove all elements that were added after this selection
+                while (select.nextSibling) {
+                    formContainer.removeChild(select.nextSibling);
+                }
+
+                if (characterData[selectedValue]) {
+                    let nextQuestion = characterData[selectedValue][0]; // First item in array is the question
+                    let nextOptions = characterData[selectedValue].slice(1); // Remaining items are choices
+                    createQuestionAndDropdown(nextQuestion, nextOptions, selectedValue);
+                } else {
+                    displayResult();
+                }
+            }
+
+            function displayResult() {
+                let selections = [];
+                formContainer.querySelectorAll("select").forEach(select => {
+                    selections.push(select.value);
+                });
+
+                result.textContent = "You created a " + selections.join(" → ") + "!";
+                setCookie("characterSelection", JSON.stringify(selections), 7);
+                localStorage.setItem("characterSelection", JSON.stringify(selections));
+            }
+
+            resetBtn.addEventListener("click", function() {
+                formContainer.innerHTML = "";
+                result.textContent = "";
+                createQuestionAndDropdown(characterData.init[0], characterData.init.slice(1), "init");
+            });
+
+            // Initialize first question and dropdown
+            createQuestionAndDropdown(characterData.init[0], characterData.init.slice(1), "init");
+        });
+    </script>
 </body>
 </html>
