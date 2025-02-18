@@ -1,40 +1,55 @@
-var data = {
+var characterData = {
     init: ["Choose your race:", "Human", "Elf", "Dragonian"],
+    
     Human: ["Choose your class:", "Fighter", "Wizard", "Rogue"],
     Elf: ["Choose your class:", "Ranger", "Sorcerer", "Druid"],
     Dragonian: ["Choose your class:", "Barbarian", "Cleric", "Paladin"],
     
-    Fighter: ["Choose your weapon:", "Sword", "Axe"],
-    Wizard: ["Choose your spell:", "Fireball", "Lightning"],
-    Rogue: ["Choose your skill:", "Stealth", "Lockpicking"],
-
-    Ranger: ["Choose your weapon:", "Bow", "Dagger"],
-    Sorcerer: ["Choose your spell:", "Ice Spear", "Dark Wave"],
-    Druid: ["Choose your ability:", "Shape-shift", "Heal"],
-
-    Barbarian: ["Choose your rage:", "Frenzy", "Endurance"],
-    Cleric: ["Choose your divine power:", "Holy Smite", "Blessing"],
-    Paladin: ["Choose your oath:", "Oath of Vengeance", "Oath of Protection"]
-};
-var characterData = {
+    Fighter: ["Choose your background:", "Soldier", "Mercenary", "Gladiator"],
+    Wizard: ["Choose your background:", "Scholar", "Hermit", "Sage"],
+    Rogue: ["Choose your background:", "Thief", "Assassin", "Spy"],
     
-    Fighter: ["Choose your Background:", "Soldier", "Mercenary"],
-    Mage: ["Choose your Background:", "Scholar", "Hermit"],
-    Ranger: ["Choose your Background:", "Scout", "Hunter"],
-    Sorcerer: ["Choose your Background:", "Acolyte", "Wanderer"],
-    Paladin: ["Choose your Background:", "Knight", "Crusader"],
-    Barbarian: ["Choose your Background:", "Raider", "Gladiator"],
+    Ranger: ["Choose your background:", "Scout", "Hunter", "Tracker"],
+    Sorcerer: ["Choose your background:", "Acolyte", "Wanderer", "Mystic"],
+    Druid: ["Choose your background:", "Shapeshifter", "Healer", "Beastmaster"],
 
-    Soldier: ["Choose your Weapon:", "Sword", "Axe"],
-    Mercenary: ["Choose your Weapon:", "Dagger", "Bow"],
-    Scholar: ["Choose your Weapon:", "Staff", "Orb"],
-    Hermit: ["Choose your Weapon:", "Wand", "Tome"],
-    Scout: ["Choose your Weapon:", "Short Bow", "Crossbow"],
-    Hunter: ["Choose your Weapon:", "Long Bow", "Spear"],
-    Acolyte: ["Choose your Weapon:", "Magic Staff", "Holy Symbol"],
-    Wanderer: ["Choose your Weapon:", "Dagger", "Slingshot"],
-    Knight: ["Choose your Weapon:", "Greatsword", "Lance"],
-    Crusader: ["Choose your Weapon:", "Mace", "Warhammer"],
-    Raider: ["Choose your Weapon:", "Battle Axe", "Flail"],
-    Gladiator: ["Choose your Weapon:", "Dual Daggers", "Spiked Club"]
+    Barbarian: ["Choose your background:", "Raider", "Berserker", "Nomad"],
+    Cleric: ["Choose your background:", "Priest", "Monk", "Exorcist"],
+    Paladin: ["Choose your background:", "Knight", "Crusader", "Guardian"],
+    
+    Soldier: ["Choose your weapon:", "Sword", "Axe", "Spear"],
+    Mercenary: ["Choose your weapon:", "Dagger", "Bow", "Mace"],
+    Gladiator: ["Choose your weapon:", "Flail", "Whip", "Halberd"],
+    
+    Scholar: ["Choose your weapon:", "Staff", "Orb", "Tome"],
+    Hermit: ["Choose your weapon:", "Wand", "Scroll", "Charm"],
+    Sage: ["Choose your weapon:", "Crystal", "Runestone", "Book"],
+    
+    Thief: ["Choose your weapon:", "Shortsword", "Throwing Knives", "Caltrops"],
+    Assassin: ["Choose your weapon:", "Poison Dagger", "Garrote", "Crossbow"],
+    Spy: ["Choose your weapon:", "Rapier", "Blowgun", "Pistol"],
+    
+    Scout: ["Choose your weapon:", "Short Bow", "Crossbow", "Javelin"],
+    Hunter: ["Choose your weapon:", "Long Bow", "Spear", "Hunting Knife"],
+    Tracker: ["Choose your weapon:", "Whip", "Hand Axe", "Club"],
+    
+    Acolyte: ["Choose your weapon:", "Magic Staff", "Holy Symbol", "Prayer Beads"],
+    Wanderer: ["Choose your weapon:", "Dagger", "Slingshot", "Wooden Club"],
+    Mystic: ["Choose your weapon:", "Spellbook", "Amulet", "Totem"],
+    
+    Shapeshifter: ["Choose your weapon:", "Claws", "Fangs", "Animal Form"],
+    Healer: ["Choose your weapon:", "Herbs", "Potions", "Sacred Water"],
+    Beastmaster: ["Choose your weapon:", "Whip", "Animal Companion", "Flute"],
+    
+    Raider: ["Choose your weapon:", "Battle Axe", "Warhammer", "Greatclub"],
+    Berserker: ["Choose your weapon:", "Dual Axes", "Spiked Mace", "Claymore"],
+    Nomad: ["Choose your weapon:", "Curved Sword", "Throwing Spears", "Boomerang"],
+    
+    Priest: ["Choose your weapon:", "Censer", "Rod of Light", "Chalice"],
+    Monk: ["Choose your weapon:", "Fists", "Quarterstaff", "Nunchaku"],
+    Exorcist: ["Choose your weapon:", "Silver Dagger", "Incense", "Spell Seal"],
+    
+    Knight: ["Choose your weapon:", "Greatsword", "Lance", "Shield"],
+    Crusader: ["Choose your weapon:", "Mace", "Flail", "Morning Star"],
+    Guardian: ["Choose your weapon:", "Tower Shield", "Pike", "Spear"]
 };
