@@ -3,19 +3,32 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>D&D Character Creator</title>
+    <title>Baldur Character Creator</title>
     <link rel="stylesheet" href="styles.css">
     <script src="data.js"></script>
-    <script src="script.js"></script>
     <script src="cookies.js"></script>
+    <script src="script.js" defer></script>
 </head>
 <body>
-    <h1>D&D Character Creator</h1>
-
+    <h1>Baldur Character Creator</h1>
+    
     <form id="character-form">
         <div id="form-container"></div>
         <p id="result"></p>
         <button type="button" id="reset-btn">Start Over</button>
     </form>
+
+    <form id="user-info-form">
+        <h2>User Information</h2>
+        <label for="username">Name:</label>
+        <input type="text" id="username" required>
+        
+        <label for="email">Email:</label>
+        <input type="email" id="email" required>
+        
+        <button type="submit">Save Info</button>
+    </form>
+
+    <p id="user-message"></p>
 </body>
 </html>
