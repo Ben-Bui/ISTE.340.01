@@ -74,50 +74,56 @@
             const result = document.getElementById("result");
             const resetBtn = document.getElementById("reset-btn");
 
-            function createQuestionAndDropdown(question, options, parentKey) {
-                let questionElement = document.createElement("p");
-                questionElement.textContent = question;
-
-                let select = document.createElement("select");
-                select.setAttribute("data-key", parentKey);
-                select.addEventListener("change", function() {
-                    handleSelection(this);
-                });
-
-                // Blank default option
-                let blankOption = document.createElement("option");
-                blankOption.value = "";
-                blankOption.textContent = "Select an option...";
-                blankOption.disabled = true;
-                blankOption.selected = true;
-                select.appendChild(blankOption);
-
-                // Populate dropdown with choices
-                options.forEach(option => {
-                    let opt = document.createElement("option");
-                    opt.value = option;
-                    opt.textContent = option;
-                    select.appendChild(opt);
-                });
-
-                formContainer.appendChild(questionElement);
-                formContainer.appendChild(select);
-            }
-
-            function handleSelection(select) {
-                let selectedValue = select.value;
-
-                // Remove all elements that were added after this selection
-                while (select.nextSibling) {
-                    formContainer.removeChild(select.nextSibling);
+            class DropdownCreator {
+                constructor(question, options, parentKey) {
+                    this.question = question;
+                    this.options = options;
+                    this.parentKey = parentKey;
                 }
 
-                if (characterData[selectedValue]) {
-                    let nextQuestion = characterData[selectedValue][0];
-                    let nextOptions = characterData[selectedValue].slice(1);
-                    createQuestionAndDropdown(nextQuestion, nextOptions, selectedValue);
-                } else {
-                    displayResult();
+                createDropdown() {
+                    let questionElement = document.createElement("p");
+                    questionElement.textContent = this.question;
+
+                    let select = document.createElement("select");
+                    select.setAttribute("data-key", this.parentKey);
+                    select.addEventListener("change", () => this.handleSelection(select));
+
+                    // Add blank default option
+                    let blankOption = document.createElement("option");
+                    blankOption.value = "";
+                    blankOption.textContent = "Select an option...";
+                    blankOption.disabled = true;
+                    blankOption.selected = true;
+                    select.appendChild(blankOption);
+
+                    // Populate dropdown with choices
+                    this.options.forEach(option => {
+                        let opt = document.createElement("option");
+                        opt.value = option;
+                        opt.textContent = option;
+                        select.appendChild(opt);
+                    });
+
+                    formContainer.appendChild(questionElement);
+                    formContainer.appendChild(select);
+                }
+
+                handleSelection(select) {
+                    let selectedValue = select.value;
+
+                    // Remove all elements that were added after this selection
+                    while (select.nextSibling) {
+                        formContainer.removeChild(select.nextSibling);
+                    }
+
+                    if (characterData[selectedValue]) {
+                        let nextQuestion = characterData[selectedValue][0];
+                        let nextOptions = characterData[selectedValue].slice(1);
+                        new DropdownCreator(nextQuestion, nextOptions, selectedValue).createDropdown();
+                    } else {
+                        displayResult();
+                    }
                 }
             }
 
@@ -141,15 +147,34 @@
                 result.textContent = resultText.trim();
                 setCookie("characterSelection", JSON.stringify(selections), 7);
                 localStorage.setItem("characterSelection", JSON.stringify(selections));
+
+                // Fade in the result
+                fadeIn(result);
+            }
+
+            function fadeIn(element) {
+                let opacity = 0;
+                element.style.opacity = opacity;
+                element.style.display = "block";
+
+                function animate() {
+                    opacity += 0.05;
+                    element.style.opacity = opacity;
+                    if (opacity < 1) {
+                        requestAnimationFrame(animate);
+                    }
+                }
+                animate();
             }
 
             resetBtn.addEventListener("click", function() {
                 formContainer.innerHTML = "";
                 result.textContent = "";
-                createQuestionAndDropdown(characterData.init[0], characterData.init.slice(1), "init");
+                new DropdownCreator(characterData.init[0], characterData.init.slice(1), "init").createDropdown();
             });
 
-            createQuestionAndDropdown(characterData.init[0], characterData.init.slice(1), "init");
+            // Initialize the first dropdown
+            new DropdownCreator(characterData.init[0], characterData.init.slice(1), "init").createDropdown();
 
             /*** USER FORM VALIDATION ***/
             const userForm = document.getElementById("user-form");
