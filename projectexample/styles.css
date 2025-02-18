@@ -1,0 +1,68 @@
+body{
+    font-family: tahoma;
+}
+
+select, option{
+    background-color:#02336B;
+    color:white;
+    font-weight: 700;
+    font-size: 1em;
+    padding: 0.5em;
+}
+form#contact-form{
+    width: 700px;
+    background-color: #02336B;
+    padding-top: 2em;
+    margin-top: 2em;
+    padding-left: 1em;
+    padding-bottom: 1em;
+}
+p input{
+    padding: 0.2em;
+    font-size: 1em;
+}
+label{
+    color: white;
+    font-weight: bold;
+}
+
+input#first-name{
+    margin-right: 4em;
+    margin-left: 1em;
+}
+input#last-name{
+    margin-left: 1em;
+}
+input#state{
+    margin-left: 3.7em;
+}
+label#labelState{
+    margin-left: 4em;
+}
+input#age{
+    margin-left: 11em;
+}
+
+.divContainer, .img{
+    padding: 2em;
+}
+
+#submit{
+    padding: 0.5em;
+    margin-top: 2em;
+    font-weight: bold;
+    color: black;
+}
+#result{
+    position: absolute;
+    top: 0;
+    left: 37em;
+    z-index: -1;
+}
+#feedback-div{
+    font-weight: bold;
+    color: red;
+}
+#resImg{
+    left: 0;
+}

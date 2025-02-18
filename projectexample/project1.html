@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>Character Creation</title>
+    <link rel="stylesheet" href="styles.css">
+
+    <script>
+        // Browser compatibility check: Redirect outdated browsers
+        function checkBrowserCompatibility() {
+            let isCompatible = (
+                navigator.userAgent.includes("Chrome") ||
+                navigator.userAgent.includes("Firefox") ||
+                navigator.userAgent.includes("Safari") ||
+                navigator.userAgent.includes("Edge")
+            );
+
+            if (!isCompatible) {
+                window.location.href = "unsupported.html";  // Redirect to a page with download suggestions
+            }
+        }
+
+        // Wait for the page to load before checking browser compatibility
+        window.onload = checkBrowserCompatibility;
+
+        function $(id) {
+            return document.getElementById(id);
+        }
+
+        let opacity = 0;
+        let selectedTeam = "";
+
+        function animation(dom) {
+            if (dom.nodeName === "IMG") {
+                if (isNaN(dom.style.opacity)) {
+                    dom.style.opacity = 0;
+                }
+                if (dom.style.opacity < 1.0) {
+                    dom.style.opacity = opacity;
+                    opacity += 0.02;
+                    setTimeout(() => animation(dom), 30);
+                }
+            }
+        }
+
+        function validateForm() {
+            let errors = [];
+            let firstName = $("first-name").value.trim();
+            let lastName = $("last-name").value.trim();
+            let age = $("age").value.trim();
+            let state = $("state").value.trim();
+
+            if (!firstName) {
+                errors.push("First Name");
+                $("first-name").style.border = "2px solid red";
+            } else {
+                $("first-name").style.border = "2px solid #ccc";
+            }
+
+            if (!lastName) {
+                errors.push("Last Name");
+                $("last-name").style.border = "2px solid red";
+            } else {
+                $("last-name").style.border = "2px solid #ccc";
+            }
+
+            if (!age || isNaN(age) || age < 1) {
+                errors.push("Valid Age");
+                $("age").style.border = "2px solid red";
+            } else {
+                $("age").style.border = "2px solid #ccc";
+            }
+
+            if (!state) {
+                errors.push("State");
+                $("state").style.border = "2px solid red";
+            } else {
+                $("state").style.border = "2px solid #ccc";
+            }
+
+            if (errors.length > 0) {
+                alert("Please fill in: " + errors.join(", "));
+                return false;
+            }
+
+            return true;
+        }
+
+        function constructCharacterSelection(dom) {
+            let hold = typeof dom === "string" ? data[dom] : data[dom.value];
+
+            while (dom.parentNode && dom.parentNode !== dom.parentNode.parentNode.lastChild) {
+                dom.parentNode.parentNode.removeChild(dom.parentNode.parentNode.lastChild);
+                if ($("resultImg")) {
+                    $("result").removeChild($("resultImg"));
+                }
+            }
+
+            if (hold) {
+                let div = document.createElement("div");
+                div.className = "divContainer";
+                $("container").appendChild(div);
+
+                let imgDiv = document.createElement("div");
+                div.appendChild(imgDiv);
+
+                let img = document.createElement("img");
+                img.className = "img";
+                img.src = hold[0];
+                imgDiv.appendChild(img);
+
+                let select = document.createElement("select");
+                select.name = "selectmenu";
+                select.onchange = function () {
+                    constructCharacterSelection(this);
+                    animation(this);
+                };
+
+                for (let i = 1; i < hold.length; i++) {
+                    let option = document.createElement("option");
+                    option.value = hold[i];
+                    option.appendChild(document.createTextNode(hold[i]));
+                    if (i === 1) {
+                        option.disabled = true;
+                        option.selected = true;
+                    }
+                    select.appendChild(option);
+                }
+                div.appendChild(select);
+            } else {
+                selectedTeam = dom.value;
+                let resImg = document.createElement("img");
+                resImg.id = "resultImg";
+                resImg.src = res[selectedTeam];
+                opacity = 0;
+                animation(resImg);
+
+                $("result").appendChild(resImg);
+
+                createUserForm();
+            }
+        }
+
+        function createUserForm() {
+            let formContainer = document.createElement("div");
+            formContainer.className = "divContainer";
+
+            let form = document.createElement("form");
+            form.id = "user-form";
+            form.method = "post";
+            form.action = "submit.html";
+            form.onsubmit = function () {
+                return validateForm();
+            };
+
+            let fields = [
+                { label: "First Name", id: "first-name", type: "text" },
+                { label: "Last Name", id: "last-name", type: "text" },
+                { label: "Age", id: "age", type: "number" },
+                { label: "State", id: "state", type: "text" }
+            ];
+
+            fields.forEach(field => {
+                let p = document.createElement("p");
+                let label = document.createElement("label");
+                label.htmlFor = field.id;
+                label.textContent = field.label;
+
+                let input = document.createElement("input");
+                input.type = field.type;
+                input.id = field.id;
+                input.name = field.id;
+                input.required = true;
+
+                p.appendChild(label);
+                p.appendChild(input);
+                form.appendChild(p);
+            });
+
+            let submitButton = document.createElement("input");
+            submitButton.type = "submit";
+            submitButton.value = "Submit";
+            form.appendChild(submitButton);
+
+            formContainer.appendChild(form);
+            $("container").appendChild(formContainer);
+        }
+    </script>
+</head>
+<body onload="constructCharacterSelection('init')">
+    <div id="result"></div>
+    <div id="container"></div>
+</body>
+</html>

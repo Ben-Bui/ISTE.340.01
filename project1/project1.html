@@ -3,22 +3,73 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>D&D Character Creator</title>
+    <title>Baldur Gate 3 Character Creator</title>
     <link rel="stylesheet" href="styles.css">
     <script src="data.js"></script>
     <script src="cookies.js"></script>
 </head>
 <body>
-    <h1>D&D Character Creator</h1>
+    <h1>Baldur Gate 3 Character Creator</h1>
 
+    <!-- Character Creation Form -->
     <form id="character-form">
         <div id="form-container"></div>
         <p id="result"></p>
         <button type="button" id="reset-btn">Start Over</button>
     </form>
 
+    <hr>
+
+    <!-- User Information Form -->
+    <h2>Enter Your Information</h2>
+    <form id="user-form">
+        <label for="name">Name:</label>
+        <input type="text" id="name" required>
+        <span class="error" id="name-error"></span>
+        <br>
+
+        <label for="email">Email:</label>
+        <input type="email" id="email" required>
+        <span class="error" id="email-error"></span>
+        <br>
+
+        <label for="age">Age:</label>
+        <input type="number" id="age" min="13" required>
+        <span class="error" id="age-error"></span>
+        <br>
+
+        <label>
+            <input type="checkbox" id="terms" required>
+            I agree to the terms and conditions
+        </label>
+        <span class="error" id="terms-error"></span>
+        <br>
+
+        <button type="submit">Submit</button>
+    </form>
+
     <script>
         document.addEventListener("DOMContentLoaded", function() {
+            /*** BROWSER CHECK & REDIRECT ***/
+            const supportedBrowsers = ["Chrome", "Firefox", "Edge", "Safari"];
+            let isSupported = false;
+            let userAgent = navigator.userAgent;
+
+            if (/Chrome/.test(userAgent) && !/Edge/.test(userAgent)) {
+                isSupported = true;
+            } else if (/Firefox/.test(userAgent)) {
+                isSupported = true;
+            } else if (/Safari/.test(userAgent) && !/Chrome/.test(userAgent)) {
+                isSupported = true;
+            } else if (/Edge/.test(userAgent)) {
+                isSupported = true;
+            }
+
+            if (!isSupported) {
+                window.location.href = "browser-warning.html";
+            }
+
+            /*** CHARACTER CREATION LOGIC ***/
             const formContainer = document.getElementById("form-container");
             const result = document.getElementById("result");
             const resetBtn = document.getElementById("reset-btn");
@@ -49,7 +100,6 @@
                     select.appendChild(opt);
                 });
 
-                // Append question and dropdown to form container
                 formContainer.appendChild(questionElement);
                 formContainer.appendChild(select);
             }
@@ -63,8 +113,8 @@
                 }
 
                 if (characterData[selectedValue]) {
-                    let nextQuestion = characterData[selectedValue][0]; // First item in array is the question
-                    let nextOptions = characterData[selectedValue].slice(1); // Remaining items are choices
+                    let nextQuestion = characterData[selectedValue][0];
+                    let nextOptions = characterData[selectedValue].slice(1);
                     createQuestionAndDropdown(nextQuestion, nextOptions, selectedValue);
                 } else {
                     displayResult();
@@ -72,12 +122,23 @@
             }
 
             function displayResult() {
-                let selections = [];
+                let selections = {};
+                let keys = ["Race", "Class", "Background", "Weapon"];
+                let index = 0;
+
                 formContainer.querySelectorAll("select").forEach(select => {
-                    selections.push(select.value);
+                    if (index < keys.length) {
+                        selections[keys[index]] = select.value;
+                        index++;
+                    }
                 });
 
-                result.textContent = "You created a " + selections.join(" → ") + "!";
+                let resultText = "";
+                for (let key in selections) {
+                    resultText += `${key}: ${selections[key]}\n`;
+                }
+
+                result.textContent = resultText.trim();
                 setCookie("characterSelection", JSON.stringify(selections), 7);
                 localStorage.setItem("characterSelection", JSON.stringify(selections));
             }
@@ -88,8 +149,56 @@
                 createQuestionAndDropdown(characterData.init[0], characterData.init.slice(1), "init");
             });
 
-            // Initialize first question and dropdown
             createQuestionAndDropdown(characterData.init[0], characterData.init.slice(1), "init");
+
+            /*** USER FORM VALIDATION ***/
+            const userForm = document.getElementById("user-form");
+
+            userForm.addEventListener("submit", function(event) {
+                event.preventDefault();
+                let isValid = true;
+
+                // Name Validation
+                const name = document.getElementById("name").value.trim();
+                if (name.length < 2) {
+                    document.getElementById("name-error").textContent = "Name must be at least 2 characters.";
+                    isValid = false;
+                } else {
+                    document.getElementById("name-error").textContent = "";
+                }
+
+                // Email Validation
+                const email = document.getElementById("email").value.trim();
+                const emailPattern = /^[^@\s]+@[^@\s]+\.[a-zA-Z]{2,}$/;
+                if (!emailPattern.test(email)) {
+                    document.getElementById("email-error").textContent = "Enter a valid email.";
+                    isValid = false;
+                } else {
+                    document.getElementById("email-error").textContent = "";
+                }
+
+                // Age Validation
+                const age = parseInt(document.getElementById("age").value, 10);
+                if (isNaN(age) || age < 13) {
+                    document.getElementById("age-error").textContent = "You must be at least 13 years old.";
+                    isValid = false;
+                } else {
+                    document.getElementById("age-error").textContent = "";
+                }
+
+                // Terms and Conditions Validation
+                if (!document.getElementById("terms").checked) {
+                    document.getElementById("terms-error").textContent = "You must agree to the terms.";
+                    isValid = false;
+                } else {
+                    document.getElementById("terms-error").textContent = "";
+                }
+
+                if (isValid) {
+                    alert("Form submitted successfully!");
+                    userForm.reset();
+                }
+            });
         });
     </script>
 </body>
