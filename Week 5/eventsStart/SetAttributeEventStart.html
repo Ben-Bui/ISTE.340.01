@@ -1,0 +1,35 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="utf-8" />
+	<script>
+
+		function doIt() {
+			console.log('I was called!');
+			//the below this can either be the window object or the assigned
+			//html element
+			//assignment on line 20 is html attr even, so window
+			//assignment on line 21 is js prop event, so assigned to the button
+			console.log(this);
+		}
+
+		function start() {
+			let myB = document.createElement('button');
+			myB.appendChild(document.createTextNode('press me'));
+
+			//events
+			myB.setAttribute('onclick', 'doIt()');
+			myB.onmouseout = doIt;
+
+			//put on page
+			document.getElementsByTagName('body')[0].appendChild(myB);
+		}
+	</script>
+</head>
+
+<body onload="start();">
+
+</body>
+
+</html>
