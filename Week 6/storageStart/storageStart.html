@@ -38,7 +38,27 @@
 			localStorage.removeItem('color');
 			//redo the bg
 			document.getElementsByTagName('body')[0].style.backgroundColor='';
+		
 		}
+
+		//cookies!
+		if(GetCookie('name')==null){
+			//first visit, we should get their name
+			var getName = prompt('Hi - first time here, who are you?', '');
+			//write the cookie
+			SetCookie('name', getName);
+
+			//put out name by getting the cookie
+			document.write('<h1>Welcome, '+ GetCookie('name')+'! This is your first time here</h1>');
+			//set up the counter
+			SetCookie('hitCount', 2, 1000, false, false ,false, true);
+		}else{
+			//we have been here before...
+			document.write('<h3>Welcome back, '+ GetCookie('name') +' you have been here '+ 
+				GetCookie('hitCount') + 'times!');
+			SetCookie('hitCount', parseInt(GetCookie('hitCount'))+1);
+		}
+
 
 	</script>
 </head>
