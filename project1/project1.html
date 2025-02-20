@@ -3,13 +3,13 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Baldur Gate 3 Character Creator</title>
+    <title>Baldur's Gate 3 Character Creator</title>
     <link rel="stylesheet" href="styles.css">
     <script src="data.js"></script>
     <script src="cookies.js"></script>
 </head>
 <body>
-    <h1>Baldur Gate 3 Character Creator</h1>
+    <h1>Baldur's Gate 3 Character Creator</h1>
 
     <!-- Character Creation Form -->
     <form id="character-form">
@@ -55,17 +55,12 @@
             let isSupported = false;
             let userAgent = navigator.userAgent;
 
-            if (/Chrome/.test(userAgent) && !/Edge/.test(userAgent)) {
-                isSupported = true;
-            } else if (/Firefox/.test(userAgent)) {
-                isSupported = true;
-            } else if (/Safari/.test(userAgent) && !/Chrome/.test(userAgent)) {
-                isSupported = true;
-            } else if (/Edge/.test(userAgent)) {
-                isSupported = true;
-            }
+            // Improved browser check
+            const isBrowserSupported = (userAgent) => {
+                return supportedBrowsers.some(browser => userAgent.includes(browser));
+            };
 
-            if (!isSupported) {
+            if (!isBrowserSupported(userAgent)) {
                 window.location.href = "browser-warning.html";
             }
 
@@ -74,56 +69,51 @@
             const result = document.getElementById("result");
             const resetBtn = document.getElementById("reset-btn");
 
-            class DropdownCreator {
-                constructor(question, options, parentKey) {
-                    this.question = question;
-                    this.options = options;
-                    this.parentKey = parentKey;
+            function createQuestionAndDropdown(question, options, parentKey) {
+                let questionElement = document.createElement("p");
+                questionElement.textContent = question;
+
+                let select = document.createElement("select");
+                select.setAttribute("data-key", parentKey);
+                select.addEventListener("change", function() {
+                    handleSelection(this);
+                });
+
+                // Blank default option
+                let blankOption = document.createElement("option");
+                blankOption.value = "";
+                blankOption.textContent = "Select an option...";
+                blankOption.disabled = true;
+                blankOption.selected = true;
+                select.appendChild(blankOption);
+
+                // Populate dropdown with choices
+                options.forEach(option => {
+                    let opt = document.createElement("option");
+                    opt.value = option;
+                    opt.textContent = option;
+                    select.appendChild(opt);
+                });
+
+                formContainer.appendChild(questionElement);
+                formContainer.appendChild(select);
+            }
+
+            function handleSelection(select) {
+                let selectedValue = select.value;
+
+                // Remove all elements that were added after this selection
+                let parent = select.parentElement;
+                while (parent.nextSibling) {
+                    parent.parentElement.removeChild(parent.nextSibling);
                 }
 
-                createDropdown() {
-                    let questionElement = document.createElement("p");
-                    questionElement.textContent = this.question;
-
-                    let select = document.createElement("select");
-                    select.setAttribute("data-key", this.parentKey);
-                    select.addEventListener("change", () => this.handleSelection(select));
-
-                    // Add blank default option
-                    let blankOption = document.createElement("option");
-                    blankOption.value = "";
-                    blankOption.textContent = "Select an option...";
-                    blankOption.disabled = true;
-                    blankOption.selected = true;
-                    select.appendChild(blankOption);
-
-                    // Populate dropdown with choices
-                    this.options.forEach(option => {
-                        let opt = document.createElement("option");
-                        opt.value = option;
-                        opt.textContent = option;
-                        select.appendChild(opt);
-                    });
-
-                    formContainer.appendChild(questionElement);
-                    formContainer.appendChild(select);
-                }
-
-                handleSelection(select) {
-                    let selectedValue = select.value;
-
-                    // Remove all elements that were added after this selection
-                    while (select.nextSibling) {
-                        formContainer.removeChild(select.nextSibling);
-                    }
-
-                    if (characterData[selectedValue]) {
-                        let nextQuestion = characterData[selectedValue][0];
-                        let nextOptions = characterData[selectedValue].slice(1);
-                        new DropdownCreator(nextQuestion, nextOptions, selectedValue).createDropdown();
-                    } else {
-                        displayResult();
-                    }
+                if (characterData[selectedValue]) {
+                    let nextQuestion = characterData[selectedValue][0];
+                    let nextOptions = characterData[selectedValue].slice(1);
+                    createQuestionAndDropdown(nextQuestion, nextOptions, selectedValue);
+                } else {
+                    displayResult();
                 }
             }
 
@@ -147,34 +137,16 @@
                 result.textContent = resultText.trim();
                 setCookie("characterSelection", JSON.stringify(selections), 7);
                 localStorage.setItem("characterSelection", JSON.stringify(selections));
-
-                // Fade in the result
-                fadeIn(result);
-            }
-
-            function fadeIn(element) {
-                let opacity = 0;
-                element.style.opacity = opacity;
-                element.style.display = "block";
-
-                function animate() {
-                    opacity += 0.05;
-                    element.style.opacity = opacity;
-                    if (opacity < 1) {
-                        requestAnimationFrame(animate);
-                    }
-                }
-                animate();
             }
 
             resetBtn.addEventListener("click", function() {
                 formContainer.innerHTML = "";
                 result.textContent = "";
-                new DropdownCreator(characterData.init[0], characterData.init.slice(1), "init").createDropdown();
+                createQuestionAndDropdown(characterData.init[0], characterData.init.slice(1), "init");
+                userForm.reset(); // Reset user form as well
             });
 
-            // Initialize the first dropdown
-            new DropdownCreator(characterData.init[0], characterData.init.slice(1), "init").createDropdown();
+            createQuestionAndDropdown(characterData.init[0], characterData.init.slice(1), "init");
 
             /*** USER FORM VALIDATION ***/
             const userForm = document.getElementById("user-form");
@@ -187,9 +159,11 @@
                 const name = document.getElementById("name").value.trim();
                 if (name.length < 2) {
                     document.getElementById("name-error").textContent = "Name must be at least 2 characters.";
+                    document.getElementById("name").classList.add("error");
                     isValid = false;
                 } else {
                     document.getElementById("name-error").textContent = "";
+                    document.getElementById("name").classList.remove("error");
                 }
 
                 // Email Validation
@@ -197,18 +171,22 @@
                 const emailPattern = /^[^@\s]+@[^@\s]+\.[a-zA-Z]{2,}$/;
                 if (!emailPattern.test(email)) {
                     document.getElementById("email-error").textContent = "Enter a valid email.";
+                    document.getElementById("email").classList.add("error");
                     isValid = false;
                 } else {
                     document.getElementById("email-error").textContent = "";
+                    document.getElementById("email").classList.remove("error");
                 }
 
                 // Age Validation
                 const age = parseInt(document.getElementById("age").value, 10);
                 if (isNaN(age) || age < 13) {
                     document.getElementById("age-error").textContent = "You must be at least 13 years old.";
+                    document.getElementById("age").classList.add("error");
                     isValid = false;
                 } else {
                     document.getElementById("age-error").textContent = "";
+                    document.getElementById("age").classList.remove("error");
                 }
 
                 // Terms and Conditions Validation

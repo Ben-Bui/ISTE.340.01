@@ -1,76 +1,74 @@
-document.addEventListener("DOMContentLoaded", function () {
-    startCharacterCreation();
+document.addEventListener("DOMContentLoaded", function() {
+    const formContainer = document.getElementById("form-container");
+    const result = document.getElementById("result");
+    const resetBtn = document.getElementById("reset-btn");
 
-    document.getElementById("reset-btn").addEventListener("click", startCharacterCreation);
-});
+    function createQuestionAndDropdown(question, options, parentKey) {
+        let questionElement = document.createElement("p");
+        questionElement.textContent = question;
 
-function startCharacterCreation() {
-    document.getElementById("form-container").innerHTML = "";
-    document.getElementById("result").textContent = "";
-    buildDropdown("init");
-}
+        let select = document.createElement("select");
+        select.setAttribute("data-key", parentKey);
+        select.addEventListener("change", function() {
+            handleSelection(this);
+        });
 
-function buildDropdown(key) {
-    let options = characterData[key];
-    if (!options) return; // No more selections to make
+        let blankOption = document.createElement("option");
+        blankOption.value = "";
+        blankOption.textContent = "Select an option...";
+        blankOption.disabled = true;
+        blankOption.selected = true;
+        select.appendChild(blankOption);
 
-    let labelText = options[0]; // First item is always the question
-    let choices = options.slice(1); // Rest are the options
+        options.forEach(option => {
+            let opt = document.createElement("option");
+            opt.value = option;
+            opt.textContent = option;
+            select.appendChild(opt);
+        });
 
-    let container = document.getElementById("form-container");
-
-    let label = document.createElement("label");
-    label.textContent = labelText;
-
-    let select = document.createElement("select");
-    select.onchange = function () {
-        handleSelection(this);
-    };
-
-    let defaultOption = document.createElement("option");
-    defaultOption.value = "";
-    defaultOption.textContent = "Select an option";
-    select.appendChild(defaultOption);
-
-    choices.forEach(choice => {
-        let option = document.createElement("option");
-        option.value = choice;
-        option.textContent = choice;
-        select.appendChild(option);
-    });
-
-    container.appendChild(label);
-    container.appendChild(select);
-}
-
-function handleSelection(select) {
-    let nextKey = select.value;
-    if (!nextKey || !characterData[nextKey]) return;
-
-    removeNextElements(select);
-    buildDropdown(nextKey);
-
-    if (Object.keys(characterData).includes(nextKey) && !characterData[nextKey][1]) {
-        displayCharacter();
+        formContainer.appendChild(questionElement);
+        formContainer.appendChild(select);
     }
-}
 
-function removeNextElements(startElement) {
-    let container = document.getElementById("form-container");
-    let elements = Array.from(container.children);
-    let remove = false;
+    function handleSelection(select) {
+        let selectedValue = select.value;
+        let parent = select.parentElement;
 
-    elements.forEach(el => {
-        if (remove) el.remove();
-        if (el.tagName === "SELECT" && el === startElement) remove = true;
+        while (parent.nextSibling) {
+            parent.parentElement.removeChild(parent.nextSibling);
+        }
+
+        if (characterData[selectedValue]) {
+            let nextQuestion = characterData[selectedValue][0];
+            let nextOptions = characterData[selectedValue].slice(1);
+            createQuestionAndDropdown(nextQuestion, nextOptions, selectedValue);
+        } else {
+            displayResult();
+        }
+    }
+
+    function displayResult() {
+        let selections = {};
+        let keys = ["Race", "Class", "Background", "Weapon"];
+        let index = 0;
+
+        formContainer.querySelectorAll("select").forEach(select => {
+            if (index < keys.length) {
+                selections[keys[index]] = select.value;
+                index++;
+            }
+        });
+
+        let resultText = `Race: ${selections["Race"] || "Not selected"}\nClass: ${selections["Class"] || "Not selected"}`;
+        result.textContent = resultText.trim();
+    }
+
+    resetBtn.addEventListener("click", function() {
+        formContainer.innerHTML = "";
+        result.textContent = "";
+        createQuestionAndDropdown(characterData.init[0], characterData.init.slice(1), "init");
     });
-}
 
-function displayCharacter() {
-    let selects = document.querySelectorAll("#form-container select");
-    let choices = Array.from(selects).map(select => select.value).join(" → ");
-    document.getElementById("result").textContent = `You created a ${choices}!`;
-
-    localStorage.setItem("character", choices);
-    setCookie("character", choices, 7);
-}
+    createQuestionAndDropdown(characterData.init[0], characterData.init.slice(1), "init");
+});
