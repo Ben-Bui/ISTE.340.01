@@ -1,208 +1,192 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Baldur's Gate 3 Character Creator</title>
+    <meta charset="utf-8" />
+    <title>Baldur's Gate Character Creation</title>
     <link rel="stylesheet" href="styles.css">
+    <script>
+        // Browser detection
+        if (!document.getElementById) {
+            window.location = "https://www.mozilla.org/en-US/firefox/new/";
+        }
+
+        var ie7 = false;
+
+        function $(id) {
+            return document.getElementById(id);
+        }
+    </script>
+
+    <!--[if lt IE 8]>
+    <script>
+        var ie7 = true;
+    </script>
+    <![endif]-->
+
     <script src="data.js"></script>
     <script src="cookies.js"></script>
-</head>
-<body>
-    <h1>Baldur's Gate 3 Character Creator</h1>
-
-    <!-- Character Creation Form -->
-    <form id="character-form">
-        <div id="form-container"></div>
-        <p id="result"></p>
-        <button type="button" id="reset-btn">Start Over</button>
-    </form>
-
-    <hr>
-
-    <!-- User Information Form -->
-    <h2>Enter Your Information</h2>
-    <form id="user-form">
-        <label for="name">Name:</label>
-        <input type="text" id="name" required>
-        <span class="error" id="name-error"></span>
-        <br>
-
-        <label for="email">Email:</label>
-        <input type="email" id="email" required>
-        <span class="error" id="email-error"></span>
-        <br>
-
-        <label for="age">Age:</label>
-        <input type="number" id="age" min="13" required>
-        <span class="error" id="age-error"></span>
-        <br>
-
-        <label>
-            <input type="checkbox" id="terms" required>
-            I agree to the terms and conditions
-        </label>
-        <span class="error" id="terms-error"></span>
-        <br>
-
-        <button type="submit">Submit</button>
-    </form>
 
     <script>
-        document.addEventListener("DOMContentLoaded", function() {
-            /*** BROWSER CHECK & REDIRECT ***/
-            const supportedBrowsers = ["Chrome", "Firefox", "Edge", "Safari"];
-            let isSupported = false;
-            let userAgent = navigator.userAgent;
+        var selectedCharacter = {};
+        var opacity = 0;
 
-            // Improved browser check
-            const isBrowserSupported = (userAgent) => {
-                return supportedBrowsers.some(browser => userAgent.includes(browser));
-            };
-
-            if (!isBrowserSupported(userAgent)) {
-                window.location.href = "browser-warning.html";
-            }
-
-            /*** CHARACTER CREATION LOGIC ***/
-            const formContainer = document.getElementById("form-container");
-            const result = document.getElementById("result");
-            const resetBtn = document.getElementById("reset-btn");
-
-            function createQuestionAndDropdown(question, options, parentKey) {
-                let questionElement = document.createElement("p");
-                questionElement.textContent = question;
-
-                let select = document.createElement("select");
-                select.setAttribute("data-key", parentKey);
-                select.addEventListener("change", function() {
-                    handleSelection(this);
-                });
-
-                // Blank default option
-                let blankOption = document.createElement("option");
-                blankOption.value = "";
-                blankOption.textContent = "Select an option...";
-                blankOption.disabled = true;
-                blankOption.selected = true;
-                select.appendChild(blankOption);
-
-                // Populate dropdown with choices
-                options.forEach(option => {
-                    let opt = document.createElement("option");
-                    opt.value = option;
-                    opt.textContent = option;
-                    select.appendChild(opt);
-                });
-
-                formContainer.appendChild(questionElement);
-                formContainer.appendChild(select);
-            }
-
-            function handleSelection(select) {
-                let selectedValue = select.value;
-
-                // Remove all elements that were added after this selection
-                let parent = select.parentElement;
-                while (parent.nextSibling) {
-                    parent.parentElement.removeChild(parent.nextSibling);
+        function animation(dom) {
+            if (dom.nodeName === "IMG") {
+                if (isNaN(dom.style.opacity)) {
+                    dom.style.opacity = 0;
+                }
+                if (dom.style.opacity < 1.0) {
+                    dom.style.opacity = opacity;
+                    opacity += 0.02;
+                    requestAnimationFrame(() => animation(dom));
+                }
+            } else {
+                var hold = dom.parentNode.nextSibling;
+                if (isNaN(parseInt(hold.style.marginLeft))) {
+                    hold.style.marginLeft = "5px";
                 }
 
-                if (characterData[selectedValue]) {
-                    let nextQuestion = characterData[selectedValue][0];
-                    let nextOptions = characterData[selectedValue].slice(1);
-                    createQuestionAndDropdown(nextQuestion, nextOptions, selectedValue);
+                let maxMargin = hold == $("container").childNodes[2] ? 100 :
+                                hold == $("container").childNodes[3] ? 200 : 300;
+                
+                if (parseInt(hold.style.marginLeft) < maxMargin) {
+                    hold.style.marginLeft = parseInt(hold.style.marginLeft) + 3 + 'px';
+                    requestAnimationFrame(() => animation(dom));
+                }
+            }
+        }
+
+        function validate() {
+            var errMsg = "";
+            var start = "Please complete the following fields: ";
+
+            ["char-name", "first-name", "last-name", "age"].forEach(id => {
+                let field = $(id);
+                if (!field.value) {
+                    errMsg += field.name + ", ";
+                    field.style.border = "solid red";
                 } else {
-                    displayResult();
-                }
-            }
-
-            function displayResult() {
-                let selections = {};
-                let keys = ["Race", "Class", "Background", "Weapon"];
-                let index = 0;
-
-                formContainer.querySelectorAll("select").forEach(select => {
-                    if (index < keys.length) {
-                        selections[keys[index]] = select.value;
-                        index++;
+                    field.style.border = "2px inset #EBE9ED";
+                    if (localStorage) {
+                        if (!localStorage.getItem(id)) {
+                            localStorage.setItem(id, field.value);
+                        }
+                    } else {
+                        if (GetCookie(id) == null) {
+                            SetCookie(id, field.value);
+                        }
                     }
-                });
-
-                let resultText = "";
-                for (let key in selections) {
-                    resultText += `${key}: ${selections[key]}\n`;
                 }
+            });
 
-                result.textContent = resultText.trim();
-                setCookie("characterSelection", JSON.stringify(selections), 7);
-                localStorage.setItem("characterSelection", JSON.stringify(selections));
+            if (errMsg != "") {
+                var feedbackDiv = $("feedback-div");
+                feedbackDiv.innerHTML = `<p class='feedback'>${start + errMsg}</p>`;
+                feedbackDiv.style.display = "block";
+                return false;
             }
 
-            resetBtn.addEventListener("click", function() {
-                formContainer.innerHTML = "";
-                result.textContent = "";
-                createQuestionAndDropdown(characterData.init[0], characterData.init.slice(1), "init");
-                userForm.reset(); // Reset user form as well
-            });
+            displayFinalSelection();
+            return true;
+        }
 
-            createQuestionAndDropdown(characterData.init[0], characterData.init.slice(1), "init");
+        function construct(dom) {
+            var hold = typeof dom == "string" ? characterData[dom] : characterData[dom.value];
+            if (hold != undefined) {
+                var div = document.createElement('div');
+                div.setAttribute('class', 'divContainer');
+                $('container').appendChild(div);
 
-            /*** USER FORM VALIDATION ***/
-            const userForm = document.getElementById("user-form");
+                var sel = document.createElement('select');
+                sel.setAttribute('name', 'selectmenu');
+                sel.setAttribute('onchange', 'construct(this);animation(this);');
 
-            userForm.addEventListener("submit", function(event) {
-                event.preventDefault();
-                let isValid = true;
-
-                // Name Validation
-                const name = document.getElementById("name").value.trim();
-                if (name.length < 2) {
-                    document.getElementById("name-error").textContent = "Name must be at least 2 characters.";
-                    document.getElementById("name").classList.add("error");
-                    isValid = false;
-                } else {
-                    document.getElementById("name-error").textContent = "";
-                    document.getElementById("name").classList.remove("error");
+                for (var i = 1; i < hold.length; i++) {
+                    var opt = document.createElement('option');
+                    if (i == 1) {
+                        opt.setAttribute('disabled', 'disabled');
+                        opt.setAttribute('selected', 'selected');
+                    }
+                    opt.setAttribute('value', hold[i]);
+                    opt.appendChild(document.createTextNode(hold[i]));
+                    sel.appendChild(opt);
                 }
+                div.appendChild(sel);
+            } else {
+                selectedCharacter[dom.name] = dom.value;
+                createCharacterForm();
+            }
+        }
 
-                // Email Validation
-                const email = document.getElementById("email").value.trim();
-                const emailPattern = /^[^@\s]+@[^@\s]+\.[a-zA-Z]{2,}$/;
-                if (!emailPattern.test(email)) {
-                    document.getElementById("email-error").textContent = "Enter a valid email.";
-                    document.getElementById("email").classList.add("error");
-                    isValid = false;
-                } else {
-                    document.getElementById("email-error").textContent = "";
-                    document.getElementById("email").classList.remove("error");
-                }
+        function createCharacterForm() {
+            var divForm = document.createElement('div');
+            divForm.setAttribute('class', 'divContainer');
 
-                // Age Validation
-                const age = parseInt(document.getElementById("age").value, 10);
-                if (isNaN(age) || age < 13) {
-                    document.getElementById("age-error").textContent = "You must be at least 13 years old.";
-                    document.getElementById("age").classList.add("error");
-                    isValid = false;
-                } else {
-                    document.getElementById("age-error").textContent = "";
-                    document.getElementById("age").classList.remove("error");
-                }
+            var feedbackDiv = document.createElement('div');
+            feedbackDiv.setAttribute('id', 'feedback-div');
+            divForm.appendChild(feedbackDiv);
 
-                // Terms and Conditions Validation
-                if (!document.getElementById("terms").checked) {
-                    document.getElementById("terms-error").textContent = "You must agree to the terms.";
-                    isValid = false;
-                } else {
-                    document.getElementById("terms-error").textContent = "";
-                }
+            $('container').appendChild(divForm);
 
-                if (isValid) {
-                    alert("Form submitted successfully!");
-                    userForm.reset();
-                }
-            });
-        });
+            var form = document.createElement('form');
+            form.setAttribute('method', 'post');
+            form.setAttribute('id', 'character-form');
+            form.setAttribute('action', 'project1.html');
+            form.setAttribute('onsubmit', 'return validate();');
+
+            addTextInput(form, "Character Name", "char-name");
+            addTextInput(form, "First Name", "first-name");
+            addTextInput(form, "Last Name", "last-name");
+            addTextInput(form, "Age", "age", "number");
+
+            var submit = document.createElement('input');
+            submit.setAttribute('type', 'submit');
+            submit.setAttribute('value', 'Create Character');
+            form.appendChild(submit);
+
+            divForm.appendChild(form);
+
+            addResetButton();
+        }
+
+        function addTextInput(form, labelText, id, type = "text") {
+            var p = document.createElement('p');
+            var label = document.createElement('label');
+            label.appendChild(document.createTextNode(labelText));
+            label.setAttribute('for', id);
+
+            var input = document.createElement('input');
+            input.setAttribute('name', id);
+            input.setAttribute('id', id);
+            input.setAttribute('type', type);
+            input.setAttribute('size', '16');
+            input.setAttribute('maxlength', '16');
+
+            label.appendChild(input);
+            p.appendChild(label);
+            form.appendChild(p);
+        }
+
+        function addResetButton() {
+            var resetButton = document.createElement('button');
+            resetButton.textContent = "Start Over";
+            resetButton.onclick = function() {
+                $('container').innerHTML = '';
+                selectedCharacter = {};
+                construct('init');
+            };
+            $('container').appendChild(resetButton);
+        }
+
+        function displayFinalSelection() {
+            var resultDiv = $("result");
+            resultDiv.innerHTML = `<p>You created a ${selectedCharacter["Race"] || "mysterious being"} ${selectedCharacter["Class"] || "adventurer"} named ${$("char-name").value}!</p>`;
+        }
+
     </script>
+</head>
+<body onload="construct('init')">
+    <div id="result"></div>
+    <div id="container"></div>
 </body>
 </html>
