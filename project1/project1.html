@@ -7,49 +7,48 @@
     <script src="data.js"></script> 
     <script src="cookies.js"></script> 
     <script>
-        // Redirect users if browser is outdated
+        // Redirect browser
         if (!document.getElementById || !window.localStorage || !window.requestAnimationFrame) {
             window.location = "https://www.mozilla.org/en-US/firefox/new/";
         }
 
-        var ie7 = false; 
+        var ie7 = false; // Flag for IE7 
 
+        // shortcut make it easier
         function $(id) {
             return document.getElementById(id);
         }
     </script>
-
-
 </head>
-<body onload="construct('init')"><!-- make sure drop down created -->
-    <div id="result"></div><!--make sure summary is display -->
-    <div id="container"></div> 
-    <div id="feedback-div"></div>
+<body onload="construct('init')"> <!-- Make sure dropdowns created -->
+    <div id="result"></div> <!--  character summary  -->
+    <div id="container"></div> <!-- container dropdowns/forms -->
+    <div id="feedback-div"></div> <!--  error messages  -->
     <script>
         var selectedCharacter = {}; 
 
-        // Animation function
+        // Animation 
         function animation(dom) {
             if (!dom) {
                 console.error("Animation function called with null or undefined DOM element.");
-                return; // Exit if the element is null or undefined
+                return; 
             }
 
-            // Handle form sliding animation
+            // Sliding animation 
             if (dom.nodeName == "FORM") {
                 if (isNaN(parseInt(dom.style.marginLeft))) {
-                    dom.style.marginLeft = "-100%"; // Start off-screen to the left
+                    dom.style.marginLeft = "-100%"; // Start from left
                 }
                 if (parseInt(dom.style.marginLeft) < 0) {
                     dom.style.marginLeft = parseInt(dom.style.marginLeft) + 10 + 'px'; // Slide in
-                    requestAnimationFrame(animation.bind(null, dom)); // Continue animation
+                    requestAnimationFrame(animation.bind(null, dom)); 
                 }
             } else {
-                // Handle margin animation for dropdowns
+                // animation for dropdowns
                 var hold = dom.parentNode.nextSibling;
 
                 if (isNaN(parseInt(hold.style.marginLeft))) {
-                    hold.style.marginLeft = "5px"; // Initialize margin if not set
+                    hold.style.marginLeft = "5px"; 
                 }
 
                 if (hold == document.getElementById("container").childNodes[2]) {
@@ -75,36 +74,20 @@
             }
         }
 
-        // Summary 
-        function displaySummary() {
-            var summaryDiv = document.createElement('div');
-            summaryDiv.setAttribute('id', 'summary-div');
-
-            var summaryText = document.createTextNode(
-                `You created a ${selectedCharacter.race} ${selectedCharacter.class} with a ${selectedCharacter.background} background, wielding a ${selectedCharacter.weapon}!`
-            );
-
-            summaryDiv.appendChild(summaryText);
-            $('container').appendChild(summaryDiv);
-
-            
-            saveSelections(selectedCharacter);
-        }
-
-        // Dropdowns based on selections
+        // dropdowns based on user selections
         function construct(dom) {
             var hold;
             if (typeof dom == "string") {
-                hold = characterData[dom]; //Race
+                hold = characterData[dom]; // Load race data
             } else {
                 if (dom.value === "") {
-                    alert("Please make a selection!");
+                    alert("Please make a selection!"); // can't continue if no option choose
                     return;
                 }
 
-                hold = characterData[dom.value]; //getting data
+                hold = characterData[dom.value]; 
 
-                // save selection
+                // Save user selection
                 if (dom.name === "race") {
                     selectedCharacter.race = dom.value;
                 } else if (dom.name === "class") {
@@ -115,7 +98,7 @@
                     selectedCharacter.weapon = dom.value;
                 }
 
-                // Remove last dropdowns
+                // Remove old dropdowns
                 while (dom.parentNode != dom.parentNode.parentNode.lastChild) {
                     dom.parentNode.parentNode.removeChild(dom.parentNode.parentNode.lastChild);
                     if (document.getElementById("resultImg")) {
@@ -134,13 +117,13 @@
                 sel.setAttribute('name', getNextSelectionType(dom));
                 sel.setAttribute('onchange', 'construct(this);animation(this);');
 
-                // Place holder
+                // Add a placeholder
                 var placeholder = document.createElement('option');
                 placeholder.setAttribute('value', '');
                 placeholder.appendChild(document.createTextNode(`Choose your ${getNextSelectionType(dom)}`));
                 sel.appendChild(placeholder);
 
-                // Add valid options
+                // Add valid options to the dropdown
                 for (var i = 1; i < length; i++) {
                     var opt = document.createElement('option');
                     opt.setAttribute('value', hold[i]);
@@ -149,15 +132,15 @@
                 }
                 div.appendChild(sel);
             } else {
-                // Display summarry
+                // character summary
                 displaySummary();
 
-                // Add user info form
+                // user info form
                 createUserForm();
             }
         }
 
-        // Next selection 
+        // next dropdown 
         function getNextSelectionType(dom) {
             if (typeof dom == "string") {
                 return "race";
@@ -171,7 +154,23 @@
             return "";
         }
 
-        // User info
+        // Display character summary
+        function displaySummary() {
+            var summaryDiv = document.createElement('div');
+            summaryDiv.setAttribute('id', 'summary-div');
+
+            var summaryText = document.createTextNode(
+                `You created a ${selectedCharacter.race} ${selectedCharacter.class} with a ${selectedCharacter.background} background, wielding a ${selectedCharacter.weapon}!`
+            );
+
+            summaryDiv.appendChild(summaryText);
+            $('container').appendChild(summaryDiv);
+
+            // Save character selections
+            saveSelections(selectedCharacter);
+        }
+
+        // user info form
         function createUserForm() {
             var divForm = document.createElement('div');
             divForm.setAttribute('class', 'divContainer');
@@ -237,7 +236,7 @@
             divForm.appendChild(form);
             $('container').appendChild(divForm);
 
-            // same animation for form
+            // animation for form
             if (form) {
                 animation(form); 
             } else {
@@ -250,7 +249,7 @@
             var errMsg = "";
             var start = "Please complete the following fields: ";
 
-            // FN
+            // fn
             if (!$("first-name").value) {
                 errMsg += "First Name, ";
                 $("first-name").style.border = "solid red";
@@ -258,7 +257,7 @@
                 $("first-name").style.border = "2px inset #EBE9ED";
             }
 
-            // LN
+            // ln
             if (!$("last-name").value) {
                 errMsg += "Last Name, ";
                 $("last-name").style.border = "solid red";
@@ -266,7 +265,7 @@
                 $("last-name").style.border = "2px inset #EBE9ED";
             }
 
-            // Age
+            // age
             if (!$("age").value) {
                 errMsg += "Age, ";
                 $("age").style.border = "solid red";
@@ -288,14 +287,14 @@
                 p.appendChild(text);
                 feedbackDiv.appendChild(p);
 
-                // user have to put it info
+                // Remove old error messages
                 if (document.getElementById("feedback-div").childNodes.length > 1) {
                     feedbackDiv.removeChild(document.getElementById("feedback-div").childNodes[0]);
                 }
 
                 feedbackDiv.style.display = "block";
 
-                return false; // Prevent form submission
+                return false; 
             }
 
             // Save user info to cookies and localStorage
@@ -308,7 +307,7 @@
             return true;
         }
 
-        // Start over button
+        // start over
         function resetForm() {
             $('container').innerHTML = '';
             $('result').innerHTML = '';
@@ -316,7 +315,7 @@
             construct('init');
         }
 
-        // Add button to page
+        // Add button 
         function addStartOverButton() {
             var startOver = document.createElement('button');
             startOver.setAttribute('type', 'button');
