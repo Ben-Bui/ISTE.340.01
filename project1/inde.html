@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <title>Baldur's Gate Character Creation</title>
+    <link rel="stylesheet" href="styles.css">
+    <script>
+        // Browser detection
+        if (!document.getElementById) {
+            window.location = "https://www.mozilla.org/en-US/firefox/new/";
+        }
+
+        function $(id) {
+            return document.getElementById(id);
+        }
+    </script>
+
+    <script src="data.js"></script>
+
+    <script>
+        var selectedCharacter = {};
+
+        function animation(dom) {
+            var hold = dom.parentNode.nextSibling;
+            if (isNaN(parseInt(hold.style.marginLeft))) {
+                hold.style.marginLeft = "5px";
+            }
+
+            let maxMargin = hold == $("container").childNodes[2] ? 100 :
+                            hold == $("container").childNodes[3] ? 200 : 300;
+            
+            if (parseInt(hold.style.marginLeft) < maxMargin) {
+                hold.style.marginLeft = parseInt(hold.style.marginLeft) + 3 + 'px';
+                requestAnimationFrame(() => animation(dom));
+            }
+        }
+
+        function construct(dom) {
+            var hold = typeof dom == "string" ? characterData[dom] : characterData[dom.value];
+
+            if (hold !== undefined) {
+                var div = document.createElement('div');
+                div.setAttribute('class', 'divContainer');
+                $('container').appendChild(div);
+
+                var question = document.createElement('p');
+                question.textContent = hold[0]; // Display the question (e.g., "Choose your race:")
+                div.appendChild(question);
+
+                var sel = document.createElement('select');
+                sel.setAttribute('name', 'selectmenu');
+                sel.setAttribute('onchange', 'construct(this);animation(this);');
+
+                var defaultOption = document.createElement('option');
+                defaultOption.setAttribute('disabled', 'disabled');
+                defaultOption.setAttribute('selected', 'selected');
+                defaultOption.appendChild(document.createTextNode('Select an option'));
+                sel.appendChild(defaultOption);
+
+                for (var i = 1; i < hold.length; i++) {
+                    var opt = document.createElement('option');
+                    opt.setAttribute('value', hold[i]);
+                    opt.appendChild(document.createTextNode(hold[i]));
+                    sel.appendChild(opt);
+                }
+                div.appendChild(sel);
+            } else {
+                // Store the last selection
+                selectedCharacter[dom.name] = dom.value;
+
+                // Display the summary of choices
+                if (selectedCharacter["race"] && selectedCharacter["class"] && selectedCharacter["background"] && selectedCharacter["weapon"]) {
+                    displaySummary();
+                }
+            }
+        }
+
+        function displaySummary() {
+            var summaryDiv = document.createElement('div');
+            summaryDiv.setAttribute('id', 'summary-div');
+
+            var summaryText = document.createTextNode(
+                `Race: ${selectedCharacter.race}, Class: ${selectedCharacter.class}, Background: ${selectedCharacter.background}, Weapon: ${selectedCharacter.weapon}`
+            );
+
+            summaryDiv.appendChild(summaryText);
+            $('container').appendChild(summaryDiv);
+
+            // Add "Start Over" button
+            var startOver = document.createElement('button');
+            startOver.setAttribute('type', 'button');
+            startOver.setAttribute('id', 'start-over');
+            startOver.appendChild(document.createTextNode("Start Over"));
+            startOver.addEventListener('click', resetForm);
+            $('container').appendChild(startOver);
+        }
+
+        function resetForm() {
+            $('container').innerHTML = '';
+            $('result').innerHTML = '';
+            selectedCharacter = {};
+            construct('init');
+        }
+    </script>
+</head>
+<body onload="construct('init')">
+    <div id="result"></div>
+    <div id="container"></div>
+</body>
+</html>

@@ -1,0 +1,32 @@
+DOM
+
+document.getElementByID
+document.getElementByTagName('div')[2].childNodes[0].nodeValue = "fred";
+document.getElementByClassName
+document.getElementByName
+
+
+<div>1</div>
+for(let i=0,)
+
+Dyn create
+createElement()
+createTextNode()
+setAttribute()
+
+ul/li
+
+
+var u = document.createElement('ul');
+//<ul/>
+u.setAttribute('class','test');
+//build lis
+for(let i=0;i<5;i++){
+    let l= document.createElement('li');
+    l.appendChild(document.createTextNode('my number is: '+i));
+    u.appendChild(l);
+}
+
+document.getElementByTagName('body')[0].appendChild(u);
+
+//<ul class="test"><li>my number is : 0</li><li>,my number is: 1</li>..</ul>

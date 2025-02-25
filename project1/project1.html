@@ -74,26 +74,195 @@
             }
         }
 
-        function validate() {
+        function displaySummary() {
+            var summaryDiv = document.createElement('div');
+            summaryDiv.setAttribute('id', 'summary-div');
+
+            var summaryText = document.createTextNode(
+                `You created a ${selectedCharacter.race} ${selectedCharacter.class} with a ${selectedCharacter.background} background, wielding a ${selectedCharacter.weapon}!`
+            );
+
+            summaryDiv.appendChild(summaryText);
+            $('container').appendChild(summaryDiv);
+        }
+
+        function construct(dom) {
+            var hold;
+            if (typeof dom == "string") {
+                hold = characterData[dom];
+            } else {
+                // Ensure a valid selection is made
+                if (dom.value === "") {
+                    alert("Please make a selection!");
+                    return;
+                }
+
+                hold = characterData[dom.value];
+
+                // Store the selection in the selectedCharacter object
+                if (dom.name === "race") {
+                    selectedCharacter.race = dom.value;
+                } else if (dom.name === "class") {
+                    selectedCharacter.class = dom.value;
+                } else if (dom.name === "background") {
+                    selectedCharacter.background = dom.value;
+                } else if (dom.name === "weapon") {
+                    selectedCharacter.weapon = dom.value;
+                }
+
+                // Remove previous dropdowns and result image
+                while (dom.parentNode != dom.parentNode.parentNode.lastChild) {
+                    dom.parentNode.parentNode.removeChild(dom.parentNode.parentNode.lastChild);
+                    if (document.getElementById("resultImg")) {
+                        document.getElementById("result").removeChild(document.getElementById("resultImg"));
+                    }
+                }
+            }
+
+            if (hold != undefined) {
+                var length = hold.length;
+                var div = document.createElement('div');
+                div.setAttribute('class', 'divContainer');
+                $('container').appendChild(div);
+
+                var sel = document.createElement('select');
+                sel.setAttribute('name', getNextSelectionType(dom));
+                sel.setAttribute('onchange', 'construct(this);animation(this);');
+
+                // Add a placeholder option
+                var placeholder = document.createElement('option');
+                placeholder.setAttribute('value', '');
+                placeholder.appendChild(document.createTextNode(`Choose your ${getNextSelectionType(dom)}`));
+                sel.appendChild(placeholder);
+
+                // Add valid options
+                for (var i = 1; i < length; i++) {
+                    var opt = document.createElement('option');
+                    opt.setAttribute('value', hold[i]);
+                    opt.appendChild(document.createTextNode(hold[i]));
+                    sel.appendChild(opt);
+                }
+                div.appendChild(sel);
+            } else {
+                // Display the summary of choices
+                displaySummary();
+
+                // Add user information form
+                createUserForm();
+            }
+        }
+
+        function getNextSelectionType(dom) {
+            if (typeof dom == "string") {
+                return "race";
+            } else if (dom.name === "race") {
+                return "class";
+            } else if (dom.name === "class") {
+                return "background";
+            } else if (dom.name === "background") {
+                return "weapon";
+            }
+            return "";
+        }
+
+        function createUserForm() {
+            var divForm = document.createElement('div');
+            divForm.setAttribute('class', 'divContainer');
+
+            var form = document.createElement('form');
+            form.setAttribute('method', 'post');
+            form.setAttribute('id', 'user-form');
+            form.setAttribute('onsubmit', 'return validateUserForm();');
+
+            var p = document.createElement('p');
+
+            var label = document.createElement('label');
+            label.appendChild(document.createTextNode("First Name"));
+            label.setAttribute('for', 'first-name');
+
+            var firstName = document.createElement('input');
+            firstName.setAttribute('name', 'first-name');
+            firstName.setAttribute('id', 'first-name');
+            firstName.setAttribute('size', '16');
+            firstName.setAttribute('maxlength', '16');
+
+            label.appendChild(firstName);
+            p.appendChild(label);
+            form.appendChild(p);
+
+            var p = document.createElement('p');
+
+            var label = document.createElement('label');
+            label.appendChild(document.createTextNode("Last Name"));
+            label.setAttribute('for', 'last-name');
+
+            var lastName = document.createElement('input');
+            lastName.setAttribute('name', 'last-name');
+            lastName.setAttribute('id', 'last-name');
+            lastName.setAttribute('size', '16');
+            lastName.setAttribute('maxlength', '16');
+
+            label.appendChild(lastName);
+            p.appendChild(label);
+            form.appendChild(p);
+
+            var p = document.createElement('p');
+
+            var label = document.createElement('label');
+            label.appendChild(document.createTextNode("Age"));
+            label.setAttribute('for', 'age');
+
+            var age = document.createElement('input');
+            age.setAttribute('name', 'age');
+            age.setAttribute('id', 'age');
+            age.setAttribute('size', '3');
+            age.setAttribute('maxlength', '3');
+
+            label.appendChild(age);
+            p.appendChild(label);
+            form.appendChild(p);
+
+            var submit = document.createElement('input');
+            submit.setAttribute('type', 'submit');
+            submit.setAttribute('value', 'Submit');
+            form.appendChild(submit);
+
+            divForm.appendChild(form);
+            $('container').appendChild(divForm);
+
+            // Apply animation to the form
+            animation(form);
+        }
+
+        function validateUserForm() {
             var errMsg = "";
             var start = "Please complete the following fields: ";
 
-            // If character name doesn't have a value
-            if (!$("char-name").value) {
-                errMsg += "Character Name, ";
-                $("char-name").style.border = "solid red";
+            // Validate first name
+            if (!$("first-name").value) {
+                errMsg += "First Name, ";
+                $("first-name").style.border = "solid red";
             } else {
-                $("char-name").style.border = "2px inset #EBE9ED";
-                if (localStorage) {
-                    if (!localStorage.getItem('charName')) {
-                        localStorage.setItem('charName', $('char-name').value);
-                    }
-                } else {
-                    if (GetCookie('charName') == null) {
-                        // Store the name
-                        SetCookie('charName', $('char-name').value);
-                    }
-                }
+                $("first-name").style.border = "2px inset #EBE9ED";
+            }
+
+            // Validate last name
+            if (!$("last-name").value) {
+                errMsg += "Last Name, ";
+                $("last-name").style.border = "solid red";
+            } else {
+                $("last-name").style.border = "2px inset #EBE9ED";
+            }
+
+            // Validate age
+            if (!$("age").value) {
+                errMsg += "Age, ";
+                $("age").style.border = "solid red";
+            } else if (isNaN($("age").value)) {
+                errMsg += "Age must be a number, ";
+                $("age").style.border = "solid red";
+            } else {
+                $("age").style.border = "2px inset #EBE9ED";
             }
 
             if (errMsg != "") {
@@ -117,111 +286,7 @@
                 return false; // Prevents form from submitting
             }
 
-            // Display summary of character creation
-            displaySummary();
-
             return true;
-        }
-
-        function displaySummary() {
-            var summaryDiv = document.createElement('div');
-            summaryDiv.setAttribute('id', 'summary-div');
-
-            var summaryText = document.createTextNode(
-                `You created a ${selectedCharacter.race} ${selectedCharacter.class} named ${$("char-name").value}!`
-            );
-
-            summaryDiv.appendChild(summaryText);
-            $('container').appendChild(summaryDiv);
-        }
-
-        function construct(dom) {
-            var hold;
-            if (typeof dom == "string") {
-                hold = characterData[dom];
-            } else {
-                hold = characterData[dom.value];
-                while (dom.parentNode != dom.parentNode.parentNode.lastChild) {
-                    dom.parentNode.parentNode.removeChild(dom.parentNode.parentNode.lastChild);
-                    if (document.getElementById("resultImg")) {
-                        document.getElementById("result").removeChild(document.getElementById("resultImg"));
-                    }
-                }
-            }
-
-            if (hold != undefined) {
-                var length = hold.length;
-                var div = document.createElement('div');
-                div.setAttribute('class', 'divContainer');
-                $('container').appendChild(div);
-
-                var sel = document.createElement('select');
-                sel.setAttribute('name', 'selectmenu');
-                sel.setAttribute('onchange', 'construct(this);animation(this);');
-
-                for (var i = 1; i < length; i++) {
-                    var opt = document.createElement('option');
-                    if (i == 1) {
-                        opt.setAttribute('disabled', 'disabled');
-                        opt.setAttribute('selected', 'selected');
-                    }
-                    opt.setAttribute('value', hold[i]);
-                    opt.appendChild(document.createTextNode(hold[i]));
-                    sel.appendChild(opt);
-                }
-                div.appendChild(sel);
-            } else {
-                selectedCharacter[dom.name] = dom.value;
-                createCharacterForm();
-            }
-        }
-
-        function createCharacterForm() {
-            var divForm = document.createElement('div');
-            divForm.setAttribute('class', 'divContainer');
-
-            var feedbackDiv = document.createElement('div');
-            feedbackDiv.setAttribute('id', 'feedback-div');
-            divForm.appendChild(feedbackDiv);
-
-            $('container').appendChild(divForm);
-
-            var form = document.createElement('form');
-            form.setAttribute('method', 'post');
-            form.setAttribute('id', 'character-form');
-            form.setAttribute('action', 'project1.html');
-            form.setAttribute('onsubmit', 'return validate();');
-
-            var p = document.createElement('p');
-
-            var label = document.createElement('label');
-            label.appendChild(document.createTextNode("Character Name"));
-            label.setAttribute('for', 'char-name');
-
-            var charName = document.createElement('input');
-            charName.setAttribute('name', 'char-name');
-            charName.setAttribute('id', 'char-name');
-            charName.setAttribute('size', '16');
-            charName.setAttribute('maxlength', '16');
-
-            label.appendChild(charName);
-            p.appendChild(label);
-            form.appendChild(p);
-
-            var submit = document.createElement('input');
-            submit.setAttribute('type', 'submit');
-            submit.setAttribute('value', 'Create Character');
-            form.appendChild(submit);
-
-            // Add "Start Over" button
-            var startOver = document.createElement('button');
-            startOver.setAttribute('type', 'button');
-            startOver.setAttribute('id', 'start-over');
-            startOver.appendChild(document.createTextNode("Start Over"));
-            startOver.addEventListener('click', resetForm);
-            form.appendChild(startOver);
-
-            divForm.appendChild(form);
         }
 
         function resetForm() {
@@ -236,5 +301,6 @@
 <body onload="construct('init')">
     <div id="result"></div>
     <div id="container"></div>
+    <div id="feedback-div"></div>
 </body>
 </html>

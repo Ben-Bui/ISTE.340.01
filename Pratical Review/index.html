@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Document</title>
+    ,<script>
+        function doIt(){
+            let h = document.createElement('h1');
+            h.appendChild(document.createTextNode("hellor there"));
+            h.onclick=function(){fire('arg)');};
+            h.onmouseenter = fire;
+
+            //appendChild
+            //parent.appenChild(ele)
+            document.getElementByID('2').appendChild(h);
+
+            //insertBefore
+            //parent.insertBefore(ele, childOfParentToGoInFrontOf)
+            //document.getElementsByTagName('body')[0].insertBefore(h,document.getElementById)
+        }
+        function fire(x){
+            console.log(' you clicked on', this, x)
+        }
+    </script>
+</head>
+<body>
+    <button onclick="doIt()">click me</button>
+    <div id="1"style="width: 200px; height: 200px; border: 1px solid red">
+        hello
+    </div>
+
+    <div id="2 " style="width: 200px; height: 200px; border: 1px solid orange">
+        
+    </div>
+
+    <div id="3"style="width: 200px; height: 200px; border: 1px solid green">
+        
+    </div>
+
+    <section id="move" style="position: relative; left: 20px;" onclick="move(this)">move me</section>
+
+
+    <section style="position: relative; left: 10px;" onclick="requestAnimationFrame(moveIt(this))">move me</section>
+    
+    <script>
+        function move(dom){
+        //call the function to move the dom
+        requestAnimationFrame(moveIt);
+    }
+
+        function moveIt(){
+        //let d = document.getElementById('move');
+        if(parseInt(d.style.left) < 300)f
+        d.style.left = parseInt(d.style.left)+ 3+'px';
+        requestAnimationFrame(moveIt);
+    }
+
+
+
+    </script>
+</body>
+</html>

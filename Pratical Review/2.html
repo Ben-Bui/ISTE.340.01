@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title></title>
+    <script>
+        function val(){
+        if(document.getElementsByTagName('input')[0].value==''){
+        return false;
+        }
+    }
+</script>
+</head>
+
+
+<body>
+    <form action="page.php" method="get" onsubmit="val()">
+        fn:<input type="text" placeholder="put name here" />
+        <input type="submit" value="press me"/>
+    </form>
+    
+</body>
+</html>
