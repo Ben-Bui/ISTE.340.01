@@ -4,51 +4,52 @@
     <meta charset="utf-8" />
     <title>Baldur's Gate Character Creation</title>
     <link rel="stylesheet" href="styles.css">
+    <script src="data.js"></script> 
+    <script src="cookies.js"></script> 
     <script>
-        // Browser detection if not modern, send them to Firefox download page
-        if (!document.getElementById) {
+        // Redirect users if browser is outdated
+        if (!document.getElementById || !window.localStorage || !window.requestAnimationFrame) {
             window.location = "https://www.mozilla.org/en-US/firefox/new/";
         }
 
-        var ie7 = false;
+        var ie7 = false; 
 
         function $(id) {
             return document.getElementById(id);
         }
     </script>
 
-    <!--[if lt IE 8]>
+
+</head>
+<body onload="construct('init')"><!-- make sure drop down created -->
+    <div id="result"></div><!--make sure summary is display -->
+    <div id="container"></div> 
+    <div id="feedback-div"></div>
     <script>
-        var ie7 = true;
-    </script>
-    <![endif]-->
+        var selectedCharacter = {}; 
 
-    <script src="data.js"></script>
-    <script src="cookies.js"></script>
-
-    <script>
-        var selectedCharacter = {};
-
-        var opacity = 0;
-
+        // Animation function
         function animation(dom) {
-            // If the result image was passed in
-            if (dom.nodeName == "IMG") {
-                if (isNaN((dom.style.opacity))) {
-                    dom.style.opacity = 0;
+            if (!dom) {
+                console.error("Animation function called with null or undefined DOM element.");
+                return; // Exit if the element is null or undefined
+            }
+
+            // Handle form sliding animation
+            if (dom.nodeName == "FORM") {
+                if (isNaN(parseInt(dom.style.marginLeft))) {
+                    dom.style.marginLeft = "-100%"; // Start off-screen to the left
                 }
-                if (dom.style.opacity < 1.0) {
-                    dom.style.opacity = opacity;
-                    opacity += 0.02;
-                    requestAnimationFrame(animation.bind(null, dom));
+                if (parseInt(dom.style.marginLeft) < 0) {
+                    dom.style.marginLeft = parseInt(dom.style.marginLeft) + 10 + 'px'; // Slide in
+                    requestAnimationFrame(animation.bind(null, dom)); // Continue animation
                 }
             } else {
-                // Get parent node of the select, which is the divContainer, then go to the next sibling
+                // Handle margin animation for dropdowns
                 var hold = dom.parentNode.nextSibling;
 
-                // If it doesn't already have a marginLeft, give it one
                 if (isNaN(parseInt(hold.style.marginLeft))) {
-                    hold.style.marginLeft = "5px";
+                    hold.style.marginLeft = "5px"; // Initialize margin if not set
                 }
 
                 if (hold == document.getElementById("container").childNodes[2]) {
@@ -74,6 +75,7 @@
             }
         }
 
+        // Summary 
         function displaySummary() {
             var summaryDiv = document.createElement('div');
             summaryDiv.setAttribute('id', 'summary-div');
@@ -84,22 +86,25 @@
 
             summaryDiv.appendChild(summaryText);
             $('container').appendChild(summaryDiv);
+
+            
+            saveSelections(selectedCharacter);
         }
 
+        // Dropdowns based on selections
         function construct(dom) {
             var hold;
             if (typeof dom == "string") {
-                hold = characterData[dom];
+                hold = characterData[dom]; //Race
             } else {
-                // Ensure a valid selection is made
                 if (dom.value === "") {
                     alert("Please make a selection!");
                     return;
                 }
 
-                hold = characterData[dom.value];
+                hold = characterData[dom.value]; //getting data
 
-                // Store the selection in the selectedCharacter object
+                // save selection
                 if (dom.name === "race") {
                     selectedCharacter.race = dom.value;
                 } else if (dom.name === "class") {
@@ -110,7 +115,7 @@
                     selectedCharacter.weapon = dom.value;
                 }
 
-                // Remove previous dropdowns and result image
+                // Remove last dropdowns
                 while (dom.parentNode != dom.parentNode.parentNode.lastChild) {
                     dom.parentNode.parentNode.removeChild(dom.parentNode.parentNode.lastChild);
                     if (document.getElementById("resultImg")) {
@@ -129,7 +134,7 @@
                 sel.setAttribute('name', getNextSelectionType(dom));
                 sel.setAttribute('onchange', 'construct(this);animation(this);');
 
-                // Add a placeholder option
+                // Place holder
                 var placeholder = document.createElement('option');
                 placeholder.setAttribute('value', '');
                 placeholder.appendChild(document.createTextNode(`Choose your ${getNextSelectionType(dom)}`));
@@ -144,14 +149,15 @@
                 }
                 div.appendChild(sel);
             } else {
-                // Display the summary of choices
+                // Display summarry
                 displaySummary();
 
-                // Add user information form
+                // Add user info form
                 createUserForm();
             }
         }
 
+        // Next selection 
         function getNextSelectionType(dom) {
             if (typeof dom == "string") {
                 return "race";
@@ -165,6 +171,7 @@
             return "";
         }
 
+        // User info
         function createUserForm() {
             var divForm = document.createElement('div');
             divForm.setAttribute('class', 'divContainer');
@@ -177,7 +184,7 @@
             var p = document.createElement('p');
 
             var label = document.createElement('label');
-            label.appendChild(document.createTextNode("First Name"));
+            label.appendChild(document.createTextNode("First Name: "));
             label.setAttribute('for', 'first-name');
 
             var firstName = document.createElement('input');
@@ -193,7 +200,7 @@
             var p = document.createElement('p');
 
             var label = document.createElement('label');
-            label.appendChild(document.createTextNode("Last Name"));
+            label.appendChild(document.createTextNode("Last Name: "));
             label.setAttribute('for', 'last-name');
 
             var lastName = document.createElement('input');
@@ -209,7 +216,7 @@
             var p = document.createElement('p');
 
             var label = document.createElement('label');
-            label.appendChild(document.createTextNode("Age"));
+            label.appendChild(document.createTextNode("Age: "));
             label.setAttribute('for', 'age');
 
             var age = document.createElement('input');
@@ -230,15 +237,20 @@
             divForm.appendChild(form);
             $('container').appendChild(divForm);
 
-            // Apply animation to the form
-            animation(form);
+            // same animation for form
+            if (form) {
+                animation(form); 
+            } else {
+                console.error("Form element is null or undefined.");
+            }
         }
 
+        // Validate JS
         function validateUserForm() {
             var errMsg = "";
             var start = "Please complete the following fields: ";
 
-            // Validate first name
+            // FN
             if (!$("first-name").value) {
                 errMsg += "First Name, ";
                 $("first-name").style.border = "solid red";
@@ -246,7 +258,7 @@
                 $("first-name").style.border = "2px inset #EBE9ED";
             }
 
-            // Validate last name
+            // LN
             if (!$("last-name").value) {
                 errMsg += "Last Name, ";
                 $("last-name").style.border = "solid red";
@@ -254,7 +266,7 @@
                 $("last-name").style.border = "2px inset #EBE9ED";
             }
 
-            // Validate age
+            // Age
             if (!$("age").value) {
                 errMsg += "Age, ";
                 $("age").style.border = "solid red";
@@ -276,31 +288,44 @@
                 p.appendChild(text);
                 feedbackDiv.appendChild(p);
 
-                // Get rid of the previous feedback text node
+                // user have to put it info
                 if (document.getElementById("feedback-div").childNodes.length > 1) {
                     feedbackDiv.removeChild(document.getElementById("feedback-div").childNodes[0]);
                 }
 
                 feedbackDiv.style.display = "block";
 
-                return false; // Prevents form from submitting
+                return false; // Prevent form submission
             }
+
+            // Save user info to cookies and localStorage
+            saveUserInfo({
+                firstName: $("first-name").value,
+                lastName: $("last-name").value,
+                age: $("age").value
+            });
 
             return true;
         }
 
+        // Start over button
         function resetForm() {
-            // Clear all selections and reinitialize the form
             $('container').innerHTML = '';
             $('result').innerHTML = '';
             selectedCharacter = {};
             construct('init');
         }
+
+        // Add button to page
+        function addStartOverButton() {
+            var startOver = document.createElement('button');
+            startOver.setAttribute('type', 'button');
+            startOver.setAttribute('id', 'start-over');
+            startOver.appendChild(document.createTextNode("Start Over"));
+            startOver.addEventListener('click', resetForm);
+            document.body.insertBefore(startOver, document.body.firstChild);
+        }
+        addStartOverButton();
     </script>
-</head>
-<body onload="construct('init')">
-    <div id="result"></div>
-    <div id="container"></div>
-    <div id="feedback-div"></div>
 </body>
 </html>
