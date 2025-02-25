@@ -27,55 +27,8 @@
     <script>
         var selectedCharacter = {}; 
 
-        // Animation 
-        function animation(dom) {
-            if (!dom) {
-                console.error("Animation function called with null or undefined DOM element.");
-                return; 
-            }
-
-            // Sliding animation 
-            if (dom.nodeName == "FORM") {
-                if (isNaN(parseInt(dom.style.marginLeft))) {
-                    dom.style.marginLeft = "-100%"; // Start from left
-                }
-                if (parseInt(dom.style.marginLeft) < 0) {
-                    dom.style.marginLeft = parseInt(dom.style.marginLeft) + 10 + 'px'; // Slide in
-                    requestAnimationFrame(animation.bind(null, dom)); 
-                }
-            } else {
-                // animation for dropdowns
-                var hold = dom.parentNode.nextSibling;
-
-                if (isNaN(parseInt(hold.style.marginLeft))) {
-                    hold.style.marginLeft = "5px"; 
-                }
-
-                if (hold == document.getElementById("container").childNodes[2]) {
-                    if (parseInt(hold.style.marginLeft) < 100) {
-                        hold.style.marginLeft = parseInt(hold.style.marginLeft) + 3 + 'px';
-                        requestAnimationFrame(animation.bind(null, dom));
-                    }
-                }
-
-                if (hold == document.getElementById("container").childNodes[3]) {
-                    if (parseInt(hold.style.marginLeft) < 200) {
-                        hold.style.marginLeft = parseInt(hold.style.marginLeft) + 3 + 'px';
-                        requestAnimationFrame(animation.bind(null, dom));
-                    }
-                }
-
-                if (hold == document.getElementById("container").childNodes[4]) {
-                    if (parseInt(hold.style.marginLeft) < 300) {
-                        hold.style.marginLeft = parseInt(hold.style.marginLeft) + 5 + 'px';
-                        requestAnimationFrame(animation.bind(null, dom));
-                    }
-                }
-            }
-        }
-
-        // dropdowns based on user selections
-        function construct(dom) {
+                // dropdowns user selections
+                function construct(dom) {
             var hold;
             if (typeof dom == "string") {
                 hold = characterData[dom]; // Load race data
@@ -153,6 +106,53 @@
             }
             return "";
         }
+        // Animation 
+        function animation(dom) {
+            if (!dom) {
+                console.error("Animation function called with null or undefined DOM element.");
+                return; 
+            }
+
+            // Sliding animation 
+            if (dom.nodeName == "FORM") {
+                if (isNaN(parseInt(dom.style.marginLeft))) {
+                    dom.style.marginLeft = "-100%"; // Start from left
+                }
+                if (parseInt(dom.style.marginLeft) < 0) {
+                    dom.style.marginLeft = parseInt(dom.style.marginLeft) + 10 + 'px'; // Slide in
+                    requestAnimationFrame(animation.bind(null, dom)); 
+                }
+            } else {
+                // animation for dropdowns
+                var hold = dom.parentNode.nextSibling;
+
+                if (isNaN(parseInt(hold.style.marginLeft))) {
+                    hold.style.marginLeft = "5px"; 
+                }
+
+                if (hold == document.getElementById("container").childNodes[2]) {
+                    if (parseInt(hold.style.marginLeft) < 100) {
+                        hold.style.marginLeft = parseInt(hold.style.marginLeft) + 3 + 'px';
+                        requestAnimationFrame(animation.bind(null, dom));
+                    }
+                }
+
+                if (hold == document.getElementById("container").childNodes[3]) {
+                    if (parseInt(hold.style.marginLeft) < 200) {
+                        hold.style.marginLeft = parseInt(hold.style.marginLeft) + 3 + 'px';
+                        requestAnimationFrame(animation.bind(null, dom));
+                    }
+                }
+
+                if (hold == document.getElementById("container").childNodes[4]) {
+                    if (parseInt(hold.style.marginLeft) < 300) {
+                        hold.style.marginLeft = parseInt(hold.style.marginLeft) + 5 + 'px';
+                        requestAnimationFrame(animation.bind(null, dom));
+                    }
+                }
+            }
+        }
+
 
         // Display character summary
         function displaySummary() {
