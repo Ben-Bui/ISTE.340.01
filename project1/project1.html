@@ -245,67 +245,47 @@
         }
 
         // Validate JS
-        function validateUserForm() {
-            var errMsg = "";
-            var start = "Please complete the following fields: ";
+    function validateUserForm() {
+        var errMsg = "";
+        var start = "Please complete the following fields: ";
 
-            // fn
-            if (!$("first-name").value) {
-                errMsg += "First Name, ";
-                $("first-name").style.border = "solid red";
+        // Function to validate a field
+        function validateField(fieldId, fieldName) {
+            var field = $(fieldId);
+            if (!field.value) {
+                errMsg += `${fieldName}, `;
+                field.style.border = "2px solid red";
+                return false;
+            } else if (fieldId === "age" && isNaN(field.value)) {
+                errMsg += `${fieldName} must be a number, `;
+                field.style.border = "2px solid red";
+                return false;
             } else {
-                $("first-name").style.border = "2px inset #EBE9ED";
+                field.style.border = "2px inset #EBE9ED";
+                return true;
             }
-
-            // ln
-            if (!$("last-name").value) {
-                errMsg += "Last Name, ";
-                $("last-name").style.border = "solid red";
-            } else {
-                $("last-name").style.border = "2px inset #EBE9ED";
-            }
-
-            // age
-            if (!$("age").value) {
-                errMsg += "Age, ";
-                $("age").style.border = "solid red";
-            } else if (isNaN($("age").value)) {
-                errMsg += "Age must be a number, ";
-                $("age").style.border = "solid red";
-            } else {
-                $("age").style.border = "2px inset #EBE9ED";
-            }
-
-            if (errMsg != "") {
-                var feedbackDiv = $("feedback-div");
-
-                var p = document.createElement('p');
-                p.setAttribute('class', 'feedback');
-
-                var text = document.createTextNode(start + errMsg);
-
-                p.appendChild(text);
-                feedbackDiv.appendChild(p);
-
-                // Remove old error messages
-                if (document.getElementById("feedback-div").childNodes.length > 1) {
-                    feedbackDiv.removeChild(document.getElementById("feedback-div").childNodes[0]);
-                }
-
-                feedbackDiv.style.display = "block";
-
-                return false; 
-            }
-
-            // Save user info to cookies and localStorage
-            saveUserInfo({
-                firstName: $("first-name").value,
-                lastName: $("last-name").value,
-                age: $("age").value
-            });
-
-            return true;
         }
+
+    // Validate first name
+    validateField("first-name", "First Name");
+
+    // Validate last name
+    validateField("last-name", "Last Name");
+
+    // Validate age
+    validateField("age", "Age");
+
+    if (errMsg) {
+        var feedbackDiv = $("feedback-div");
+        feedbackDiv.innerHTML = `<p class="feedback">${start} ${errMsg.slice(0, -2)}</p>`;
+        feedbackDiv.style.display = "block";
+        return false;
+    }
+
+    // Save user information to localStorage
+    saveUserInfo();
+    return true;
+}
 
         // start over
         function resetForm() {
