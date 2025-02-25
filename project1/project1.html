@@ -5,7 +5,7 @@
     <title>Baldur's Gate Character Creation</title>
     <link rel="stylesheet" href="styles.css">
     <script>
-        // Browser detection
+        // Browser detection if not modern, send them to Firefox download page
         if (!document.getElementById) {
             window.location = "https://www.mozilla.org/en-US/firefox/new/";
         }
@@ -28,30 +28,48 @@
 
     <script>
         var selectedCharacter = {};
+
         var opacity = 0;
 
         function animation(dom) {
-            if (dom.nodeName === "IMG") {
-                if (isNaN(dom.style.opacity)) {
+            // If the result image was passed in
+            if (dom.nodeName == "IMG") {
+                if (isNaN((dom.style.opacity))) {
                     dom.style.opacity = 0;
                 }
                 if (dom.style.opacity < 1.0) {
                     dom.style.opacity = opacity;
                     opacity += 0.02;
-                    requestAnimationFrame(() => animation(dom));
+                    requestAnimationFrame(animation.bind(null, dom));
                 }
             } else {
+                // Get parent node of the select, which is the divContainer, then go to the next sibling
                 var hold = dom.parentNode.nextSibling;
+
+                // If it doesn't already have a marginLeft, give it one
                 if (isNaN(parseInt(hold.style.marginLeft))) {
                     hold.style.marginLeft = "5px";
                 }
 
-                let maxMargin = hold == $("container").childNodes[2] ? 100 :
-                                hold == $("container").childNodes[3] ? 200 : 300;
-                
-                if (parseInt(hold.style.marginLeft) < maxMargin) {
-                    hold.style.marginLeft = parseInt(hold.style.marginLeft) + 3 + 'px';
-                    requestAnimationFrame(() => animation(dom));
+                if (hold == document.getElementById("container").childNodes[2]) {
+                    if (parseInt(hold.style.marginLeft) < 100) {
+                        hold.style.marginLeft = parseInt(hold.style.marginLeft) + 3 + 'px';
+                        requestAnimationFrame(animation.bind(null, dom));
+                    }
+                }
+
+                if (hold == document.getElementById("container").childNodes[3]) {
+                    if (parseInt(hold.style.marginLeft) < 200) {
+                        hold.style.marginLeft = parseInt(hold.style.marginLeft) + 3 + 'px';
+                        requestAnimationFrame(animation.bind(null, dom));
+                    }
+                }
+
+                if (hold == document.getElementById("container").childNodes[4]) {
+                    if (parseInt(hold.style.marginLeft) < 300) {
+                        hold.style.marginLeft = parseInt(hold.style.marginLeft) + 5 + 'px';
+                        requestAnimationFrame(animation.bind(null, dom));
+                    }
                 }
             }
         }
@@ -60,39 +78,79 @@
             var errMsg = "";
             var start = "Please complete the following fields: ";
 
-            ["char-name", "first-name", "last-name", "age"].forEach(id => {
-                let field = $(id);
-                if (!field.value) {
-                    errMsg += field.name + ", ";
-                    field.style.border = "solid red";
+            // If character name doesn't have a value
+            if (!$("char-name").value) {
+                errMsg += "Character Name, ";
+                $("char-name").style.border = "solid red";
+            } else {
+                $("char-name").style.border = "2px inset #EBE9ED";
+                if (localStorage) {
+                    if (!localStorage.getItem('charName')) {
+                        localStorage.setItem('charName', $('char-name').value);
+                    }
                 } else {
-                    field.style.border = "2px inset #EBE9ED";
-                    if (localStorage) {
-                        if (!localStorage.getItem(id)) {
-                            localStorage.setItem(id, field.value);
-                        }
-                    } else {
-                        if (GetCookie(id) == null) {
-                            SetCookie(id, field.value);
-                        }
+                    if (GetCookie('charName') == null) {
+                        // Store the name
+                        SetCookie('charName', $('char-name').value);
                     }
                 }
-            });
+            }
 
             if (errMsg != "") {
                 var feedbackDiv = $("feedback-div");
-                feedbackDiv.innerHTML = `<p class='feedback'>${start + errMsg}</p>`;
+
+                var p = document.createElement('p');
+                p.setAttribute('class', 'feedback');
+
+                var text = document.createTextNode(start + errMsg);
+
+                p.appendChild(text);
+                feedbackDiv.appendChild(p);
+
+                // Get rid of the previous feedback text node
+                if (document.getElementById("feedback-div").childNodes.length > 1) {
+                    feedbackDiv.removeChild(document.getElementById("feedback-div").childNodes[0]);
+                }
+
                 feedbackDiv.style.display = "block";
-                return false;
+
+                return false; // Prevents form from submitting
             }
 
-            displayFinalSelection();
+            // Display summary of character creation
+            displaySummary();
+
             return true;
         }
 
+        function displaySummary() {
+            var summaryDiv = document.createElement('div');
+            summaryDiv.setAttribute('id', 'summary-div');
+
+            var summaryText = document.createTextNode(
+                `You created a ${selectedCharacter.race} ${selectedCharacter.class} named ${$("char-name").value}!`
+            );
+
+            summaryDiv.appendChild(summaryText);
+            $('container').appendChild(summaryDiv);
+        }
+
         function construct(dom) {
-            var hold = typeof dom == "string" ? characterData[dom] : characterData[dom.value];
+            var hold;
+            if (typeof dom == "string") {
+                hold = characterData[dom];
+            } else {
+                hold = characterData[dom.value];
+                while (dom.parentNode != dom.parentNode.parentNode.lastChild) {
+                    dom.parentNode.parentNode.removeChild(dom.parentNode.parentNode.lastChild);
+                    if (document.getElementById("resultImg")) {
+                        document.getElementById("result").removeChild(document.getElementById("resultImg"));
+                    }
+                }
+            }
+
             if (hold != undefined) {
+                var length = hold.length;
                 var div = document.createElement('div');
                 div.setAttribute('class', 'divContainer');
                 $('container').appendChild(div);
@@ -101,7 +159,7 @@
                 sel.setAttribute('name', 'selectmenu');
                 sel.setAttribute('onchange', 'construct(this);animation(this);');
 
-                for (var i = 1; i < hold.length; i++) {
+                for (var i = 1; i < length; i++) {
                     var opt = document.createElement('option');
                     if (i == 1) {
                         opt.setAttribute('disabled', 'disabled');
@@ -134,55 +192,45 @@
             form.setAttribute('action', 'project1.html');
             form.setAttribute('onsubmit', 'return validate();');
 
-            addTextInput(form, "Character Name", "char-name");
-            addTextInput(form, "First Name", "first-name");
-            addTextInput(form, "Last Name", "last-name");
-            addTextInput(form, "Age", "age", "number");
+            var p = document.createElement('p');
+
+            var label = document.createElement('label');
+            label.appendChild(document.createTextNode("Character Name"));
+            label.setAttribute('for', 'char-name');
+
+            var charName = document.createElement('input');
+            charName.setAttribute('name', 'char-name');
+            charName.setAttribute('id', 'char-name');
+            charName.setAttribute('size', '16');
+            charName.setAttribute('maxlength', '16');
+
+            label.appendChild(charName);
+            p.appendChild(label);
+            form.appendChild(p);
 
             var submit = document.createElement('input');
             submit.setAttribute('type', 'submit');
             submit.setAttribute('value', 'Create Character');
             form.appendChild(submit);
 
+            // Add "Start Over" button
+            var startOver = document.createElement('button');
+            startOver.setAttribute('type', 'button');
+            startOver.setAttribute('id', 'start-over');
+            startOver.appendChild(document.createTextNode("Start Over"));
+            startOver.addEventListener('click', resetForm);
+            form.appendChild(startOver);
+
             divForm.appendChild(form);
-
-            addResetButton();
         }
 
-        function addTextInput(form, labelText, id, type = "text") {
-            var p = document.createElement('p');
-            var label = document.createElement('label');
-            label.appendChild(document.createTextNode(labelText));
-            label.setAttribute('for', id);
-
-            var input = document.createElement('input');
-            input.setAttribute('name', id);
-            input.setAttribute('id', id);
-            input.setAttribute('type', type);
-            input.setAttribute('size', '16');
-            input.setAttribute('maxlength', '16');
-
-            label.appendChild(input);
-            p.appendChild(label);
-            form.appendChild(p);
+        function resetForm() {
+            // Clear all selections and reinitialize the form
+            $('container').innerHTML = '';
+            $('result').innerHTML = '';
+            selectedCharacter = {};
+            construct('init');
         }
-
-        function addResetButton() {
-            var resetButton = document.createElement('button');
-            resetButton.textContent = "Start Over";
-            resetButton.onclick = function() {
-                $('container').innerHTML = '';
-                selectedCharacter = {};
-                construct('init');
-            };
-            $('container').appendChild(resetButton);
-        }
-
-        function displayFinalSelection() {
-            var resultDiv = $("result");
-            resultDiv.innerHTML = `<p>You created a ${selectedCharacter["Race"] || "mysterious being"} ${selectedCharacter["Class"] || "adventurer"} named ${$("char-name").value}!</p>`;
-        }
-
     </script>
 </head>
 <body onload="construct('init')">
