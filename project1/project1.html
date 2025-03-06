@@ -4,51 +4,130 @@
     <meta charset="utf-8" />
     <title>Baldur's Gate Character Creation</title>
     <link rel="stylesheet" href="styles.css">
+    <script src="data.js"></script> 
+    <script src="cookies.js"></script> 
     <script>
-        // Browser detection if not modern, send them to Firefox download page
-        if (!document.getElementById) {
+        // Redirect browser
+        if (!document.getElementById || !window.localStorage || !window.requestAnimationFrame) {
             window.location = "https://www.mozilla.org/en-US/firefox/new/";
         }
 
-        var ie7 = false;
+        var ie7 = false; // Flag for IE7 
 
+        // shortcut make it easier
         function $(id) {
             return document.getElementById(id);
         }
     </script>
-
-    <!--[if lt IE 8]>
+</head>
+<body onload="construct('init')"> <!-- Make sure dropdowns created -->
+    <div id="result"></div> <!--  character summary  -->
+    <div id="container"></div> <!-- container dropdowns/forms -->
+    <div id="feedback-div"></div> <!--  error messages  -->
     <script>
-        var ie7 = true;
-    </script>
-    <![endif]-->
+        var selectedCharacter = {}; 
 
-    <script src="data.js"></script>
-    <script src="cookies.js"></script>
-
-    <script>
-        var selectedCharacter = {};
-
-        var opacity = 0;
-
-        function animation(dom) {
-            // If the result image was passed in
-            if (dom.nodeName == "IMG") {
-                if (isNaN((dom.style.opacity))) {
-                    dom.style.opacity = 0;
+                // dropdowns user selections
+                function construct(dom) {
+            var hold;
+            if (typeof dom == "string") {
+                hold = characterData[dom]; // Load race data
+            } else {
+                if (dom.value === "") {
+                    alert("Please make a selection!"); // can't continue if no option choose
+                    return;
                 }
-                if (dom.style.opacity < 1.0) {
-                    dom.style.opacity = opacity;
-                    opacity += 0.02;
-                    requestAnimationFrame(animation.bind(null, dom));
+
+                hold = characterData[dom.value]; 
+
+                // Save user selection
+                if (dom.name === "race") {
+                    selectedCharacter.race = dom.value;
+                } else if (dom.name === "class") {
+                    selectedCharacter.class = dom.value;
+                } else if (dom.name === "background") {
+                    selectedCharacter.background = dom.value;
+                } else if (dom.name === "weapon") {
+                    selectedCharacter.weapon = dom.value;
+                }
+
+                // Remove old dropdowns
+                while (dom.parentNode != dom.parentNode.parentNode.lastChild) {
+                    dom.parentNode.parentNode.removeChild(dom.parentNode.parentNode.lastChild);
+                    if (document.getElementById("resultImg")) {
+                        document.getElementById("result").removeChild(document.getElementById("resultImg"));
+                    }
+                }
+            }
+
+            if (hold != undefined) {
+                var length = hold.length;
+                var div = document.createElement('div');
+                div.setAttribute('class', 'divContainer');
+                $('container').appendChild(div);
+
+                var sel = document.createElement('select');
+                sel.setAttribute('name', getNextSelectionType(dom));
+                sel.setAttribute('onchange', 'construct(this);animation(this);');
+
+                // Add a placeholder
+                var placeholder = document.createElement('option');
+                placeholder.setAttribute('value', '');
+                placeholder.appendChild(document.createTextNode(`Choose your ${getNextSelectionType(dom)}`));
+                sel.appendChild(placeholder);
+
+                // Add valid options to the dropdown
+                for (var i = 1; i < length; i++) {
+                    var opt = document.createElement('option');
+                    opt.setAttribute('value', hold[i]);
+                    opt.appendChild(document.createTextNode(hold[i]));
+                    sel.appendChild(opt);
+                }
+                div.appendChild(sel);
+            } else {
+                // character summary
+                displaySummary();
+
+                // user info form
+                createUserForm();
+            }
+        }
+
+        // next dropdown 
+        function getNextSelectionType(dom) {
+            if (typeof dom == "string") {
+                return "race";
+            } else if (dom.name === "race") {
+                return "class";
+            } else if (dom.name === "class") {
+                return "background";
+            } else if (dom.name === "background") {
+                return "weapon";
+            }
+            return "";
+        }
+        // Animation 
+        function animation(dom) {
+            if (!dom) {
+                console.error("Animation function called with null or undefined DOM element.");
+                return; 
+            }
+
+            // Sliding animation 
+            if (dom.nodeName == "FORM") {
+                if (isNaN(parseInt(dom.style.marginLeft))) {
+                    dom.style.marginLeft = "-100%"; // Start from left
+                }
+                if (parseInt(dom.style.marginLeft) < 0) {
+                    dom.style.marginLeft = parseInt(dom.style.marginLeft) + 10 + 'px'; // Slide in
+                    requestAnimationFrame(animation.bind(null, dom)); 
                 }
             } else {
-                // Get parent node of the select, which is the divContainer, then go to the next sibling
+                // animation for dropdowns
                 var hold = dom.parentNode.nextSibling;
 
-                // If it doesn't already have a marginLeft, give it one
                 if (isNaN(parseInt(hold.style.marginLeft))) {
-                    hold.style.marginLeft = "5px";
+                    hold.style.marginLeft = "5px"; 
                 }
 
                 if (hold == document.getElementById("container").childNodes[2]) {
@@ -74,6 +153,8 @@
             }
         }
 
+
+        // Display character summary
         function displaySummary() {
             var summaryDiv = document.createElement('div');
             summaryDiv.setAttribute('id', 'summary-div');
@@ -84,87 +165,12 @@
 
             summaryDiv.appendChild(summaryText);
             $('container').appendChild(summaryDiv);
+
+            // Save character selections
+            saveSelections(selectedCharacter);
         }
 
-        function construct(dom) {
-            var hold;
-            if (typeof dom == "string") {
-                hold = characterData[dom];
-            } else {
-                // Ensure a valid selection is made
-                if (dom.value === "") {
-                    alert("Please make a selection!");
-                    return;
-                }
-
-                hold = characterData[dom.value];
-
-                // Store the selection in the selectedCharacter object
-                if (dom.name === "race") {
-                    selectedCharacter.race = dom.value;
-                } else if (dom.name === "class") {
-                    selectedCharacter.class = dom.value;
-                } else if (dom.name === "background") {
-                    selectedCharacter.background = dom.value;
-                } else if (dom.name === "weapon") {
-                    selectedCharacter.weapon = dom.value;
-                }
-
-                // Remove previous dropdowns and result image
-                while (dom.parentNode != dom.parentNode.parentNode.lastChild) {
-                    dom.parentNode.parentNode.removeChild(dom.parentNode.parentNode.lastChild);
-                    if (document.getElementById("resultImg")) {
-                        document.getElementById("result").removeChild(document.getElementById("resultImg"));
-                    }
-                }
-            }
-
-            if (hold != undefined) {
-                var length = hold.length;
-                var div = document.createElement('div');
-                div.setAttribute('class', 'divContainer');
-                $('container').appendChild(div);
-
-                var sel = document.createElement('select');
-                sel.setAttribute('name', getNextSelectionType(dom));
-                sel.setAttribute('onchange', 'construct(this);animation(this);');
-
-                // Add a placeholder option
-                var placeholder = document.createElement('option');
-                placeholder.setAttribute('value', '');
-                placeholder.appendChild(document.createTextNode(`Choose your ${getNextSelectionType(dom)}`));
-                sel.appendChild(placeholder);
-
-                // Add valid options
-                for (var i = 1; i < length; i++) {
-                    var opt = document.createElement('option');
-                    opt.setAttribute('value', hold[i]);
-                    opt.appendChild(document.createTextNode(hold[i]));
-                    sel.appendChild(opt);
-                }
-                div.appendChild(sel);
-            } else {
-                // Display the summary of choices
-                displaySummary();
-
-                // Add user information form
-                createUserForm();
-            }
-        }
-
-        function getNextSelectionType(dom) {
-            if (typeof dom == "string") {
-                return "race";
-            } else if (dom.name === "race") {
-                return "class";
-            } else if (dom.name === "class") {
-                return "background";
-            } else if (dom.name === "background") {
-                return "weapon";
-            }
-            return "";
-        }
-
+        // user info form
         function createUserForm() {
             var divForm = document.createElement('div');
             divForm.setAttribute('class', 'divContainer');
@@ -177,7 +183,7 @@
             var p = document.createElement('p');
 
             var label = document.createElement('label');
-            label.appendChild(document.createTextNode("First Name"));
+            label.appendChild(document.createTextNode("First Name: "));
             label.setAttribute('for', 'first-name');
 
             var firstName = document.createElement('input');
@@ -193,7 +199,7 @@
             var p = document.createElement('p');
 
             var label = document.createElement('label');
-            label.appendChild(document.createTextNode("Last Name"));
+            label.appendChild(document.createTextNode("Last Name: "));
             label.setAttribute('for', 'last-name');
 
             var lastName = document.createElement('input');
@@ -209,7 +215,7 @@
             var p = document.createElement('p');
 
             var label = document.createElement('label');
-            label.appendChild(document.createTextNode("Age"));
+            label.appendChild(document.createTextNode("Age: "));
             label.setAttribute('for', 'age');
 
             var age = document.createElement('input');
@@ -230,77 +236,75 @@
             divForm.appendChild(form);
             $('container').appendChild(divForm);
 
-            // Apply animation to the form
-            animation(form);
+            // animation for form
+            if (form) {
+                animation(form); 
+            } else {
+                console.error("Form element is null or undefined.");
+            }
         }
 
-        function validateUserForm() {
-            var errMsg = "";
-            var start = "Please complete the following fields: ";
+        // Validate JS
+    function validateUserForm() {
+        var errMsg = "";
+        var start = "Please complete the following fields: ";
 
-            // Validate first name
-            if (!$("first-name").value) {
-                errMsg += "First Name, ";
-                $("first-name").style.border = "solid red";
+        // Function to validate a field
+        function validateField(fieldId, fieldName) {
+            var field = $(fieldId);
+            if (!field.value) {
+                errMsg += `${fieldName}, `;
+                field.style.border = "2px solid red";
+                return false;
+            } else if (fieldId === "age" && isNaN(field.value)) {
+                errMsg += `${fieldName} must be a number, `;
+                field.style.border = "2px solid red";
+                return false;
             } else {
-                $("first-name").style.border = "2px inset #EBE9ED";
+                field.style.border = "2px inset #EBE9ED";
+                return true;
             }
-
-            // Validate last name
-            if (!$("last-name").value) {
-                errMsg += "Last Name, ";
-                $("last-name").style.border = "solid red";
-            } else {
-                $("last-name").style.border = "2px inset #EBE9ED";
-            }
-
-            // Validate age
-            if (!$("age").value) {
-                errMsg += "Age, ";
-                $("age").style.border = "solid red";
-            } else if (isNaN($("age").value)) {
-                errMsg += "Age must be a number, ";
-                $("age").style.border = "solid red";
-            } else {
-                $("age").style.border = "2px inset #EBE9ED";
-            }
-
-            if (errMsg != "") {
-                var feedbackDiv = $("feedback-div");
-
-                var p = document.createElement('p');
-                p.setAttribute('class', 'feedback');
-
-                var text = document.createTextNode(start + errMsg);
-
-                p.appendChild(text);
-                feedbackDiv.appendChild(p);
-
-                // Get rid of the previous feedback text node
-                if (document.getElementById("feedback-div").childNodes.length > 1) {
-                    feedbackDiv.removeChild(document.getElementById("feedback-div").childNodes[0]);
-                }
-
-                feedbackDiv.style.display = "block";
-
-                return false; // Prevents form from submitting
-            }
-
-            return true;
         }
 
+    // Validate first name
+    validateField("first-name", "First Name");
+
+    // Validate last name
+    validateField("last-name", "Last Name");
+
+    // Validate age
+    validateField("age", "Age");
+
+    if (errMsg) {
+        var feedbackDiv = $("feedback-div");
+        feedbackDiv.innerHTML = `<p class="feedback">${start} ${errMsg.slice(0, -2)}</p>`;
+        feedbackDiv.style.display = "block";
+        return false;
+    }
+
+    // Save user information to localStorage
+    saveUserInfo();
+    return true;
+}
+
+        // start over
         function resetForm() {
-            // Clear all selections and reinitialize the form
             $('container').innerHTML = '';
             $('result').innerHTML = '';
             selectedCharacter = {};
             construct('init');
         }
+
+        // Add button 
+        function addStartOverButton() {
+            var startOver = document.createElement('button');
+            startOver.setAttribute('type', 'button');
+            startOver.setAttribute('id', 'start-over');
+            startOver.appendChild(document.createTextNode("Start Over"));
+            startOver.addEventListener('click', resetForm);
+            document.body.insertBefore(startOver, document.body.firstChild);
+        }
+        addStartOverButton();
     </script>
-</head>
-<body onload="construct('init')">
-    <div id="result"></div>
-    <div id="container"></div>
-    <div id="feedback-div"></div>
 </body>
 </html>

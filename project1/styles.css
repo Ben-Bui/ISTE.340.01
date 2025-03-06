@@ -1,119 +1,63 @@
-/* General body styling */
+/* cover whole background */
 body {
     font-family: Tahoma, sans-serif;
-    background-color: #1a1a1a;
-    color: #e0e0e0;
+    background-image: url('img/BaldurGate3Background.jpg'); /* Set the background image */
+    background-size: cover; /* Ensure the image covers the entire background */
+    background-attachment: fixed; 
+    color: #e0e0e0; /* Light text color for contrast */
     margin: 0;
     padding: 20px;
     line-height: 1.6;
 }
 
-/* Dropdown menus */
+
+
+form#contact-form, .divContainer {
+    background-color: rgba(26, 26, 26, 0.8); /* Semi transparent bckground */
+    padding: 20px;
+    border-radius: 10px;
+    margin-bottom: 20px;
+}
+
+
+label, p, h1, h2, h3, h4, h5, h6 {
+    color: white; /* Light text color */
+}
+
+/* Dropdown */
 select, option {
-    background-color: #02336B;
+    background-color: navy;
     color: white;
     font-weight: 700;
     font-size: 1em;
     padding: 0.5em;
-    border: 1px solid #666;
+    border: 1px solid gray;
     border-radius: 5px;
     cursor: pointer;
 }
 
 select:hover {
-    border-color: #888;
+    border-color: gray;
 }
 
 select:focus {
     outline: none;
-    border-color: #a0a0a0;
-}
-
-/* Form styling */
-form#contact-form {
-    width: 700px;
-    background-color: #02336B;
-    padding: 2em 1em 1em 1em;
-    margin-top: 2em;
-    border-radius: 10px;
-    box-shadow: 0 0 15px rgba(0, 0, 0, 0.5);
+    border-color: gray;
 }
 
 /* Input fields */
 p input {
     padding: 0.5em;
     font-size: 1em;
-    background-color: #333;
-    color: #e0e0e0;
-    border: 1px solid #666;
+    background-color: gray;
+    color: white;
+    border: 1px solid gray;
     border-radius: 5px;
 }
 
 p input:focus {
     outline: none;
-    border-color: #a0a0a0;
-}
-
-/* Labels */
-label {
-    color: white;
-    font-weight: bold;
-}
-
-/* Specific input field margins */
-input#first-name {
-    margin-right: 4em;
-    margin-left: 1em;
-}
-
-input#last-name {
-    margin-left: 1em;
-}
-
-input#state {
-    margin-left: 3.7em;
-}
-
-label#labelState {
-    margin-left: 4em;
-}
-
-input#age {
-    margin-left: 11em;
-}
-
-/* Container and image styling */
-.divContainer, .img {
-    padding: 2em;
-    background-color: #2a2a2a;
-    border: 1px solid #444;
-    border-radius: 10px;
-    margin-bottom: 20px;
-}
-
-/* Submit button */
-#submit {
-    padding: 0.5em;
-    margin-top: 2em;
-    font-weight: bold;
-    color: black;
-    background-color: #4a4a4a;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    transition: background-color 0.3s ease;
-}
-
-#submit:hover {
-    background-color: #5a5a5a;
-}
-
-/* Result section (character image) */
-#result {
-    position: absolute;
-    top: 0;
-    left: 37em;
-    z-index: -1;
+    border-color: gray;
 }
 
 /* Feedback messages */
@@ -123,31 +67,27 @@ input#age {
     margin-bottom: 1em;
 }
 
-/* Result image */
-#resImg {
-    left: 0;
-    max-width: 100%;
-    height: auto;
-    border-radius: 10px;
-    border: 2px solid #666;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+/* Start Over Button */
+#start-over {
+    background-color: navy;
+    color: white; 
+    font-weight: bold;
+    padding: 10px 20px; 
+    border: none; 
+    border-radius: 5px; 
+    cursor: pointer;
+    margin: 20px; 
+    position: fixed; 
+    top: 20px; 
+    right: 20px; 
+    z-index: 1000; 
 }
 
-/* Animation for the result image */
-@keyframes fadeIn {
-    from {
-        opacity: 0;
-    }
-    to {
-        opacity: 1;
-    }
+#start-over:hover {
+    background-color: blue; /* make it pop when hover */
 }
 
-.img {
-    animation: fadeIn 1s ease-in-out;
-}
-
-/* Responsive design for smaller screens */
+/* Responsive for smaller screens */
 @media (max-width: 768px) {
     body {
         padding: 10px;
