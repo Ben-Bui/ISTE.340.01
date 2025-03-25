@@ -1,0 +1,24 @@
+.peopleList{
+    display: flex;
+    flex-wrap: wrap;
+}
+.peopleList>*{
+    flex: 1 1 200px;
+    max-width: 300px;
+    /* grow,shrink,basis */
+}
+
+.peopleListItem{
+    min-height: 250px;
+    margin: 1em;
+    padding-top: 1em;
+    border: 3px solid gray;
+    border-radius: 15px;
+}
+
+.peopleListItem > img{
+    width: 100px;
+    height: 100px;
+    object-fit: cover; 
+    border: 2px solid gray;
+}
