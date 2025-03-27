@@ -1,6 +1,8 @@
 import Tab from 'react-bootstrap/Tab';
 import Tabs from 'react-bootstrap/Tabs';
 
+import PeopleGroup from './PeopleGroup';
+
 function PeopleTabs() {
   return (
     <Tabs
@@ -9,10 +11,10 @@ function PeopleTabs() {
       className="mb-3"
     >
       <Tab eventKey="fac" title="Faculty">
-        Tab content for Faculty
+        <PeopleGroup/ >
       </Tab>
       <Tab eventKey="profile" title="Staff">
-        Tab content for Staff
+        <PeopleGroup/>
       </Tab>
 
     </Tabs>

@@ -59,9 +59,9 @@ const App=()=>{
         
         <hr/>
         <PeopleTabs/>
-        <BootAcc/>
+        {/* <BootAcc/> */}
         {/* {First, let's build something to grab people} */}
-        <People/>
+        {/* <People/> */}
       </div>
     </div>
   )
