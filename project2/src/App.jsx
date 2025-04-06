@@ -1,6 +1,8 @@
+//import, css, any react state/hook/other
 import { useState, useEffect } from 'react';
 import './App.css';
-import getData from './util/GetData.js';
+
+//import components
 import NavMenu from './components/NavMenu.jsx';
 import AboutSection from './components/About/AboutSection.jsx';
 import DegreesTabs from './components/Degrees/DegreesTabs.jsx';
@@ -8,43 +10,26 @@ import MinorCourses from './components/Minors/MinorCourses.jsx';
 import EmploymentStats from './components/Employment/EmploymentStats.jsx';
 import PeopleTabs from './components/People/PeopleTabs.jsx';
 import Footer from './components/Footer.jsx';
-import ErrorBoundary from './components/ErrorBoundary.jsx';
+
+//get my utils
+import getData from './util/GetData.js';
 
 const App = () => {
+    //state vars
     const [loadMain, setLoadMain] = useState(false);
     const [aboutData, setAboutData] = useState(null);
 
-    useEffect(() => {
+    //get about data
+    useEffect(()=>{
         getData('about/')
-            .then((data) => {
+            .then((data)=>{
+                console.log('got about', data);
                 setAboutData(data);
                 setLoadMain(true);
             });
-    }, []);
+    },[]);
 
-    useEffect(() => {
-        // Handle initial scroll if there's a hash in the URL
-        const handleInitialScroll = () => {
-            const hash = window.location.hash.substring(1);
-            if (hash) {
-                const element = document.getElementById(hash);
-                if (element) {
-                    setTimeout(() => {
-                        element.scrollIntoView({
-                            behavior: 'smooth',
-                            block: 'start'
-                        });
-                    }, 300);
-                }
-            }
-        };
-
-        if (loadMain) {
-            handleInitialScroll();
-        }
-    }, [loadMain]);
-
-    if (!loadMain) return (
+    if(!loadMain) return (
         <div>
             <div className="stick">
                 <h1>iSchool Portal</h1>
@@ -55,37 +40,34 @@ const App = () => {
             </div>
             <Footer />
         </div>
-    );
+    )
 
-    // In your App.jsx return statement
-return (
-    <div>
-      <div className="stick">
-        <h1>iSchool Portal</h1>
-        <NavMenu />
-      </div>
-      <div className="App">
-        <ErrorBoundary>
-          <section id="about">
-            <AboutSection data={aboutData} />
-          </section>
-          <section id="degrees">
-            <DegreesTabs />
-          </section>
-          <section id="minors">
-            <MinorCourses />
-          </section>
-          <section id="employment">
-            <EmploymentStats />
-          </section>
-          <section id="people">
-            <PeopleTabs />
-          </section>
-        </ErrorBoundary>
-      </div>
-      <Footer />
-    </div>
-  );
+    return(
+        <div>
+            <div className="stick">
+                <h1>iSchool Portal</h1>
+                <NavMenu />
+            </div>
+            <div className="App">
+                <section id="about">
+                    <AboutSection data={aboutData} />
+                </section>
+                <section id="degrees">
+                    <DegreesTabs />
+                </section>
+                <section id="minors">
+                    <MinorCourses />
+                </section>
+                <section id="employment">
+                    <EmploymentStats />
+                </section>
+                <section id="people">
+                    <PeopleTabs />
+                </section>
+            </div>
+            <Footer />
+        </div>
+    );
 };
 
 export default App;

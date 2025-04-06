@@ -1,32 +1,36 @@
-/* Base Styles */
 body {
   margin: 0;
   font-family: Arial, sans-serif;
   line-height: 1.6;
-  background-color: #f0f0f0; /* Soft gray background */
+  background-color: #f0f0f0; /* gray background */
 }
 
+html {
+  scroll-behavior: smooth;
+}
+
+/* Header */
 .stick {
   position: sticky;
   top: 0;
-  background-color: #333333; /* Dark charcoal */
-  color: #ffffff;
-  padding: 0.01rem 1rem;
+  background-color: #333; /* Dark charcoal */
+  color: white;
+  padding: 0.5rem 1rem;
   z-index: 100;
   text-align: center;
   box-shadow: 0 2px 5px rgba(0,0,0,0.1);
 }
 
-/* Navigation */
+/* Nav */
 .nav-menu {
   display: flex;
   justify-content: center;
   gap: 1rem;
-  margin-top: 0.75rem;
+  margin: 0.75rem 0;
 }
 
 .nav-menu a {
-  color: #ffffff;
+  color: white;
   text-decoration: none;
   padding: 0.4rem 0.8rem;
   border-radius: 4px;
@@ -38,23 +42,23 @@ body {
   background-color: #d4af37; /* Gold accent */
 }
 
-/* Shared Section Styles */
+/* About*/
 section {
   margin-bottom: 2rem;
   padding: 1.25rem;
-  background: #ffffff;
+  background: white;
   border-radius: 8px;
   box-shadow: 0 2px 4px rgba(0,0,0,0.1);
   scroll-margin-top: 90px;
   border: 1px solid #e8d8c5; /* Warm beige border */
 }
 
-/* Card Styles */
+/* MinorCard,DeegreCard */
 .card {
-  border: 1px solid #e8d8c5; /* Warm beige */
+  border: 1px solid #e8d8c5;
   border-radius: 8px;
   padding: 1.25rem;
-  background: #ffffff;
+  background: white;
 }
 
 .card h3 {
@@ -62,10 +66,10 @@ section {
   color: #d4af37; /* Gold accent */
 }
 
-/* Expandable Cards */
+/*Minor,Degree */
 .degree-card,
 .minor-card {
-  border: 1px solid #e8d8c5; /* Warm beige */
+  border: 1px solid #e8d8c5;
   border-radius: 8px;
   margin-bottom: 1rem;
   overflow: hidden;
@@ -78,55 +82,35 @@ section {
   justify-content: space-between;
   align-items: center;
   padding: 1rem;
-  background-color: rgba(212, 175, 55, 0.08); /* Light gold tint */
+  background-color: rgba(212, 175, 55, 0.08); /* Light gold  */
   cursor: pointer;
   transition: background-color 0.3s;
 }
 
 .degree-header:hover,
 .minor-header:hover {
-  background-color: rgba(212, 175, 55, 0.15); /* Slightly stronger gold tint */
+  background-color: rgba(212, 175, 55, 0.15); /* Yellow Gold */
 }
 
 .degree-header h3,
 .minor-header h3 {
   margin: 0;
-  color: #d4af37; /* Gold accent */
+  color: #d4af37;
   font-size: 1.1rem;
 }
 
 .toggle-icon {
-  color: #666666;
+  color: #666;
   transition: transform 0.3s;
 }
 
 .degree-card.expanded .toggle-icon,
 .minor-card.expanded .toggle-icon {
   transform: rotate(180deg);
-  color: #d4af37; /* Gold accent */
+  color: #d4af37;
 }
 
-/* Table Styles */
-.scrollable-table-container {
-  border: 1px solid #e8d8c5; /* Warm beige */
-  border-radius: 8px;
-  max-height: 500px;
-  overflow-y: auto;
-  margin-top: 1rem;
-}
-
-.scrollable-table-container th {
-  position: sticky;
-  top: 0;
-  background-color: #333333; /* Dark charcoal */
-  color: #ffffff;
-}
-
-.scrollable-table-container tr:nth-child(even) {
-  background-color: #f9f9f9;
-}
-
-/* People Section */
+/* People */
 .people-list {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
@@ -134,7 +118,7 @@ section {
 }
 
 .person-card {
-  border: 1px solid #e8d8c5; /* Warm beige */
+  border: 1px solid #e8d8c5;
   border-radius: 8px;
   padding: 1.25rem;
   text-align: center;
@@ -151,12 +135,73 @@ section {
   border-radius: 50%;
   object-fit: cover;
   margin-bottom: 1rem;
-  border: 3px solid #d4af37; /* Gold accent */
+  border: 3px solid #d4af37;
 }
 
-.modal-toggle-button {
-  background-color: #d4af37; /* Gold accent */
-  color: #333333; /* Dark charcoal */
+/* Table Styles */
+.scrollable-table-container {
+  border: 1px solid #e8d8c5;
+  border-radius: 8px;
+  max-height: 500px;
+  overflow-y: auto;
+  margin-top: 1rem;
+  width: 100%;
+}
+
+.scrollable-table-container table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.scrollable-table-container th,
+.scrollable-table-container td {
+  padding: 12px 15px;
+  text-align: left;
+  border-bottom: 1px solid #e8d8c5;
+}
+
+.scrollable-table-container th {
+  position: sticky;
+  top: 0;
+  background-color: #333;
+  color: white;
+  font-weight: 600;
+}
+
+.scrollable-table-container th:nth-child(1),
+.scrollable-table-container td:nth-child(1) {
+  width: 30%;
+}
+
+.scrollable-table-container th:nth-child(2),
+.scrollable-table-container td:nth-child(2) {
+  width: 20%;
+}
+
+.scrollable-table-container th:nth-child(3),
+.scrollable-table-container td:nth-child(3) {
+  width: 25%;
+}
+
+.scrollable-table-container th:nth-child(4),
+.scrollable-table-container td:nth-child(4) {
+  width: 15%;
+  text-align: center;
+}
+
+.scrollable-table-container tr:hover {
+  background-color: rgba(212, 175, 55, 0.05);
+}
+
+.scrollable-table-container tr:nth-child(even) {
+  background-color: #f9f9f9;
+}
+
+/* ===== Buttons ===== */
+.modal-toggle-button,
+.tab-button {
+  background-color: #d4af37;
+  color: #333;
   border: none;
   padding: 0.5rem 1rem;
   border-radius: 4px;
@@ -165,22 +210,27 @@ section {
   transition: background-color 0.3s;
 }
 
-.modal-toggle-button:hover {
-  background-color: #333333; /* Dark charcoal */
-  color: #d4af37; /* Gold accent */
+.modal-toggle-button:hover,
+.tab-button:hover {
+  background-color: #333;
+  color: #d4af37;
 }
 
-/* Footer */
+.tab-button.active {
+  background-color: #333;
+  color: #d4af37;
+}
+
+/*  Footer  */
 footer {
-  background: #333333; /* Dark charcoal */
-  color: #ffffff;
+  background: #333;
+  color: white;
   padding: 1.5rem;
   text-align: center;
   margin-top: 2rem;
-  border-top: 2px solid #d4af37; /* Gold accent */
+  border-top: 2px solid #d4af37;
 }
 
-/* Utility Classes */
 .loading, .error {
   padding: 1.5rem;
   text-align: center;
@@ -190,20 +240,3 @@ footer {
   color: #d32f2f;
 }
 
-html {
-  scroll-behavior: smooth;
-}
-.map-section {
-  margin: 2rem 0;
-}
-
-.map-footer {
-  text-align: center;
-  margin-top: 0.5rem;
-  font-size: 0.9rem;
-  color: #666;
-}
-
-.gm-style .gm-style-iw {
-  padding: 10px !important;
-}
