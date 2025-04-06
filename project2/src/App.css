@@ -3,320 +3,146 @@ body {
   margin: 0;
   font-family: Arial, sans-serif;
   line-height: 1.6;
+  background-color: #f0f0f0; /* Soft gray background */
 }
 
 .stick {
   position: sticky;
   top: 0;
-  background-color: #1b1c1d;
-  color: white;
-  padding: 1rem;
+  background-color: #333333; /* Dark charcoal */
+  color: #ffffff;
+  padding: 0.01rem 1rem;
   z-index: 100;
   text-align: center;
-}
-
-.App {
-  padding: 2rem;
-  max-width: 1200px;
-  margin: 0 auto;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
 }
 
 /* Navigation */
 .nav-menu {
   display: flex;
   justify-content: center;
-  gap: 1.5rem;
-  margin-top: 1rem;
+  gap: 1rem;
+  margin-top: 0.75rem;
 }
 
 .nav-menu a {
-  color: white;
+  color: #ffffff;
   text-decoration: none;
-  padding: 0.5rem 1rem;
+  padding: 0.4rem 0.8rem;
   border-radius: 4px;
   transition: background-color 0.3s;
+  font-size: 1rem;
 }
 
 .nav-menu a:hover {
-  background-color: #0066cc;
+  background-color: #d4af37; /* Gold accent */
 }
 
 /* Shared Section Styles */
 section {
-  margin-bottom: 3rem;
-  padding: 1.5rem;
-  background: white;
+  margin-bottom: 2rem;
+  padding: 1.25rem;
+  background: #ffffff;
   border-radius: 8px;
   box-shadow: 0 2px 4px rgba(0,0,0,0.1);
-}
-
-/* Shared Tab Styles */
-.tabs {
-  display: flex;
-  gap: 1rem;
-  margin: 1rem 0;
-  justify-content: center;
-}
-
-.tabs button {
-  padding: 0.5rem 1rem;
-  background: #1b1c1d;
-  color: white;
-  border: none;
-  border-radius: 4px;
-  cursor: pointer;
-  transition: background-color 0.3s;
-}
-
-.tabs button:hover {
-  background: #004080;
-}
-
-.tabs button.active {
-  background: #0066cc;
+  scroll-margin-top: 90px;
+  border: 1px solid #e8d8c5; /* Warm beige border */
 }
 
 /* Card Styles */
 .card {
-  border: 1px solid #ddd;
+  border: 1px solid #e8d8c5; /* Warm beige */
   border-radius: 8px;
-  padding: 1.5rem;
-  background: white;
+  padding: 1.25rem;
+  background: #ffffff;
 }
 
 .card h3 {
   margin-top: 0;
-  color: #0066cc;
+  color: #d4af37; /* Gold accent */
 }
 
-/* Employment Section */
-.employment-content {
-  margin-top: 1.5rem;
-}
-
-.coop-description {
-  margin-bottom: 1.5rem;
-  line-height: 1.6;
-}
-
-.table-responsive {
-  overflow-x: auto;
-  margin: 1.5rem 0;
-  border: 1px solid #ddd;
+/* Expandable Cards */
+.degree-card,
+.minor-card {
+  border: 1px solid #e8d8c5; /* Warm beige */
   border-radius: 8px;
+  margin-bottom: 1rem;
+  overflow: hidden;
+  transition: all 0.3s;
 }
 
-.employment-table {
-  width: 100%;
-  border-collapse: collapse;
-}
-
-.employment-table th, 
-.employment-table td {
-  padding: 0.75rem;
-  text-align: left;
-  border-bottom: 1px solid #ddd;
-}
-
-.employment-table th {
-  background-color: #1b1c1d;
-  color: white;
-  position: sticky;
-  top: 0;
-}
-
-.employment-table tr:nth-child(even) {
-  background-color: #f9f9f9;
-}
-
-.employment-table tr:hover {
-  background-color: #f1f1f1;
-}
-
-.table-footer {
+.degree-header,
+.minor-header {
   display: flex;
   justify-content: space-between;
-  padding: 0.5rem 0;
-  font-size: 0.9rem;
-  color: #666;
-}
-
-/* About Section */
-.description {
-  line-height: 1.6;
-}
-
-.quote {
-  margin-top: 1.5rem;
+  align-items: center;
   padding: 1rem;
-  background: #f9f9f9;
-  border-left: 4px solid #0066cc;
+  background-color: rgba(212, 175, 55, 0.08); /* Light gold tint */
+  cursor: pointer;
+  transition: background-color 0.3s;
 }
 
-/* People Section */
-.people-list {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 1.5rem;
-  margin-top: 1rem;
+.degree-header:hover,
+.minor-header:hover {
+  background-color: rgba(212, 175, 55, 0.15); /* Slightly stronger gold tint */
 }
 
-.person-card {
-  flex: 1 1 200px;
-  max-width: 300px;
-  border: 1px solid #ddd;
-  border-radius: 8px;
-  padding: 1rem;
-  text-align: center;
+.degree-header h3,
+.minor-header h3 {
+  margin: 0;
+  color: #d4af37; /* Gold accent */
+  font-size: 1.1rem;
 }
 
-.person-card img {
-  width: 100px;
-  height: 100px;
-  border-radius: 50%;
-  object-fit: cover;
-  margin-bottom: 1rem;
+.toggle-icon {
+  color: #666666;
+  transition: transform 0.3s;
 }
 
-.people-modal {
-  padding: 1rem;
-  background: #f5f5f5;
-  border-radius: 4px;
-  margin-top: 0.5rem;
+.degree-card.expanded .toggle-icon,
+.minor-card.expanded .toggle-icon {
+  transform: rotate(180deg);
+  color: #d4af37; /* Gold accent */
 }
 
-/* Footer */
-footer {
-  background: #1b1c1d;
-  color: white;
-  padding: 2rem;
-  text-align: center;
-  margin-top: 3rem;
-}
-
-/* Loading and Error States */
-.loading, .error {
-  padding: 2rem;
-  text-align: center;
-  font-style: italic;
-}
-
-.error {
-  color: #d32f2f;
-}
-/* Add these styles to your App.css */
+/* Table Styles */
 .scrollable-table-container {
-  border: 1px solid #ddd;
+  border: 1px solid #e8d8c5; /* Warm beige */
   border-radius: 8px;
   max-height: 500px;
   overflow-y: auto;
   margin-top: 1rem;
-  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
-}
-
-.scrollable-table-container table {
-  width: 100%;
-  border-collapse: collapse;
 }
 
 .scrollable-table-container th {
   position: sticky;
   top: 0;
-  background-color: #1b1c1d;
-  color: white;
-}
-
-.scrollable-table-container th, 
-.scrollable-table-container td {
-  padding: 12px 15px;
-  text-align: left;
-  border-bottom: 1px solid #eee;
+  background-color: #333333; /* Dark charcoal */
+  color: #ffffff;
 }
 
 .scrollable-table-container tr:nth-child(even) {
   background-color: #f9f9f9;
 }
 
-.scrollable-table-container tr:hover {
-  background-color: #f1f1f1;
-}
-
-.table-footer {
-  display: flex;
-  justify-content: space-between;
-  padding: 10px 15px;
-  background-color: #f8f9fa;
-  border-top: 1px solid #ddd;
-  font-size: 0.9rem;
-  color: #666;
-}
-/* Add this to your App.css */
-section[id] {
-  scroll-margin-top: 100px; /* This should match your sticky header height */
-  padding-top: 20px;
-}
-
-/* Optional: Add smooth scrolling to the entire page */
-html {
-  scroll-behavior: smooth;
-}
-/* People Tabs Styles */
-.people-tabs {
-  display: flex;
-  gap: 1rem;
-  margin: 1.5rem 0;
-  border-bottom: 1px solid #ddd;
-  padding-bottom: 0.5rem;
-}
-
-.tab-button {
-  padding: 0.75rem 1.5rem;
-  background: none;
-  border: none;
-  border-radius: 4px 4px 0 0;
-  cursor: pointer;
-  font-weight: 600;
-  color: #555;
-  transition: all 0.3s ease;
-}
-
-.tab-button:hover {
-  background-color: #f0f0f0;
-  color: #0066cc;
-}
-
-.tab-button.active {
-  background-color: #0066cc;
-  color: white;
-}
-
-.tab-content {
-  padding: 1rem 0;
-}
-
-/* People Group Styles */
-.people-group {
-  margin-bottom: 2rem;
-}
-
+/* People Section */
 .people-list {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
-  gap: 1.5rem;
-  margin-top: 1rem;
+  gap: 1.25rem;
 }
 
 .person-card {
-  border: 1px solid #ddd;
+  border: 1px solid #e8d8c5; /* Warm beige */
   border-radius: 8px;
-  padding: 1.5rem;
+  padding: 1.25rem;
   text-align: center;
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  transition: transform 0.3s ease;
 }
 
 .person-card:hover {
-  transform: translateY(-5px);
-  box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+  transform: translateY(-3px);
 }
 
 .person-card img {
@@ -325,22 +151,12 @@ html {
   border-radius: 50%;
   object-fit: cover;
   margin-bottom: 1rem;
-  border: 3px solid #0066cc;
+  border: 3px solid #d4af37; /* Gold accent */
 }
 
-.person-card h3 {
-  margin: 0.5rem 0;
-  color: #1b1c1d;
-}
-
-.person-card p {
-  color: #666;
-  margin: 0.5rem 0;
-}
-/* People Modal Styles */
 .modal-toggle-button {
-  background-color: #0066cc;
-  color: white;
+  background-color: #d4af37; /* Gold accent */
+  color: #333333; /* Dark charcoal */
   border: none;
   padding: 0.5rem 1rem;
   border-radius: 4px;
@@ -350,17 +166,44 @@ html {
 }
 
 .modal-toggle-button:hover {
-  background-color: #004080;
+  background-color: #333333; /* Dark charcoal */
+  color: #d4af37; /* Gold accent */
 }
 
-.people-modal {
-  margin-top: 1rem;
-  padding: 1rem;
-  background-color: #f8f9fa;
-  border-radius: 8px;
-  border-left: 4px solid #0066cc;
+/* Footer */
+footer {
+  background: #333333; /* Dark charcoal */
+  color: #ffffff;
+  padding: 1.5rem;
+  text-align: center;
+  margin-top: 2rem;
+  border-top: 2px solid #d4af37; /* Gold accent */
 }
 
-.people-modal p {
-  margin: 0.5rem 0;
+/* Utility Classes */
+.loading, .error {
+  padding: 1.5rem;
+  text-align: center;
+}
+
+.error {
+  color: #d32f2f;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+.map-section {
+  margin: 2rem 0;
+}
+
+.map-footer {
+  text-align: center;
+  margin-top: 0.5rem;
+  font-size: 0.9rem;
+  color: #666;
+}
+
+.gm-style .gm-style-iw {
+  padding: 10px !important;
 }

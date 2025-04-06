@@ -1,5 +1,7 @@
-import { useEffect, useState } from 'react';
+import { useEffect, useState, useMemo } from 'react';
+import { useTable } from 'react-table';
 import getData from '../../util/GetData';
+
 
 const EmploymentStats = () => {
   const [data, setData] = useState(null);
@@ -23,21 +25,38 @@ const EmploymentStats = () => {
     fetchData();
   }, []);
 
+  const columns = useMemo(() => [
+    { Header: 'Employer', accessor: 'employer' },
+    { Header: 'Degree', accessor: 'degree' },
+    { Header: 'City', accessor: 'city' },
+    { Header: 'Term', accessor: 'term' }
+  ], []);
+
+  const tableData = useMemo(() =>
+    data?.coopTable?.coopInformation || [],
+    [data]
+  );
+
+  const {
+    getTableProps,
+    getTableBodyProps,
+    headerGroups,
+    rows,
+    prepareRow,
+  } = useTable({ columns, data: tableData });
+
   if (loading) return <div className="loading">Loading employment data...</div>;
   if (error) return <div className="error">Error: {error}</div>;
   if (!data) return <div>No data available</div>;
 
-  // For pagination
   const totalRows = data.coopTable?.coopInformation?.length || 0;
   const startRow = (currentPage - 1) * rowsPerPage + 1;
   const endRow = Math.min(currentPage * rowsPerPage, totalRows);
 
   return (
     <div className="employment-container">
-      {/* Introduction Section */}
       <section className="introduction-section">
         <h1>{data.introduction?.title || 'Employment Statistics'}</h1>
-        
         {data.introduction?.content?.map((section, index) => (
           <div key={index} className="content-block">
             <h2>{section.title}</h2>
@@ -46,7 +65,6 @@ const EmploymentStats = () => {
         ))}
       </section>
 
-      {/* Statistics Section */}
       {data.degreeStatistics && (
         <section className="stats-section">
           <h2>Degree Statistics</h2>
@@ -61,7 +79,6 @@ const EmploymentStats = () => {
         </section>
       )}
 
-      {/* Employers List */}
       {data.employers && (
         <section className="employers-section">
           <h2>{data.employers.title || 'Employers'}</h2>
@@ -73,7 +90,6 @@ const EmploymentStats = () => {
         </section>
       )}
 
-      {/* Careers List */}
       {data.careers && (
         <section className="careers-section">
           <h2>{data.careers.title || 'Careers'}</h2>
@@ -85,29 +101,45 @@ const EmploymentStats = () => {
         </section>
       )}
 
-      {/* Co-op Table */}
       {data.coopTable && (
         <section className="coop-table-section">
           <h2>{data.coopTable.title || 'Co-op Employers'}</h2>
           <div className="scrollable-table-container">
-            <table>
+            <table {...getTableProps()}>
               <thead>
-                <tr>
-                  <th>Employer</th>
-                  <th>Degree</th>
-                  <th>City</th>
-                  <th>Term</th>
-                </tr>
+                {headerGroups.map(headerGroup => {
+                  const { key, ...restGroup } = headerGroup.getHeaderGroupProps();
+                  return (
+                    <tr key={key} {...restGroup}>
+                      {headerGroup.headers.map(column => {
+                        const { key: colKey, ...colProps } = column.getHeaderProps();
+                        return (
+                          <th key={colKey} {...colProps}>
+                            {column.render('Header')}
+                          </th>
+                        );
+                      })}
+                    </tr>
+                  );
+                })}
               </thead>
-              <tbody>
-                {data.coopTable.coopInformation?.map((item, index) => (
-                  <tr key={index}>
-                    <td>{item.employer}</td>
-                    <td>{item.degree}</td>
-                    <td>{item.city}</td>
-                    <td>{item.term}</td>
-                  </tr>
-                ))}
+              <tbody {...getTableBodyProps()}>
+                {rows.map(row => {
+                  prepareRow(row);
+                  const { key, ...rowProps } = row.getRowProps();
+                  return (
+                    <tr key={key} {...rowProps}>
+                      {row.cells.map(cell => {
+                        const { key: cellKey, ...cellProps } = cell.getCellProps();
+                        return (
+                          <td key={cellKey} {...cellProps}>
+                            {cell.render('Cell')}
+                          </td>
+                        );
+                      })}
+                    </tr>
+                  );
+                })}
               </tbody>
             </table>
             <div className="table-footer">
