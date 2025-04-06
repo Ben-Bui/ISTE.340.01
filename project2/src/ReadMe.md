@@ -21,7 +21,7 @@
      - I use the tables for employment, more specific for the co-op table where it display name of coop, Employer, degree, city,and term
    - **Source**: [react-table GitHub](https://github.com/tannerlinsley/react-table)
 
-## Above and Beyond Features
+## What Above and Beyong In My Opinion
 
 - **Dynamic Course**: Minors course will expand when you want to see more for said minors, this way user don't have to scroll tirelesly down
 - **Smooth scrolling**: I make the nav to scroll for you, so click on where you want to see and it take you there
