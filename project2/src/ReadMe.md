@@ -1,4 +1,4 @@
-# iSchool Portal Submission
+# Project 2
 
 ## External UI Components Used
 
