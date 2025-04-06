@@ -5,7 +5,10 @@ const PeopleModal = ({ person }) => {
 
     return (
         <div className="people-modal-container">
-            <button onClick={() => setShowModal(!showModal)}>
+            <button 
+                className="modal-toggle-button"
+                onClick={() => setShowModal(!showModal)}
+            >
                 {showModal ? 'Hide Details' : 'Show Details'}
             </button>
             

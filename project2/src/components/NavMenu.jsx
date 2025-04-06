@@ -3,10 +3,17 @@ const NavMenu = () => {
         e.preventDefault();
         const element = document.getElementById(id);
         if (element) {
-            element.scrollIntoView({
-                behavior: 'smooth',
-                block: 'start'
+            // Calculate offset based on your sticky header height
+            const offset = 80; // Adjust this value based on your header height
+            const elementPosition = element.getBoundingClientRect().top;
+            const offsetPosition = elementPosition + window.pageYOffset - offset;
+
+            window.scrollTo({
+                top: offsetPosition,
+                behavior: 'smooth'
             });
+            
+            // Update URL hash without jumping
             window.history.pushState(null, null, `#${id}`);
         }
     };

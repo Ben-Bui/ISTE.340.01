@@ -57,24 +57,35 @@ const App = () => {
         </div>
     );
 
-    return (
-        <div>
-            <div className="stick">
-                <h1>iSchool Portal</h1>
-                <NavMenu />
-            </div>
-            <div className="App">
-                <ErrorBoundary>
-                    <AboutSection data={aboutData} />
-                    <DegreesTabs />
-                    <MinorCourses />
-                    <EmploymentStats />
-                    <PeopleTabs />
-                </ErrorBoundary>
-            </div>
-            <Footer />
-        </div>
-    );
+    // In your App.jsx return statement
+return (
+    <div>
+      <div className="stick">
+        <h1>iSchool Portal</h1>
+        <NavMenu />
+      </div>
+      <div className="App">
+        <ErrorBoundary>
+          <section id="about">
+            <AboutSection data={aboutData} />
+          </section>
+          <section id="degrees">
+            <DegreesTabs />
+          </section>
+          <section id="minors">
+            <MinorCourses />
+          </section>
+          <section id="employment">
+            <EmploymentStats />
+          </section>
+          <section id="people">
+            <PeopleTabs />
+          </section>
+        </ErrorBoundary>
+      </div>
+      <Footer />
+    </div>
+  );
 };
 
 export default App;
