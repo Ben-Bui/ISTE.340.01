@@ -1,0 +1,15 @@
+D:\Profiles\btb4516\ISTE.340.01\P3\FirstConsole\FirstConsole\obj\Debug\net8.0\FirstConsole.GeneratedMSBuildEditorConfig.editorconfig
+D:\Profiles\btb4516\ISTE.340.01\P3\FirstConsole\FirstConsole\obj\Debug\net8.0\FirstConsole.AssemblyInfoInputs.cache
+D:\Profiles\btb4516\ISTE.340.01\P3\FirstConsole\FirstConsole\obj\Debug\net8.0\FirstConsole.AssemblyInfo.cs
+D:\Profiles\btb4516\ISTE.340.01\P3\FirstConsole\FirstConsole\obj\Debug\net8.0\FirstConsole.csproj.CoreCompileInputs.cache
+D:\Profiles\btb4516\ISTE.340.01\P3\FirstConsole\FirstConsole\obj\Debug\net8.0\FirstConsole.sourcelink.json
+D:\Profiles\btb4516\ISTE.340.01\P3\FirstConsole\FirstConsole\bin\Debug\net8.0\FirstConsole.exe
+D:\Profiles\btb4516\ISTE.340.01\P3\FirstConsole\FirstConsole\bin\Debug\net8.0\FirstConsole.deps.json
+D:\Profiles\btb4516\ISTE.340.01\P3\FirstConsole\FirstConsole\bin\Debug\net8.0\FirstConsole.runtimeconfig.json
+D:\Profiles\btb4516\ISTE.340.01\P3\FirstConsole\FirstConsole\bin\Debug\net8.0\FirstConsole.dll
+D:\Profiles\btb4516\ISTE.340.01\P3\FirstConsole\FirstConsole\bin\Debug\net8.0\FirstConsole.pdb
+D:\Profiles\btb4516\ISTE.340.01\P3\FirstConsole\FirstConsole\obj\Debug\net8.0\FirstConsole.dll
+D:\Profiles\btb4516\ISTE.340.01\P3\FirstConsole\FirstConsole\obj\Debug\net8.0\refint\FirstConsole.dll
+D:\Profiles\btb4516\ISTE.340.01\P3\FirstConsole\FirstConsole\obj\Debug\net8.0\FirstConsole.pdb
+D:\Profiles\btb4516\ISTE.340.01\P3\FirstConsole\FirstConsole\obj\Debug\net8.0\FirstConsole.genruntimeconfig.cache
+D:\Profiles\btb4516\ISTE.340.01\P3\FirstConsole\FirstConsole\obj\Debug\net8.0\ref\FirstConsole.dll

@@ -1,0 +1,17 @@
+E:\340\2241\CollectionsCode\Dictionary\BasicDIctionary\BasicDIctionary\bin\Debug\net8.0\BasicDIctionary.exe
+E:\340\2241\CollectionsCode\Dictionary\BasicDIctionary\BasicDIctionary\bin\Debug\net8.0\BasicDIctionary.deps.json
+E:\340\2241\CollectionsCode\Dictionary\BasicDIctionary\BasicDIctionary\bin\Debug\net8.0\BasicDIctionary.runtimeconfig.json
+E:\340\2241\CollectionsCode\Dictionary\BasicDIctionary\BasicDIctionary\bin\Debug\net8.0\BasicDIctionary.dll
+E:\340\2241\CollectionsCode\Dictionary\BasicDIctionary\BasicDIctionary\bin\Debug\net8.0\BasicDIctionary.pdb
+E:\340\2241\CollectionsCode\Dictionary\BasicDIctionary\BasicDIctionary\bin\Debug\net8.0\Newtonsoft.Json.dll
+E:\340\2241\CollectionsCode\Dictionary\BasicDIctionary\BasicDIctionary\obj\Debug\net8.0\BasicDIctionary.csproj.AssemblyReference.cache
+E:\340\2241\CollectionsCode\Dictionary\BasicDIctionary\BasicDIctionary\obj\Debug\net8.0\BasicDIctionary.GeneratedMSBuildEditorConfig.editorconfig
+E:\340\2241\CollectionsCode\Dictionary\BasicDIctionary\BasicDIctionary\obj\Debug\net8.0\BasicDIctionary.AssemblyInfoInputs.cache
+E:\340\2241\CollectionsCode\Dictionary\BasicDIctionary\BasicDIctionary\obj\Debug\net8.0\BasicDIctionary.AssemblyInfo.cs
+E:\340\2241\CollectionsCode\Dictionary\BasicDIctionary\BasicDIctionary\obj\Debug\net8.0\BasicDIctionary.csproj.CoreCompileInputs.cache
+E:\340\2241\CollectionsCode\Dictionary\BasicDIctionary\BasicDIctionary\obj\Debug\net8.0\BasicDIc.0BA7F35D.Up2Date
+E:\340\2241\CollectionsCode\Dictionary\BasicDIctionary\BasicDIctionary\obj\Debug\net8.0\BasicDIctionary.dll
+E:\340\2241\CollectionsCode\Dictionary\BasicDIctionary\BasicDIctionary\obj\Debug\net8.0\refint\BasicDIctionary.dll
+E:\340\2241\CollectionsCode\Dictionary\BasicDIctionary\BasicDIctionary\obj\Debug\net8.0\BasicDIctionary.pdb
+E:\340\2241\CollectionsCode\Dictionary\BasicDIctionary\BasicDIctionary\obj\Debug\net8.0\BasicDIctionary.genruntimeconfig.cache
+E:\340\2241\CollectionsCode\Dictionary\BasicDIctionary\BasicDIctionary\obj\Debug\net8.0\ref\BasicDIctionary.dll

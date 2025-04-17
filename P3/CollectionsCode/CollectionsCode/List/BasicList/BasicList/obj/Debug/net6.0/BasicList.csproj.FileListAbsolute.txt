@@ -1,0 +1,17 @@
+E:\340\2221\14a\Collections\List\BasicList\BasicList\bin\Debug\net6.0\BasicList.exe
+E:\340\2221\14a\Collections\List\BasicList\BasicList\bin\Debug\net6.0\BasicList.deps.json
+E:\340\2221\14a\Collections\List\BasicList\BasicList\bin\Debug\net6.0\BasicList.runtimeconfig.json
+E:\340\2221\14a\Collections\List\BasicList\BasicList\bin\Debug\net6.0\BasicList.dll
+E:\340\2221\14a\Collections\List\BasicList\BasicList\bin\Debug\net6.0\ref\BasicList.dll
+E:\340\2221\14a\Collections\List\BasicList\BasicList\bin\Debug\net6.0\BasicList.pdb
+E:\340\2221\14a\Collections\List\BasicList\BasicList\bin\Debug\net6.0\Newtonsoft.Json.dll
+E:\340\2221\14a\Collections\List\BasicList\BasicList\obj\Debug\net6.0\BasicList.csproj.AssemblyReference.cache
+E:\340\2221\14a\Collections\List\BasicList\BasicList\obj\Debug\net6.0\BasicList.GeneratedMSBuildEditorConfig.editorconfig
+E:\340\2221\14a\Collections\List\BasicList\BasicList\obj\Debug\net6.0\BasicList.AssemblyInfoInputs.cache
+E:\340\2221\14a\Collections\List\BasicList\BasicList\obj\Debug\net6.0\BasicList.AssemblyInfo.cs
+E:\340\2221\14a\Collections\List\BasicList\BasicList\obj\Debug\net6.0\BasicList.csproj.CoreCompileInputs.cache
+E:\340\2221\14a\Collections\List\BasicList\BasicList\obj\Debug\net6.0\BasicList.csproj.CopyComplete
+E:\340\2221\14a\Collections\List\BasicList\BasicList\obj\Debug\net6.0\BasicList.dll
+E:\340\2221\14a\Collections\List\BasicList\BasicList\obj\Debug\net6.0\ref\BasicList.dll
+E:\340\2221\14a\Collections\List\BasicList\BasicList\obj\Debug\net6.0\BasicList.pdb
+E:\340\2221\14a\Collections\List\BasicList\BasicList\obj\Debug\net6.0\BasicList.genruntimeconfig.cache

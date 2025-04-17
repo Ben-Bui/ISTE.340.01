@@ -1,0 +1,108 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "D:\\Profiles\\btb4516\\ISTE.340.01\\P3\\FirstMVCWebApp\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{1B51E651-D356-423D-98BB-EA5EEE104D29}|FirstMVCWebApp\\FirstMVCWebApp.csproj|d:\\profiles\\btb4516\\iste.340.01\\p3\\firstmvcwebapp\\firstmvcwebapp\\views\\home\\benmodel.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{1B51E651-D356-423D-98BB-EA5EEE104D29}|FirstMVCWebApp\\FirstMVCWebApp.csproj|solutionrelative:firstmvcwebapp\\views\\home\\benmodel.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{1B51E651-D356-423D-98BB-EA5EEE104D29}|FirstMVCWebApp\\FirstMVCWebApp.csproj|d:\\profiles\\btb4516\\iste.340.01\\p3\\firstmvcwebapp\\firstmvcwebapp\\models\\benmodelmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{1B51E651-D356-423D-98BB-EA5EEE104D29}|FirstMVCWebApp\\FirstMVCWebApp.csproj|solutionrelative:firstmvcwebapp\\models\\benmodelmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{1B51E651-D356-423D-98BB-EA5EEE104D29}|FirstMVCWebApp\\FirstMVCWebApp.csproj|d:\\profiles\\btb4516\\iste.340.01\\p3\\firstmvcwebapp\\firstmvcwebapp\\views\\home\\bennoview.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{1B51E651-D356-423D-98BB-EA5EEE104D29}|FirstMVCWebApp\\FirstMVCWebApp.csproj|solutionrelative:firstmvcwebapp\\views\\home\\bennoview.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{1B51E651-D356-423D-98BB-EA5EEE104D29}|FirstMVCWebApp\\FirstMVCWebApp.csproj|d:\\profiles\\btb4516\\iste.340.01\\p3\\firstmvcwebapp\\firstmvcwebapp\\controllers\\homecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{1B51E651-D356-423D-98BB-EA5EEE104D29}|FirstMVCWebApp\\FirstMVCWebApp.csproj|solutionrelative:firstmvcwebapp\\controllers\\homecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{1B51E651-D356-423D-98BB-EA5EEE104D29}|FirstMVCWebApp\\FirstMVCWebApp.csproj|d:\\profiles\\btb4516\\iste.340.01\\p3\\firstmvcwebapp\\firstmvcwebapp\\views\\shared\\_layout.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{1B51E651-D356-423D-98BB-EA5EEE104D29}|FirstMVCWebApp\\FirstMVCWebApp.csproj|solutionrelative:firstmvcwebapp\\views\\shared\\_layout.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 3,
+          "Children": [
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{3ae79031-e1bc-11d0-8f78-00a0c9110057}"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "BenModelModel.cs",
+              "DocumentMoniker": "D:\\Profiles\\btb4516\\ISTE.340.01\\P3\\FirstMVCWebApp\\FirstMVCWebApp\\Models\\BenModelModel.cs",
+              "RelativeDocumentMoniker": "FirstMVCWebApp\\Models\\BenModelModel.cs",
+              "ToolTip": "D:\\Profiles\\btb4516\\ISTE.340.01\\P3\\FirstMVCWebApp\\FirstMVCWebApp\\Models\\BenModelModel.cs",
+              "RelativeToolTip": "FirstMVCWebApp\\Models\\BenModelModel.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAMAAAAEAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-04-03T14:27:53.969Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "BenNoView.cshtml",
+              "DocumentMoniker": "D:\\Profiles\\btb4516\\ISTE.340.01\\P3\\FirstMVCWebApp\\FirstMVCWebApp\\Views\\Home\\BenNoView.cshtml",
+              "RelativeDocumentMoniker": "FirstMVCWebApp\\Views\\Home\\BenNoView.cshtml",
+              "ToolTip": "D:\\Profiles\\btb4516\\ISTE.340.01\\P3\\FirstMVCWebApp\\FirstMVCWebApp\\Views\\Home\\BenNoView.cshtml",
+              "RelativeToolTip": "FirstMVCWebApp\\Views\\Home\\BenNoView.cshtml",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAcAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-04-03T14:11:25.295Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "BenModel.cshtml",
+              "DocumentMoniker": "D:\\Profiles\\btb4516\\ISTE.340.01\\P3\\FirstMVCWebApp\\FirstMVCWebApp\\Views\\Home\\BenModel.cshtml",
+              "RelativeDocumentMoniker": "FirstMVCWebApp\\Views\\Home\\BenModel.cshtml",
+              "ToolTip": "D:\\Profiles\\btb4516\\ISTE.340.01\\P3\\FirstMVCWebApp\\FirstMVCWebApp\\Views\\Home\\BenModel.cshtml",
+              "RelativeToolTip": "FirstMVCWebApp\\Views\\Home\\BenModel.cshtml",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAA0AAAAFAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-04-03T14:22:50.588Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "HomeController.cs",
+              "DocumentMoniker": "D:\\Profiles\\btb4516\\ISTE.340.01\\P3\\FirstMVCWebApp\\FirstMVCWebApp\\Controllers\\HomeController.cs",
+              "RelativeDocumentMoniker": "FirstMVCWebApp\\Controllers\\HomeController.cs",
+              "ToolTip": "D:\\Profiles\\btb4516\\ISTE.340.01\\P3\\FirstMVCWebApp\\FirstMVCWebApp\\Controllers\\HomeController.cs",
+              "RelativeToolTip": "FirstMVCWebApp\\Controllers\\HomeController.cs",
+              "ViewState": "AQIAAA0AAAAAAAAAAAAgwBQAAAAmAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-04-03T14:02:45.61Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "_Layout.cshtml",
+              "DocumentMoniker": "D:\\Profiles\\btb4516\\ISTE.340.01\\P3\\FirstMVCWebApp\\FirstMVCWebApp\\Views\\Shared\\_Layout.cshtml",
+              "RelativeDocumentMoniker": "FirstMVCWebApp\\Views\\Shared\\_Layout.cshtml",
+              "ToolTip": "D:\\Profiles\\btb4516\\ISTE.340.01\\P3\\FirstMVCWebApp\\FirstMVCWebApp\\Views\\Shared\\_Layout.cshtml",
+              "RelativeToolTip": "FirstMVCWebApp\\Views\\Shared\\_Layout.cshtml",
+              "ViewState": "AQIAAAMAAAAAAAAAAAAAABwAAAB9AAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-04-03T14:00:12.324Z"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

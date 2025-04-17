@@ -1,0 +1,53 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "E:\\340\\2241\\CollectionsCode\\Dictionary\\BasicDIctionary\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{3EE1FFA0-01F3-4DCD-A406-8833A2297706}|BasicDIctionary\\BasicDIctionary.csproj|e:\\340\\2241\\collectionscode\\dictionary\\basicdictionary\\basicdictionary\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{3EE1FFA0-01F3-4DCD-A406-8833A2297706}|BasicDIctionary\\BasicDIctionary.csproj|solutionrelative:basicdictionary\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{3EE1FFA0-01F3-4DCD-A406-8833A2297706}|BasicDIctionary\\BasicDIctionary.csproj|e:\\340\\2241\\collectionscode\\dictionary\\basicdictionary\\basicdictionary\\faculty.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{3EE1FFA0-01F3-4DCD-A406-8833A2297706}|BasicDIctionary\\BasicDIctionary.csproj|solutionrelative:basicdictionary\\faculty.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 1,
+          "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "Faculty.cs",
+              "DocumentMoniker": "E:\\340\\2241\\CollectionsCode\\Dictionary\\BasicDIctionary\\BasicDIctionary\\Faculty.cs",
+              "RelativeDocumentMoniker": "BasicDIctionary\\Faculty.cs",
+              "ToolTip": "E:\\340\\2241\\CollectionsCode\\Dictionary\\BasicDIctionary\\BasicDIctionary\\Faculty.cs",
+              "RelativeToolTip": "BasicDIctionary\\Faculty.cs",
+              "ViewState": "AQIAAAIAAAAAAAAAAAAAAAUAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-11-20T19:37:54.291Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "Program.cs",
+              "DocumentMoniker": "E:\\340\\2241\\CollectionsCode\\Dictionary\\BasicDIctionary\\BasicDIctionary\\Program.cs",
+              "RelativeDocumentMoniker": "BasicDIctionary\\Program.cs",
+              "ToolTip": "E:\\340\\2241\\CollectionsCode\\Dictionary\\BasicDIctionary\\BasicDIctionary\\Program.cs",
+              "RelativeToolTip": "BasicDIctionary\\Program.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAACYAAAAMAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-11-20T19:37:54.365Z",
+              "EditorCaption": ""
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

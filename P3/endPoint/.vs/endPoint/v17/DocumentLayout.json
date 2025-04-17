@@ -1,0 +1,109 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "D:\\Profiles\\btb4516\\ISTE.340.01\\P3\\endPoint\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{BF384C08-7112-4E03-B3C1-EE5EED7444B4}|endPoint\\endPoint.csproj|d:\\profiles\\btb4516\\iste.340.01\\p3\\endpoint\\endpoint\\controllers\\homecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{BF384C08-7112-4E03-B3C1-EE5EED7444B4}|endPoint\\endPoint.csproj|solutionrelative:endpoint\\controllers\\homecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{BF384C08-7112-4E03-B3C1-EE5EED7444B4}|endPoint\\endPoint.csproj|d:\\profiles\\btb4516\\iste.340.01\\p3\\endpoint\\endpoint\\controllers\\newcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{BF384C08-7112-4E03-B3C1-EE5EED7444B4}|endPoint\\endPoint.csproj|solutionrelative:endpoint\\controllers\\newcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{BF384C08-7112-4E03-B3C1-EE5EED7444B4}|endPoint\\endPoint.csproj|d:\\profiles\\btb4516\\iste.340.01\\p3\\endpoint\\endpoint\\views\\home\\newcontroller.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{BF384C08-7112-4E03-B3C1-EE5EED7444B4}|endPoint\\endPoint.csproj|solutionrelative:endpoint\\views\\home\\newcontroller.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{BF384C08-7112-4E03-B3C1-EE5EED7444B4}|endPoint\\endPoint.csproj|d:\\profiles\\btb4516\\iste.340.01\\p3\\endpoint\\endpoint\\views\\new\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{BF384C08-7112-4E03-B3C1-EE5EED7444B4}|endPoint\\endPoint.csproj|solutionrelative:endpoint\\views\\new\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{BF384C08-7112-4E03-B3C1-EE5EED7444B4}|endPoint\\endPoint.csproj|d:\\profiles\\btb4516\\iste.340.01\\p3\\endpoint\\endpoint\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{BF384C08-7112-4E03-B3C1-EE5EED7444B4}|endPoint\\endPoint.csproj|solutionrelative:endpoint\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 3,
+          "Children": [
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{3ae79031-e1bc-11d0-8f78-00a0c9110057}"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "NewController.cshtml",
+              "DocumentMoniker": "D:\\Profiles\\btb4516\\ISTE.340.01\\P3\\endPoint\\endPoint\\Views\\Home\\NewController.cshtml",
+              "RelativeDocumentMoniker": "endPoint\\Views\\Home\\NewController.cshtml",
+              "ToolTip": "D:\\Profiles\\btb4516\\ISTE.340.01\\P3\\endPoint\\endPoint\\Views\\Home\\NewController.cshtml",
+              "RelativeToolTip": "endPoint\\Views\\Home\\NewController.cshtml",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAYAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-04-08T14:31:12.479Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "NewController.cs",
+              "DocumentMoniker": "D:\\Profiles\\btb4516\\ISTE.340.01\\P3\\endPoint\\endPoint\\Controllers\\NewController.cs",
+              "RelativeDocumentMoniker": "endPoint\\Controllers\\NewController.cs",
+              "ToolTip": "D:\\Profiles\\btb4516\\ISTE.340.01\\P3\\endPoint\\endPoint\\Controllers\\NewController.cs",
+              "RelativeToolTip": "endPoint\\Controllers\\NewController.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAwAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-04-08T14:14:39.355Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "HomeController.cs",
+              "DocumentMoniker": "D:\\Profiles\\btb4516\\ISTE.340.01\\P3\\endPoint\\endPoint\\Controllers\\HomeController.cs",
+              "RelativeDocumentMoniker": "endPoint\\Controllers\\HomeController.cs",
+              "ToolTip": "D:\\Profiles\\btb4516\\ISTE.340.01\\P3\\endPoint\\endPoint\\Controllers\\HomeController.cs",
+              "RelativeToolTip": "endPoint\\Controllers\\HomeController.cs",
+              "ViewState": "AQIAAAIAAAAAAAAAAAAUwCQAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-04-08T14:06:28.392Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "Index.cshtml",
+              "DocumentMoniker": "D:\\Profiles\\btb4516\\ISTE.340.01\\P3\\endPoint\\endPoint\\Views\\New\\Index.cshtml",
+              "RelativeDocumentMoniker": "endPoint\\Views\\New\\Index.cshtml",
+              "ToolTip": "D:\\Profiles\\btb4516\\ISTE.340.01\\P3\\endPoint\\endPoint\\Views\\New\\Index.cshtml",
+              "RelativeToolTip": "endPoint\\Views\\New\\Index.cshtml",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAcAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-04-08T14:21:46.251Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "Program.cs",
+              "DocumentMoniker": "D:\\Profiles\\btb4516\\ISTE.340.01\\P3\\endPoint\\endPoint\\Program.cs",
+              "RelativeDocumentMoniker": "endPoint\\Program.cs",
+              "ToolTip": "D:\\Profiles\\btb4516\\ISTE.340.01\\P3\\endPoint\\endPoint\\Program.cs",
+              "RelativeToolTip": "endPoint\\Program.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAABcAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-04-08T13:53:48.212Z",
+              "EditorCaption": ""
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

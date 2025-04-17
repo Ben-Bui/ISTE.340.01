@@ -1,0 +1,14 @@
+﻿@model FirstMVCWebApp.Models.BenModelModel
+@{
+    ViewData["Title"] = Model.PageTitle;
+}
+
+<h1>@Model.Title</h1>
+<p>@Model.Description</p>
+
+<ul>
+    @for(var i=0; i<Model.Howmany;i++)
+    {
+        <li>Number: @i</li>
+    }
+</ul>
