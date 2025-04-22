@@ -27,3 +27,11 @@ body {
     border:solid 5px orange;
     text-align:center;
 }
+.person{
+    min-height: 260px;
+    width: 200px;
+    display: inline-table;
+}
+person >img{
+    max-height:200px
+}

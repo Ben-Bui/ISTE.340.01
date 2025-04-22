@@ -1,0 +1,76 @@
+﻿@model BuiP3.Models.PeopleModel
+
+@{
+    ViewData["Title"] = Model.pageTitle;
+}
+
+<h1>@Model.title</h1>
+<div>@Model.subTitle</div>
+<h2>Falcuty</h2>
+@foreach (var faculty in Model.faculty)
+{
+    <div class="person">
+        <img src="@faculty.imagePath" alt="pic" />
+        <h3 style="font-size: small">
+            @faculty.name
+        </h3>
+        <h3 style="font-size: small">
+            @faculty.title
+        </h3>
+        <h3 style="font-size: small">
+            @faculty.office
+        </h3>
+        <h3 style="font-size: small">
+            @faculty.phone
+        </h3>
+        <h3 style="font-size: small">
+            Email: @faculty.email
+        </h3>
+        @if (faculty.website != "")
+        {
+            <h3 style="font-size: small">
+                <a href="@faculty.website" target="_blank">My Site</a>
+            </h3>
+        }
+        <h3 style="font-size: small">
+            Twitter: @faculty.twitter
+        </h3>
+        <h3 style="font-size: small">
+            Facebook: @faculty.facebook
+        </h3>
+    </div>
+}
+<h2>Staff</h2>
+@foreach (var staff in Model.staff)
+{
+    <div class="person">
+        <img src="@staff.imagePath" alt="pic" />
+        <h3 style="font-size: small">
+            @staff.name
+        </h3>
+        <h3 style="font-size: small">
+            @staff.title
+        </h3>
+        <h3 style="font-size: small">
+            @staff.office
+        </h3>
+        <h3 style="font-size: small">
+            @staff.phone
+        </h3>
+        <h3 style="font-size: small">
+            Email: @staff.email
+        </h3>
+        @if (staff.website != "")
+        {
+            <h3 style="font-size: small">
+                <a href="@staff.website" target="_blank">My Site</a>
+            </h3>
+        }
+        <h3 style="font-size: small">
+            Twitter: @staff.twitter
+        </h3>
+        <h3 style="font-size: small">
+            Facebook: @staff.facebook
+        </h3>
+    </div>
+}

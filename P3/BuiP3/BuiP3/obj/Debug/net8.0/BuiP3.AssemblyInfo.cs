@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("BuiP3")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+fef830dc92a4c37e0c62f6f7cc2ac5786f08d7f4")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+7bfb599204b5ff8d5830ad311874f730834a2d9a")]
 [assembly: System.Reflection.AssemblyProductAttribute("BuiP3")]
 [assembly: System.Reflection.AssemblyTitleAttribute("BuiP3")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

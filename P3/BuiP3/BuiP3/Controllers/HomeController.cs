@@ -36,6 +36,17 @@ namespace BuiP3.Controllers
             return View(rtnResults);
         }
 
+        public async Task<IActionResult> People()
+        {
+            DataRetrieval dr = new DataRetrieval();
+            var loadedPeople = await dr.GetData("people/");
+            var rtnResults = JsonConvert.DeserializeObject<PeopleModel>(loadedPeople);
+            rtnResults.pageTitle = "People page!";
+
+            return View(rtnResults);
+        }
+
+
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
         public IActionResult Error()
         {
