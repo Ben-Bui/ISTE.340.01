@@ -3,8 +3,20 @@
   "WorkspaceRootPath": "D:\\Profiles\\btb4516\\ISTE.340.01\\P3\\BuiP3\\",
   "Documents": [
     {
+      "AbsoluteMoniker": "D:0:0:{FA195093-565E-402B-9573-43581D831781}|BuiP3\\BuiP3.csproj|d:\\profiles\\btb4516\\iste.340.01\\p3\\buip3\\buip3\\wwwroot\\js\\site.js||{14D17961-FE51-464D-9111-C4AF11D7D99A}",
+      "RelativeMoniker": "D:0:0:{FA195093-565E-402B-9573-43581D831781}|BuiP3\\BuiP3.csproj|solutionrelative:buip3\\wwwroot\\js\\site.js||{14D17961-FE51-464D-9111-C4AF11D7D99A}"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{FA195093-565E-402B-9573-43581D831781}|BuiP3\\BuiP3.csproj|d:\\profiles\\btb4516\\iste.340.01\\p3\\buip3\\buip3\\views\\home\\people.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
       "RelativeMoniker": "D:0:0:{FA195093-565E-402B-9573-43581D831781}|BuiP3\\BuiP3.csproj|solutionrelative:buip3\\views\\home\\people.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{FA195093-565E-402B-9573-43581D831781}|BuiP3\\BuiP3.csproj|d:\\profiles\\btb4516\\iste.340.01\\p3\\buip3\\buip3\\views\\shared\\_layout.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{FA195093-565E-402B-9573-43581D831781}|BuiP3\\BuiP3.csproj|solutionrelative:buip3\\views\\shared\\_layout.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{FA195093-565E-402B-9573-43581D831781}|BuiP3\\BuiP3.csproj|d:\\profiles\\btb4516\\iste.340.01\\p3\\buip3\\buip3\\models\\aboutmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{FA195093-565E-402B-9573-43581D831781}|BuiP3\\BuiP3.csproj|solutionrelative:buip3\\models\\aboutmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{FA195093-565E-402B-9573-43581D831781}|BuiP3\\BuiP3.csproj|d:\\profiles\\btb4516\\iste.340.01\\p3\\buip3\\buip3\\models\\peoplemodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
@@ -23,14 +35,6 @@
       "RelativeMoniker": "D:0:0:{FA195093-565E-402B-9573-43581D831781}|BuiP3\\BuiP3.csproj|solutionrelative:buip3\\views\\home\\about.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{FA195093-565E-402B-9573-43581D831781}|BuiP3\\BuiP3.csproj|d:\\profiles\\btb4516\\iste.340.01\\p3\\buip3\\buip3\\models\\aboutmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{FA195093-565E-402B-9573-43581D831781}|BuiP3\\BuiP3.csproj|solutionrelative:buip3\\models\\aboutmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{FA195093-565E-402B-9573-43581D831781}|BuiP3\\BuiP3.csproj|d:\\profiles\\btb4516\\iste.340.01\\p3\\buip3\\buip3\\views\\shared\\_layout.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{FA195093-565E-402B-9573-43581D831781}|BuiP3\\BuiP3.csproj|solutionrelative:buip3\\views\\shared\\_layout.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{FA195093-565E-402B-9573-43581D831781}|BuiP3\\BuiP3.csproj|d:\\profiles\\btb4516\\iste.340.01\\p3\\buip3\\buip3\\services\\dataretrieval.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{FA195093-565E-402B-9573-43581D831781}|BuiP3\\BuiP3.csproj|solutionrelative:buip3\\services\\dataretrieval.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
@@ -42,7 +46,7 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 3,
+          "SelectedChildIndex": 1,
           "Children": [
             {
               "$type": "Bookmark",
@@ -50,7 +54,20 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
+              "DocumentIndex": 0,
+              "Title": "site.js",
+              "DocumentMoniker": "D:\\Profiles\\btb4516\\ISTE.340.01\\P3\\BuiP3\\BuiP3\\wwwroot\\js\\site.js",
+              "RelativeDocumentMoniker": "BuiP3\\wwwroot\\js\\site.js",
+              "ToolTip": "D:\\Profiles\\btb4516\\ISTE.340.01\\P3\\BuiP3\\BuiP3\\wwwroot\\js\\site.js",
+              "RelativeToolTip": "BuiP3\\wwwroot\\js\\site.js",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAA0AAAAgAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001646|",
+              "WhenOpened": "2025-04-24T14:17:12.544Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
               "Title": "HomeController.cs",
               "DocumentMoniker": "D:\\Profiles\\btb4516\\ISTE.340.01\\P3\\BuiP3\\BuiP3\\Controllers\\HomeController.cs",
               "RelativeDocumentMoniker": "BuiP3\\Controllers\\HomeController.cs",
@@ -62,7 +79,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 4,
               "Title": "PeopleModel.cs",
               "DocumentMoniker": "D:\\Profiles\\btb4516\\ISTE.340.01\\P3\\BuiP3\\BuiP3\\Models\\PeopleModel.cs",
               "RelativeDocumentMoniker": "BuiP3\\Models\\PeopleModel.cs",
@@ -70,24 +87,25 @@
               "RelativeToolTip": "BuiP3\\Models\\PeopleModel.cs",
               "ViewState": "AQIAAAAAAAAAAAAAAAAAAA8AAAAsAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-04-17T14:05:47.802Z"
+              "WhenOpened": "2025-04-17T14:05:47.802Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
+              "DocumentIndex": 1,
               "Title": "People.cshtml",
               "DocumentMoniker": "D:\\Profiles\\btb4516\\ISTE.340.01\\P3\\BuiP3\\BuiP3\\Views\\Home\\People.cshtml",
               "RelativeDocumentMoniker": "BuiP3\\Views\\Home\\People.cshtml",
               "ToolTip": "D:\\Profiles\\btb4516\\ISTE.340.01\\P3\\BuiP3\\BuiP3\\Views\\Home\\People.cshtml",
               "RelativeToolTip": "BuiP3\\Views\\Home\\People.cshtml",
-              "ViewState": "AQIAAC0AAAAAAAAAAAAAADQAAAANAAAA",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAsAAAAvAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
               "WhenOpened": "2025-04-17T14:04:17.45Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 4,
+              "DocumentIndex": 7,
               "Title": "About.cshtml",
               "DocumentMoniker": "D:\\Profiles\\btb4516\\ISTE.340.01\\P3\\BuiP3\\BuiP3\\Views\\Home\\About.cshtml",
               "RelativeDocumentMoniker": "BuiP3\\Views\\Home\\About.cshtml",
@@ -99,7 +117,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 5,
+              "DocumentIndex": 3,
               "Title": "AboutModel.cs",
               "DocumentMoniker": "D:\\Profiles\\btb4516\\ISTE.340.01\\P3\\BuiP3\\BuiP3\\Models\\AboutModel.cs",
               "RelativeDocumentMoniker": "BuiP3\\Models\\AboutModel.cs",
@@ -107,23 +125,25 @@
               "RelativeToolTip": "BuiP3\\Models\\AboutModel.cs",
               "ViewState": "AQIAAAAAAAAAAAAAAAAAAAgAAAAfAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-04-15T13:44:03.203Z"
+              "WhenOpened": "2025-04-15T13:44:03.203Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 6,
+              "DocumentIndex": 2,
               "Title": "_Layout.cshtml",
               "DocumentMoniker": "D:\\Profiles\\btb4516\\ISTE.340.01\\P3\\BuiP3\\BuiP3\\Views\\Shared\\_Layout.cshtml",
               "RelativeDocumentMoniker": "BuiP3\\Views\\Shared\\_Layout.cshtml",
               "ToolTip": "D:\\Profiles\\btb4516\\ISTE.340.01\\P3\\BuiP3\\BuiP3\\Views\\Shared\\_Layout.cshtml",
               "RelativeToolTip": "BuiP3\\Views\\Shared\\_Layout.cshtml",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAABoAAAAdAAAA",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAACsAAAAxAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2025-04-10T14:22:05.125Z"
+              "WhenOpened": "2025-04-10T14:22:05.125Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 7,
+              "DocumentIndex": 8,
               "Title": "DataRetrieval.cs",
               "DocumentMoniker": "D:\\Profiles\\btb4516\\ISTE.340.01\\P3\\BuiP3\\BuiP3\\Services\\DataRetrieval.cs",
               "RelativeDocumentMoniker": "BuiP3\\Services\\DataRetrieval.cs",
@@ -135,7 +155,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 5,
               "Title": "site.css",
               "DocumentMoniker": "D:\\Profiles\\btb4516\\ISTE.340.01\\P3\\BuiP3\\BuiP3\\wwwroot\\css\\site.css",
               "RelativeDocumentMoniker": "BuiP3\\wwwroot\\css\\site.css",

@@ -197,6 +197,38 @@
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\js\\bootstrap.min.js.map"
     },
     {
+      "Id": "D:\\Profiles\\btb4516\\ISTE.340.01\\P3\\BuiP3\\BuiP3\\wwwroot\\lib\\jquery-UI\\images\\ui-icons_444444_256x240.png",
+      "PackagePath": "staticwebassets\\lib\\jquery-UI\\images\\ui-icons_444444_256x240.png"
+    },
+    {
+      "Id": "D:\\Profiles\\btb4516\\ISTE.340.01\\P3\\BuiP3\\BuiP3\\wwwroot\\lib\\jquery-UI\\images\\ui-icons_555555_256x240.png",
+      "PackagePath": "staticwebassets\\lib\\jquery-UI\\images\\ui-icons_555555_256x240.png"
+    },
+    {
+      "Id": "D:\\Profiles\\btb4516\\ISTE.340.01\\P3\\BuiP3\\BuiP3\\wwwroot\\lib\\jquery-UI\\images\\ui-icons_777620_256x240.png",
+      "PackagePath": "staticwebassets\\lib\\jquery-UI\\images\\ui-icons_777620_256x240.png"
+    },
+    {
+      "Id": "D:\\Profiles\\btb4516\\ISTE.340.01\\P3\\BuiP3\\BuiP3\\wwwroot\\lib\\jquery-UI\\images\\ui-icons_777777_256x240.png",
+      "PackagePath": "staticwebassets\\lib\\jquery-UI\\images\\ui-icons_777777_256x240.png"
+    },
+    {
+      "Id": "D:\\Profiles\\btb4516\\ISTE.340.01\\P3\\BuiP3\\BuiP3\\wwwroot\\lib\\jquery-UI\\images\\ui-icons_cc0000_256x240.png",
+      "PackagePath": "staticwebassets\\lib\\jquery-UI\\images\\ui-icons_cc0000_256x240.png"
+    },
+    {
+      "Id": "D:\\Profiles\\btb4516\\ISTE.340.01\\P3\\BuiP3\\BuiP3\\wwwroot\\lib\\jquery-UI\\images\\ui-icons_ffffff_256x240.png",
+      "PackagePath": "staticwebassets\\lib\\jquery-UI\\images\\ui-icons_ffffff_256x240.png"
+    },
+    {
+      "Id": "D:\\Profiles\\btb4516\\ISTE.340.01\\P3\\BuiP3\\BuiP3\\wwwroot\\lib\\jquery-UI\\jquery-ui.min.css",
+      "PackagePath": "staticwebassets\\lib\\jquery-UI\\jquery-ui.min.css"
+    },
+    {
+      "Id": "D:\\Profiles\\btb4516\\ISTE.340.01\\P3\\BuiP3\\BuiP3\\wwwroot\\lib\\jquery-UI\\jquery-ui.min.js",
+      "PackagePath": "staticwebassets\\lib\\jquery-UI\\jquery-ui.min.js"
+    },
+    {
       "Id": "D:\\Profiles\\btb4516\\ISTE.340.01\\P3\\BuiP3\\BuiP3\\wwwroot\\lib\\jquery-validation-unobtrusive\\LICENSE.txt",
       "PackagePath": "staticwebassets\\lib\\jquery-validation-unobtrusive\\LICENSE.txt"
     },
