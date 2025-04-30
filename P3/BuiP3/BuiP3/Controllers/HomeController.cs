@@ -80,81 +80,39 @@ namespace BuiP3.Controllers
         public async Task<IActionResult> Courses()
         {
             DataRetrieval dr = new DataRetrieval();
+            // Only minor have course ID
+            var loadedMinorsData = await dr.GetData("minors/");
+            var minors = JsonConvert.DeserializeObject<MinorsModel>(loadedMinorsData);
 
-            // Get degrees and minors data (same as before)
-            var degreesData = await dr.GetData("degrees/");
-            var degrees = JsonConvert.DeserializeObject<DegreesModel>(degreesData);
-            var minorsData = await dr.GetData("minors/");
-            var minors = JsonConvert.DeserializeObject<MinorsModel>(minorsData);
-
-            // Combine all courses with proper filtering
             var allCourses = new List<string>();
 
-            // Regex pattern to match course codes like "ISTE-430"
-            var courseCodePattern = new Regex(@"^[A-Za-z]{2,}-\d{3}$");
-
-            // Filter undergraduate courses
-            if (degrees?.undergraduate != null)
-            {
-                foreach (var undergrad in degrees.undergraduate)
-                {
-                    if (undergrad?.concentrations != null)
-                    {
-                        allCourses.AddRange(undergrad.concentrations
-                            .Where(c => !string.IsNullOrWhiteSpace(c) && courseCodePattern.IsMatch(c)));
-                    }
-                }
-            }
-
-            // Filter graduate courses
-            if (degrees?.graduate != null)
-            {
-                foreach (var grad in degrees.graduate)
-                {
-                    if (grad?.concentrations != null)
-                    {
-                        allCourses.AddRange(grad.concentrations
-                            .Where(c => !string.IsNullOrWhiteSpace(c) && courseCodePattern.IsMatch(c)));
-                    }
-                    if (grad?.availableCertificates != null)
-                    {
-                        allCourses.AddRange(grad.availableCertificates
-                            .Where(c => !string.IsNullOrWhiteSpace(c) && courseCodePattern.IsMatch(c)));
-                    }
-                }
-            }
-
-            // Filter minor courses
+            
             if (minors?.UgMinors != null)
             {
                 foreach (var minor in minors.UgMinors)
                 {
                     if (minor?.courses != null)
                     {
+                        // If empty dont show
                         allCourses.AddRange(minor.courses
-                            .Where(c => !string.IsNullOrWhiteSpace(c) && courseCodePattern.IsMatch(c)));
+                            .Where(c => !string.IsNullOrWhiteSpace(c)));
                     }
                 }
             }
 
-            // Return filtered results
-            var model = new CoursesModel
+            return View(new CoursesModel
             {
                 pageTitle = "All Courses",
                 allCourses = allCourses
-                    .Distinct()
-                    .OrderBy(c => c)
+                    .Distinct()  // no duplicates
+                    .OrderBy(c => c)  // Sort inorder to look easier
                     .ToList()
-            };
-
-            return View(model);
+            });
         }
 
         public async Task<IActionResult> CourseDetails(string id)
         {
-            //need to go get the data
             DataRetrieval dr = new DataRetrieval();
-            //tell the instance of dr to go get the data
             var loadedCourse = await dr.GetData($"course/courseID={id}");
 
             var rtnResults = JsonConvert.DeserializeObject<CourseDetailModel>(loadedCourse);

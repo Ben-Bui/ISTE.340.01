@@ -5,7 +5,7 @@
 
 //when the body is ready!
 
-// People Page
+// People 
 $(function () {
     $('#pepTab').tabs();
     $('#pepAcc').accordion({
@@ -16,12 +16,12 @@ $(function () {
     $('#allPeople').fadeIn(500);
 });
 
-// Employment Page
+// Employment 
 $(function() {
         $("#empTabs").tabs();
         $("#allEmployment").fadeIn(500);
 
-        // Show how many data on table 
+        // Show how many data on table first time
         $('#coopTable, #professionalTable').DataTable({
             paging: true,
             pageLength: 10,
@@ -32,7 +32,7 @@ $(function() {
 
 });
 
-// Degrees Page
+// Degrees ACC
 $(function() {
     $("#degreesContent").fadeIn(500);
     $("#undergradAcc, #gradAcc").accordion({
@@ -42,7 +42,7 @@ $(function() {
     });
 });
 
-// Minors Page
+// Minors ACC
 $(function() {
     $("#minorsContent").fadeIn(500);
     $("#minorsAccordion").accordion({
@@ -52,13 +52,13 @@ $(function() {
     });
 });
 
-// Courses Page
+// Courses 
 $(function() {
     $("#coursesContent").fadeIn(500);
 
 });
 
-// Course Details Page
+// Course Details 
 $(function() {
     if ($("#courseDetailsContent").length) {
         $("#courseDetailsContent").fadeIn(500);

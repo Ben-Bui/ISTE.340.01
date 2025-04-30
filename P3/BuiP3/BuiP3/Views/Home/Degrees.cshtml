@@ -11,6 +11,7 @@
     <div id="undergradAcc">
         @foreach (var degree in Model.undergraduate)
         {
+            <!--If have title show title if not show name-->
             <h3 class="degree-title">@(!string.IsNullOrWhiteSpace(degree.title) ? degree.title : degree.degreeName)</h3>
             <div class="degree-content">
                 @if (!string.IsNullOrWhiteSpace(degree.description))
@@ -38,6 +39,7 @@
     <div id="gradAcc">
         @foreach (var degree in Model.graduate)
         {
+            <!--If have title show title if not show name-->
             <h3 class="degree-title">@(!string.IsNullOrWhiteSpace(degree.title) ? degree.title : degree.degreeName)</h3>
             <div class="degree-content">
                 @if (!string.IsNullOrWhiteSpace(degree.description))
@@ -57,7 +59,7 @@
                         </ul>
                     </div>
                 }
-                <!--Certificate show degree name instead of title-->
+                <!--Certificate show degree name instead of title cuz they dont have title-->
                 @if (degree.availableCertificates != null && degree.availableCertificates.Count > 0)
                 {
                     <div class="section-container">

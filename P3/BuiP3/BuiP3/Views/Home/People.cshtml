@@ -33,14 +33,14 @@
                     <h3 style="font-size: small">
                         Email: @faculty.email
                     </h3>
-                    <!--If not avaliable dont show-->
+                    <!--If blank dont show-->
                     @if (!string.IsNullOrWhiteSpace(faculty.website))
                     {
                         <h3 style="font-size: small">
                             <a href="@faculty.website" target="_blank">My Site</a>
                         </h3>
                     }
-
+                    <!--Make it clickable-->
                     @if (!string.IsNullOrWhiteSpace(faculty.twitter))
                     {
                         <h3 style="font-size: small">
@@ -78,7 +78,7 @@
                     </h3>
                     <h3 style="font-size: small">Email: @staff.email</h3>
 
-                    <!--If not avaliable dont show-->
+                    <!--If blank dont show-->
                     @if (!string.IsNullOrWhiteSpace(staff.website))
                     {
                         <h3 style="font-size: small">
@@ -92,7 +92,7 @@
                             Twitter: <a href="https://twitter.com/@staff.twitter" target="_blank">@staff.twitter</a>
                         </h3>
                     }
-
+                    <!--Make it clickable-->
                     @if (!string.IsNullOrWhiteSpace(staff.facebook))
                     {
                         <h3 style="font-size: small">

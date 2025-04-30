@@ -7,7 +7,7 @@
 <div>Academic excellence equals career performance</div>
 
 <div id="allEmployment" style="display:none">
-    <!--About stuff-->
+    <!--Intro-->
     <div class="intro-content">
         @foreach (var item in Model.introduction.content)
         {
@@ -17,6 +17,8 @@
             </div>
         }
     </div>
+
+    <!-- Stat -->
     <div id="empTabs">
         <ul>
             <li><a href="#stats">Statistics</a></li>
@@ -25,7 +27,6 @@
             <li><a href="#professional">Professional Employment</a></li>
         </ul>
 
-        <!-- Stat -->
         <div id="stats">
             <h2>@Model.degreeStatistics.title</h2>
                 @foreach (var stat in Model.degreeStatistics.statistics)

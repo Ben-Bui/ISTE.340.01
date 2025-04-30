@@ -15,7 +15,7 @@
         <h3>Course Description</h3>
         <p>@Model.description</p>
 
-        <!--Show course requirement -->
+        <!--Show course requirement if there are -->
         @if (!string.IsNullOrEmpty(Model.prerequisites))
         {
             <div class="prerequisites">

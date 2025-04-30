@@ -3,7 +3,7 @@
     --text: #3e2723; 
     --accent: #c59d5f; 
     --border: #d7ccc8; 
-    --hover: #a67c52; /*  coffee hover */
+    --hover: #a67c52; /*  coffee color */
     --card-bg: #fff9f0; /* off white cards */
     --shadow: rgba(62, 39, 35, 0.1); /* Coffee-colored shadow */
 }
@@ -152,7 +152,7 @@ body {
     border-radius: 0 0 4px 4px;
 }
 
-/* Employment Table */
+/*  Table */
 #coopTable, #professionalTable {
     width: 100%;
     margin-top: 15px;
@@ -217,7 +217,7 @@ body {
     text-decoration: underline;
 }
 
-/* Prerequisites */
+/* requirement */
 .prereq-pill {
     background-color: rgba(197, 157, 95, 0.1);
     color: var(--hover);
@@ -298,59 +298,4 @@ body {
 
 .highlight {
 animation: gold-pulse 3s infinite;
-}
-/* News Section */
-.news-section {
-    margin: 2rem 0;
-    padding: 1.5rem;
-    background: var(--card-bg);
-    border-radius: 8px;
-    box-shadow: var(--shadow);
-}
-
-.news-header {
-    color: var(--hover);
-    border-bottom: 2px solid var(--accent);
-    padding-bottom: 0.5rem;
-    margin-bottom: 1.5rem;
-}
-
-.news-container {
-    display: grid;
-    gap: 1.5rem;
-    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-}
-
-.news-card {
-    padding: 1.25rem;
-    background: white;
-    border-radius: 6px;
-    border-left: 4px solid var(--accent);
-    transition: transform 0.3s ease;
-}
-
-    .news-card:hover {
-        transform: translateY(-5px);
-    }
-
-.news-date {
-    font-size: 0.85rem;
-    color: var(--hover);
-    margin-bottom: 0.5rem;
-}
-
-.news-title {
-    color: var(--text);
-    margin-bottom: 0.75rem;
-}
-
-.news-desc {
-    line-height: 1.5;
-    color: #555;
-}
-
-.news-empty {
-    text-align: center;
-    padding: 2rem;
-    color: #666;
 }

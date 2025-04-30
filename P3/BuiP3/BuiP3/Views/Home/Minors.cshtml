@@ -6,6 +6,7 @@
 <h1>@Model.pageTitle</h1>
 
 <div id="minorsContent" style="display:none">
+    <!--ACC for Minor-->
     <div id="minorsAccordion">
         @foreach (var minor in Model.UgMinors)
         {
@@ -20,7 +21,7 @@
                         <li>@course</li>
                     }
                 </ul>
-
+                <!--If habe note show note-->
                 @if (!string.IsNullOrEmpty(minor.note))
                 {
                     <h4>Notes:</h4>

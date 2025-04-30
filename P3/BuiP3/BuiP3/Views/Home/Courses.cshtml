@@ -10,19 +10,12 @@
         @foreach (var course in Model.allCourses)
         {
             <div class="course-item">
-                <!--Focus on only courses and not the group the course belong in, no description that can find-->
-                @if (System.Text.RegularExpressions.Regex.IsMatch(course, @"^[A-Za-z]{2,}-\d{3}$"))
-                {
-                    <a href="@Url.Action("CourseDetails", "Home", new { id = course })"
-                       class="course-link"
-                       data-course="@course">
-                        @course
-                    </a>
-                }
-                else
-                {
-                    <span class="non-course-item">@course</span>
-                }
+                <!-- Show course Descript -->
+                <a href="@Url.Action("CourseDetails", "Home", new { id = course })"
+                   class="course-link"
+                   data-course="@course">
+                    @course
+                </a>
             </div>
         }
     </div>
