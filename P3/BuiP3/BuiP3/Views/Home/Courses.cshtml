@@ -1,0 +1,29 @@
+﻿@model BuiP3.Models.CoursesModel
+@{
+    ViewData["Title"] = Model.pageTitle;
+}
+
+<h1>@Model.pageTitle</h1>
+
+<div id="coursesContent" style="display:none">
+    <div class="course-list">
+        @foreach (var course in Model.allCourses)
+        {
+            <div class="course-item">
+                <!--Focus on only courses and not the group the course belong in, no description that can find-->
+                @if (System.Text.RegularExpressions.Regex.IsMatch(course, @"^[A-Za-z]{2,}-\d{3}$"))
+                {
+                    <a href="@Url.Action("CourseDetails", "Home", new { id = course })"
+                       class="course-link"
+                       data-course="@course">
+                        @course
+                    </a>
+                }
+                else
+                {
+                    <span class="non-course-item">@course</span>
+                }
+            </div>
+        }
+    </div>
+</div>

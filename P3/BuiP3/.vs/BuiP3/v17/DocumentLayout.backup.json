@@ -1,0 +1,381 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "C:\\school\\ISTE.340.01\\ISTE.340.01\\P3\\BuiP3\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{FA195093-565E-402B-9573-43581D831781}|BuiP3\\BuiP3.csproj|c:\\school\\iste.340.01\\iste.340.01\\p3\\buip3\\buip3\\views\\home\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{FA195093-565E-402B-9573-43581D831781}|BuiP3\\BuiP3.csproj|solutionrelative:buip3\\views\\home\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{FA195093-565E-402B-9573-43581D831781}|BuiP3\\BuiP3.csproj|c:\\school\\iste.340.01\\iste.340.01\\p3\\buip3\\buip3\\controllers\\homecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{FA195093-565E-402B-9573-43581D831781}|BuiP3\\BuiP3.csproj|solutionrelative:buip3\\controllers\\homecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{FA195093-565E-402B-9573-43581D831781}|BuiP3\\BuiP3.csproj|c:\\school\\iste.340.01\\iste.340.01\\p3\\buip3\\buip3\\wwwroot\\js\\site.js||{14D17961-FE51-464D-9111-C4AF11D7D99A}",
+      "RelativeMoniker": "D:0:0:{FA195093-565E-402B-9573-43581D831781}|BuiP3\\BuiP3.csproj|solutionrelative:buip3\\wwwroot\\js\\site.js||{14D17961-FE51-464D-9111-C4AF11D7D99A}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{FA195093-565E-402B-9573-43581D831781}|BuiP3\\BuiP3.csproj|c:\\school\\iste.340.01\\iste.340.01\\p3\\buip3\\buip3\\views\\shared\\_layout.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{FA195093-565E-402B-9573-43581D831781}|BuiP3\\BuiP3.csproj|solutionrelative:buip3\\views\\shared\\_layout.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{FA195093-565E-402B-9573-43581D831781}|BuiP3\\BuiP3.csproj|c:\\school\\iste.340.01\\iste.340.01\\p3\\buip3\\buip3\\wwwroot\\css\\site.css||{A5401142-F49D-43DB-90B1-F57BA349E55C}",
+      "RelativeMoniker": "D:0:0:{FA195093-565E-402B-9573-43581D831781}|BuiP3\\BuiP3.csproj|solutionrelative:buip3\\wwwroot\\css\\site.css||{A5401142-F49D-43DB-90B1-F57BA349E55C}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{FA195093-565E-402B-9573-43581D831781}|BuiP3\\BuiP3.csproj|c:\\school\\iste.340.01\\iste.340.01\\p3\\buip3\\buip3\\views\\home\\employment.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{FA195093-565E-402B-9573-43581D831781}|BuiP3\\BuiP3.csproj|solutionrelative:buip3\\views\\home\\employment.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{FA195093-565E-402B-9573-43581D831781}|BuiP3\\BuiP3.csproj|c:\\school\\iste.340.01\\iste.340.01\\p3\\buip3\\buip3\\views\\home\\minors.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{FA195093-565E-402B-9573-43581D831781}|BuiP3\\BuiP3.csproj|solutionrelative:buip3\\views\\home\\minors.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{FA195093-565E-402B-9573-43581D831781}|BuiP3\\BuiP3.csproj|c:\\school\\iste.340.01\\iste.340.01\\p3\\buip3\\buip3\\views\\home\\people.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{FA195093-565E-402B-9573-43581D831781}|BuiP3\\BuiP3.csproj|solutionrelative:buip3\\views\\home\\people.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{FA195093-565E-402B-9573-43581D831781}|BuiP3\\BuiP3.csproj|c:\\school\\iste.340.01\\iste.340.01\\p3\\buip3\\buip3\\models\\employmentmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{FA195093-565E-402B-9573-43581D831781}|BuiP3\\BuiP3.csproj|solutionrelative:buip3\\models\\employmentmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{FA195093-565E-402B-9573-43581D831781}|BuiP3\\BuiP3.csproj|c:\\school\\iste.340.01\\iste.340.01\\p3\\buip3\\buip3\\models\\aboutmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{FA195093-565E-402B-9573-43581D831781}|BuiP3\\BuiP3.csproj|solutionrelative:buip3\\models\\aboutmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{FA195093-565E-402B-9573-43581D831781}|BuiP3\\BuiP3.csproj|c:\\school\\iste.340.01\\iste.340.01\\p3\\buip3\\buip3\\models\\minorsmodels.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{FA195093-565E-402B-9573-43581D831781}|BuiP3\\BuiP3.csproj|solutionrelative:buip3\\models\\minorsmodels.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{FA195093-565E-402B-9573-43581D831781}|BuiP3\\BuiP3.csproj|c:\\school\\iste.340.01\\iste.340.01\\p3\\buip3\\buip3\\models\\degreesmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{FA195093-565E-402B-9573-43581D831781}|BuiP3\\BuiP3.csproj|solutionrelative:buip3\\models\\degreesmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{FA195093-565E-402B-9573-43581D831781}|BuiP3\\BuiP3.csproj|c:\\school\\iste.340.01\\iste.340.01\\p3\\buip3\\buip3\\models\\coursesmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{FA195093-565E-402B-9573-43581D831781}|BuiP3\\BuiP3.csproj|solutionrelative:buip3\\models\\coursesmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{FA195093-565E-402B-9573-43581D831781}|BuiP3\\BuiP3.csproj|c:\\school\\iste.340.01\\iste.340.01\\p3\\buip3\\buip3\\models\\coursedetailmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{FA195093-565E-402B-9573-43581D831781}|BuiP3\\BuiP3.csproj|solutionrelative:buip3\\models\\coursedetailmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{FA195093-565E-402B-9573-43581D831781}|BuiP3\\BuiP3.csproj|c:\\school\\iste.340.01\\iste.340.01\\p3\\buip3\\buip3\\models\\peoplemodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{FA195093-565E-402B-9573-43581D831781}|BuiP3\\BuiP3.csproj|solutionrelative:buip3\\models\\peoplemodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{FA195093-565E-402B-9573-43581D831781}|BuiP3\\BuiP3.csproj|c:\\school\\iste.340.01\\iste.340.01\\p3\\buip3\\buip3\\views\\home\\degrees.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{FA195093-565E-402B-9573-43581D831781}|BuiP3\\BuiP3.csproj|solutionrelative:buip3\\views\\home\\degrees.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{FA195093-565E-402B-9573-43581D831781}|BuiP3\\BuiP3.csproj|c:\\school\\iste.340.01\\iste.340.01\\p3\\buip3\\buip3\\views\\home\\coursedetails.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{FA195093-565E-402B-9573-43581D831781}|BuiP3\\BuiP3.csproj|solutionrelative:buip3\\views\\home\\coursedetails.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{FA195093-565E-402B-9573-43581D831781}|BuiP3\\BuiP3.csproj|c:\\school\\iste.340.01\\iste.340.01\\p3\\buip3\\buip3\\views\\home\\about.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{FA195093-565E-402B-9573-43581D831781}|BuiP3\\BuiP3.csproj|solutionrelative:buip3\\views\\home\\about.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{FA195093-565E-402B-9573-43581D831781}|BuiP3\\BuiP3.csproj|c:\\school\\iste.340.01\\iste.340.01\\p3\\buip3\\buip3\\views\\home\\courses.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{FA195093-565E-402B-9573-43581D831781}|BuiP3\\BuiP3.csproj|solutionrelative:buip3\\views\\home\\courses.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{FA195093-565E-402B-9573-43581D831781}|BuiP3\\BuiP3.csproj|c:\\school\\iste.340.01\\iste.340.01\\p3\\buip3\\buip3\\readme.md||{EFC0BB08-EA7D-40C6-A696-C870411A895B}",
+      "RelativeMoniker": "D:0:0:{FA195093-565E-402B-9573-43581D831781}|BuiP3\\BuiP3.csproj|solutionrelative:buip3\\readme.md||{EFC0BB08-EA7D-40C6-A696-C870411A895B}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{FA195093-565E-402B-9573-43581D831781}|BuiP3\\BuiP3.csproj|c:\\school\\iste.340.01\\iste.340.01\\p3\\buip3\\buip3\\services\\dataretrieval.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{FA195093-565E-402B-9573-43581D831781}|BuiP3\\BuiP3.csproj|solutionrelative:buip3\\services\\dataretrieval.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 1,
+          "Children": [
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{3ae79031-e1bc-11d0-8f78-00a0c9110057}"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "Index.cshtml",
+              "DocumentMoniker": "C:\\school\\ISTE.340.01\\ISTE.340.01\\P3\\BuiP3\\BuiP3\\Views\\Home\\Index.cshtml",
+              "RelativeDocumentMoniker": "BuiP3\\Views\\Home\\Index.cshtml",
+              "ToolTip": "C:\\school\\ISTE.340.01\\ISTE.340.01\\P3\\BuiP3\\BuiP3\\Views\\Home\\Index.cshtml",
+              "RelativeToolTip": "BuiP3\\Views\\Home\\Index.cshtml",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAgAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-04-30T03:50:39.587Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 19,
+              "Title": "ReadMe.md",
+              "DocumentMoniker": "C:\\school\\ISTE.340.01\\ISTE.340.01\\P3\\BuiP3\\BuiP3\\ReadMe.md",
+              "RelativeDocumentMoniker": "BuiP3\\ReadMe.md",
+              "ToolTip": "C:\\school\\ISTE.340.01\\ISTE.340.01\\P3\\BuiP3\\BuiP3\\ReadMe.md",
+              "RelativeToolTip": "BuiP3\\ReadMe.md",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAUAAAB/AAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001818|",
+              "WhenOpened": "2025-04-30T02:36:29.258Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "site.js",
+              "DocumentMoniker": "C:\\school\\ISTE.340.01\\ISTE.340.01\\P3\\BuiP3\\BuiP3\\wwwroot\\js\\site.js",
+              "RelativeDocumentMoniker": "BuiP3\\wwwroot\\js\\site.js",
+              "ToolTip": "C:\\school\\ISTE.340.01\\ISTE.340.01\\P3\\BuiP3\\BuiP3\\wwwroot\\js\\site.js",
+              "RelativeToolTip": "BuiP3\\wwwroot\\js\\site.js",
+              "ViewState": "AgIAADMAAAAAAAAAAAAAAEoAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001646|",
+              "WhenOpened": "2025-04-24T14:17:12.544Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "Minors.cshtml",
+              "DocumentMoniker": "C:\\school\\ISTE.340.01\\ISTE.340.01\\P3\\BuiP3\\BuiP3\\Views\\Home\\Minors.cshtml",
+              "RelativeDocumentMoniker": "BuiP3\\Views\\Home\\Minors.cshtml",
+              "ToolTip": "C:\\school\\ISTE.340.01\\ISTE.340.01\\P3\\BuiP3\\BuiP3\\Views\\Home\\Minors.cshtml",
+              "RelativeToolTip": "BuiP3\\Views\\Home\\Minors.cshtml",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABEAAAAmAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-04-29T22:15:29.417Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 10,
+              "Title": "MinorsModels.cs",
+              "DocumentMoniker": "C:\\school\\ISTE.340.01\\ISTE.340.01\\P3\\BuiP3\\BuiP3\\Models\\MinorsModels.cs",
+              "RelativeDocumentMoniker": "BuiP3\\Models\\MinorsModels.cs",
+              "ToolTip": "C:\\school\\ISTE.340.01\\ISTE.340.01\\P3\\BuiP3\\BuiP3\\Models\\MinorsModels.cs",
+              "RelativeToolTip": "BuiP3\\Models\\MinorsModels.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAkAAAAFAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-04-29T22:15:13.191Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 11,
+              "Title": "DegreesModel.cs",
+              "DocumentMoniker": "C:\\school\\ISTE.340.01\\ISTE.340.01\\P3\\BuiP3\\BuiP3\\Models\\DegreesModel.cs",
+              "RelativeDocumentMoniker": "BuiP3\\Models\\DegreesModel.cs",
+              "ToolTip": "C:\\school\\ISTE.340.01\\ISTE.340.01\\P3\\BuiP3\\BuiP3\\Models\\DegreesModel.cs",
+              "RelativeToolTip": "BuiP3\\Models\\DegreesModel.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA0AAAAhAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-04-29T21:23:57.56Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 16,
+              "Title": "CourseDetails.cshtml",
+              "DocumentMoniker": "C:\\school\\ISTE.340.01\\ISTE.340.01\\P3\\BuiP3\\BuiP3\\Views\\Home\\CourseDetails.cshtml",
+              "RelativeDocumentMoniker": "BuiP3\\Views\\Home\\CourseDetails.cshtml",
+              "ToolTip": "C:\\school\\ISTE.340.01\\ISTE.340.01\\P3\\BuiP3\\BuiP3\\Views\\Home\\CourseDetails.cshtml",
+              "RelativeToolTip": "BuiP3\\Views\\Home\\CourseDetails.cshtml",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAB8AAAAGAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-04-29T21:13:01.17Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 18,
+              "Title": "Courses.cshtml",
+              "DocumentMoniker": "C:\\school\\ISTE.340.01\\ISTE.340.01\\P3\\BuiP3\\BuiP3\\Views\\Home\\Courses.cshtml",
+              "RelativeDocumentMoniker": "BuiP3\\Views\\Home\\Courses.cshtml",
+              "ToolTip": "C:\\school\\ISTE.340.01\\ISTE.340.01\\P3\\BuiP3\\BuiP3\\Views\\Home\\Courses.cshtml",
+              "RelativeToolTip": "BuiP3\\Views\\Home\\Courses.cshtml",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABkAAAASAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-04-29T21:12:36.661Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "Employment.cshtml",
+              "DocumentMoniker": "C:\\school\\ISTE.340.01\\ISTE.340.01\\P3\\BuiP3\\BuiP3\\Views\\Home\\Employment.cshtml",
+              "RelativeDocumentMoniker": "BuiP3\\Views\\Home\\Employment.cshtml",
+              "ToolTip": "C:\\school\\ISTE.340.01\\ISTE.340.01\\P3\\BuiP3\\BuiP3\\Views\\Home\\Employment.cshtml",
+              "RelativeToolTip": "BuiP3\\Views\\Home\\Employment.cshtml",
+              "ViewState": "AgIAAA8AAAAAAAAAAAAAAAoAAAAfAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-04-29T21:12:20.96Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 15,
+              "Title": "Degrees.cshtml",
+              "DocumentMoniker": "C:\\school\\ISTE.340.01\\ISTE.340.01\\P3\\BuiP3\\BuiP3\\Views\\Home\\Degrees.cshtml",
+              "RelativeDocumentMoniker": "BuiP3\\Views\\Home\\Degrees.cshtml",
+              "ToolTip": "C:\\school\\ISTE.340.01\\ISTE.340.01\\P3\\BuiP3\\BuiP3\\Views\\Home\\Degrees.cshtml",
+              "RelativeToolTip": "BuiP3\\Views\\Home\\Degrees.cshtml",
+              "ViewState": "AgIAACEAAAAAAAAAAAAAAEEAAABPAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-04-29T21:10:37.556Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 13,
+              "Title": "CourseDetailModel.cs",
+              "DocumentMoniker": "C:\\school\\ISTE.340.01\\ISTE.340.01\\P3\\BuiP3\\BuiP3\\Models\\CourseDetailModel.cs",
+              "RelativeDocumentMoniker": "BuiP3\\Models\\CourseDetailModel.cs",
+              "ToolTip": "C:\\school\\ISTE.340.01\\ISTE.340.01\\P3\\BuiP3\\BuiP3\\Models\\CourseDetailModel.cs",
+              "RelativeToolTip": "BuiP3\\Models\\CourseDetailModel.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAoAAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-04-29T21:09:55.026Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 8,
+              "Title": "EmploymentModel.cs",
+              "DocumentMoniker": "C:\\school\\ISTE.340.01\\ISTE.340.01\\P3\\BuiP3\\BuiP3\\Models\\EmploymentModel.cs",
+              "RelativeDocumentMoniker": "BuiP3\\Models\\EmploymentModel.cs",
+              "ToolTip": "C:\\school\\ISTE.340.01\\ISTE.340.01\\P3\\BuiP3\\BuiP3\\Models\\EmploymentModel.cs",
+              "RelativeToolTip": "BuiP3\\Models\\EmploymentModel.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAACAAAAAFAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-04-29T21:09:06.462Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 12,
+              "Title": "CoursesModel.cs",
+              "DocumentMoniker": "C:\\school\\ISTE.340.01\\ISTE.340.01\\P3\\BuiP3\\BuiP3\\Models\\CoursesModel.cs",
+              "RelativeDocumentMoniker": "BuiP3\\Models\\CoursesModel.cs",
+              "ToolTip": "C:\\school\\ISTE.340.01\\ISTE.340.01\\P3\\BuiP3\\BuiP3\\Models\\CoursesModel.cs",
+              "RelativeToolTip": "BuiP3\\Models\\CoursesModel.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAUAAABZAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-04-29T21:08:53.807Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 20,
+              "Title": "DataRetrieval.cs",
+              "DocumentMoniker": "C:\\school\\ISTE.340.01\\ISTE.340.01\\P3\\BuiP3\\BuiP3\\Services\\DataRetrieval.cs",
+              "RelativeDocumentMoniker": "BuiP3\\Services\\DataRetrieval.cs",
+              "ToolTip": "C:\\school\\ISTE.340.01\\ISTE.340.01\\P3\\BuiP3\\BuiP3\\Services\\DataRetrieval.cs",
+              "RelativeToolTip": "BuiP3\\Services\\DataRetrieval.cs",
+              "ViewState": "AgIAAAMAAAAAAAAAAAAAAC0AAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-04-10T13:53:01.127Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 9,
+              "Title": "AboutModel.cs",
+              "DocumentMoniker": "C:\\school\\ISTE.340.01\\ISTE.340.01\\P3\\BuiP3\\BuiP3\\Models\\AboutModel.cs",
+              "RelativeDocumentMoniker": "BuiP3\\Models\\AboutModel.cs",
+              "ToolTip": "C:\\school\\ISTE.340.01\\ISTE.340.01\\P3\\BuiP3\\BuiP3\\Models\\AboutModel.cs",
+              "RelativeToolTip": "BuiP3\\Models\\AboutModel.cs",
+              "ViewState": "AgIAAAQAAAAAAAAAAAAzwAsAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-04-15T13:44:03.203Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 17,
+              "Title": "About.cshtml",
+              "DocumentMoniker": "C:\\school\\ISTE.340.01\\ISTE.340.01\\P3\\BuiP3\\BuiP3\\Views\\Home\\About.cshtml",
+              "RelativeDocumentMoniker": "BuiP3\\Views\\Home\\About.cshtml",
+              "ToolTip": "C:\\school\\ISTE.340.01\\ISTE.340.01\\P3\\BuiP3\\BuiP3\\Views\\Home\\About.cshtml",
+              "RelativeToolTip": "BuiP3\\Views\\Home\\About.cshtml",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAoAAAAKAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-04-10T13:34:17.019Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "site.css",
+              "DocumentMoniker": "C:\\school\\ISTE.340.01\\ISTE.340.01\\P3\\BuiP3\\BuiP3\\wwwroot\\css\\site.css",
+              "RelativeDocumentMoniker": "BuiP3\\wwwroot\\css\\site.css",
+              "ToolTip": "C:\\school\\ISTE.340.01\\ISTE.340.01\\P3\\BuiP3\\BuiP3\\wwwroot\\css\\site.css",
+              "RelativeToolTip": "BuiP3\\wwwroot\\css\\site.css",
+              "ViewState": "AgIAACcBAAAAAAAAAAAAwDsBAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003000|",
+              "WhenOpened": "2025-04-15T14:09:18.656Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "HomeController.cs",
+              "DocumentMoniker": "C:\\school\\ISTE.340.01\\ISTE.340.01\\P3\\BuiP3\\BuiP3\\Controllers\\HomeController.cs",
+              "RelativeDocumentMoniker": "BuiP3\\Controllers\\HomeController.cs",
+              "ToolTip": "C:\\school\\ISTE.340.01\\ISTE.340.01\\P3\\BuiP3\\BuiP3\\Controllers\\HomeController.cs",
+              "RelativeToolTip": "BuiP3\\Controllers\\HomeController.cs",
+              "ViewState": "AgIAAAsAAAAAAAAAAAAAwBQAAAAJAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-04-10T13:34:54.7Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 14,
+              "Title": "PeopleModel.cs",
+              "DocumentMoniker": "C:\\school\\ISTE.340.01\\ISTE.340.01\\P3\\BuiP3\\BuiP3\\Models\\PeopleModel.cs",
+              "RelativeDocumentMoniker": "BuiP3\\Models\\PeopleModel.cs",
+              "ToolTip": "C:\\school\\ISTE.340.01\\ISTE.340.01\\P3\\BuiP3\\BuiP3\\Models\\PeopleModel.cs",
+              "RelativeToolTip": "BuiP3\\Models\\PeopleModel.cs",
+              "ViewState": "AgIAAAcAAAAAAAAAAAA5wAgAAAApAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-04-17T14:05:47.802Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 7,
+              "Title": "People.cshtml",
+              "DocumentMoniker": "C:\\school\\ISTE.340.01\\ISTE.340.01\\P3\\BuiP3\\BuiP3\\Views\\Home\\People.cshtml",
+              "RelativeDocumentMoniker": "BuiP3\\Views\\Home\\People.cshtml",
+              "ToolTip": "C:\\school\\ISTE.340.01\\ISTE.340.01\\P3\\BuiP3\\BuiP3\\Views\\Home\\People.cshtml",
+              "RelativeToolTip": "BuiP3\\Views\\Home\\People.cshtml",
+              "ViewState": "AgIAAEIAAAAAAAAAAAAAADcAAAAVAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-04-17T14:04:17.45Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "_Layout.cshtml",
+              "DocumentMoniker": "C:\\school\\ISTE.340.01\\ISTE.340.01\\P3\\BuiP3\\BuiP3\\Views\\Shared\\_Layout.cshtml",
+              "RelativeDocumentMoniker": "BuiP3\\Views\\Shared\\_Layout.cshtml",
+              "ToolTip": "C:\\school\\ISTE.340.01\\ISTE.340.01\\P3\\BuiP3\\BuiP3\\Views\\Shared\\_Layout.cshtml",
+              "RelativeToolTip": "BuiP3\\Views\\Shared\\_Layout.cshtml",
+              "ViewState": "AgIAAAMAAAAAAAAAAAAAAAcAAAAQAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-04-10T14:22:05.125Z",
+              "EditorCaption": ""
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,10 @@
+{
+  "version": "3.0",
+  "defaultProvider": "cdnjs",
+  "libraries": [
+    {
+      "library": "sticky-table-headers@0.1.19",
+      "destination": "wwwroot/lib/sticky-table-headers/"
+    }
+  ]
+}

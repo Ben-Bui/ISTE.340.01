@@ -1,0 +1,32 @@
+﻿@model BuiP3.Models.CourseDetailModel
+@{
+    ViewData["Title"] = Model.pageTitle;
+}
+
+<div id="courseDetailsContent" style="display:none">
+    <div class="course-header">
+        <h1>@Model.courseID: @Model.title</h1>
+        <a href="@Url.Action("Courses")" class="back-button">
+            &larr; Back to All Courses
+        </a>
+    </div>
+
+    <div class="course-details">
+        <h3>Course Description</h3>
+        <p>@Model.description</p>
+
+        <!--Show course requirement -->
+        @if (!string.IsNullOrEmpty(Model.prerequisites))
+        {
+            <div class="prerequisites">
+                <h3>Prerequisites</h3>
+                <div class="prereq-list">
+                    @foreach (var prereq in Model.prerequisites.Split(new[] { '&', ',' }, StringSplitOptions.RemoveEmptyEntries))
+                    {
+                        <span class="prereq-pill">@prereq.Trim()</span>
+                    }
+                </div>
+            </div>
+        }
+    </div>
+</div>

@@ -1,0 +1,76 @@
+﻿@model BuiP3.Models.DegreesModel
+@{
+    ViewData["Title"] = Model.pageTitle;
+}
+
+<h1>@Model.pageTitle</h1>
+
+<div id="degreesContent" style="display:none">
+    <!--Under Grad-->
+    <h2>Undergraduate Degrees</h2>
+    <div id="undergradAcc">
+        @foreach (var degree in Model.undergraduate)
+        {
+            <h3 class="degree-title">@(!string.IsNullOrWhiteSpace(degree.title) ? degree.title : degree.degreeName)</h3>
+            <div class="degree-content">
+                @if (!string.IsNullOrWhiteSpace(degree.description))
+                {
+                    <p class="degree-description">@degree.description</p>
+                }
+                @if (degree.concentrations != null && degree.concentrations.Count > 0)
+                {
+                    <div class="section-container">
+                        <h4 class="section-title">Concentrations</h4>
+                        <ul class="concentration-list">
+                            @foreach (var concentration in degree.concentrations)
+                            {
+                                <li>@concentration</li>
+                            }
+                        </ul>
+                    </div>
+                }
+            </div>
+        }
+    </div>
+    
+    <!--Grad-->
+    <h2>Graduate Degrees</h2>
+    <div id="gradAcc">
+        @foreach (var degree in Model.graduate)
+        {
+            <h3 class="degree-title">@(!string.IsNullOrWhiteSpace(degree.title) ? degree.title : degree.degreeName)</h3>
+            <div class="degree-content">
+                @if (!string.IsNullOrWhiteSpace(degree.description))
+                {
+                    <p class="degree-description">@degree.description</p>
+                }
+
+                @if (degree.concentrations != null && degree.concentrations.Count > 0)
+                {
+                    <div class="section-container">
+                        <h4 class="section-title">Concentrations</h4>
+                        <ul class="concentration-list">
+                            @foreach (var concentration in degree.concentrations)
+                            {
+                                <li>@concentration</li>
+                            }
+                        </ul>
+                    </div>
+                }
+                <!--Certificate show degree name instead of title-->
+                @if (degree.availableCertificates != null && degree.availableCertificates.Count > 0)
+                {
+                    <div class="section-container">
+                        <h4 class="section-title">Available Certificates</h4>
+                        <ul class="certificate-list">
+                            @foreach (var cert in degree.availableCertificates)
+                            {
+                                <li>@cert</li>
+                            }
+                        </ul>
+                    </div>
+                }
+            </div>
+        }
+    </div>
+</div>

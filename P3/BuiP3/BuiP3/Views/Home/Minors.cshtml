@@ -1,0 +1,33 @@
+﻿@model BuiP3.Models.MinorsModel
+@{
+    ViewData["Title"] = Model.pageTitle;
+}
+
+<h1>@Model.pageTitle</h1>
+
+<div id="minorsContent" style="display:none">
+    <div id="minorsAccordion">
+        @foreach (var minor in Model.UgMinors)
+        {
+            <h3>@minor.title</h3>
+            <div>
+                <p>@minor.description</p>
+
+                <h4>Required Courses:</h4>
+                <ul>
+                    @foreach (var course in minor.courses)
+                    {
+                        <li>@course</li>
+                    }
+                </ul>
+
+                @if (!string.IsNullOrEmpty(minor.note))
+                {
+                    <h4>Notes:</h4>
+                    <p>@minor.note</p>
+                }
+            </div>
+        }
+    </div>
+</div>
+
